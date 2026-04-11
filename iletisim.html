@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İletişim | Aşkın Yapı</title>
+<meta name="description" content="Aşkın İnşaat Mimarlık Yapı — Proje, teklif ve kurumsal görüşmeler için iletişim.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <div class="left">
+      <span>İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <a href="tel:+905320606612">+90 532 060 66 12</a>
+      <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+    </div>
+    <div class="right"><span>Türkiye · Birleşik Krallık</span></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-nav>
+      <a class="" href="kurumsal.html">Kurumsal</a>
+      <a class="" href="faaliyet-alanlari.html">Faaliyet Alanları</a>
+      <a class="" href="projeler.html">Projeler</a>
+      <a class="" href="celik-ev-modelleri.html">Çelik Ev Modelleri</a>
+      <a class="" href="medya-merkezi.html">Medya Merkezi</a>
+      <a class="" href="uluslararasi-vizyon.html">Uluslararası Vizyon</a>
+      <a class="active" href="iletisim.html">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html">Teklif Talebi</a>
+    </nav>
+    <a class="cta-btn" href="iletisim.html">Teklif Talebi</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">İletişim</span>
+    <h1>Proje, teklif ve kurumsal görüşmeler için bizimle iletişime geçin.</h1>
+    <p class="lead" style="margin-top:12px;">Aşkın İnşaat Mimarlık Yapı ekibi olarak her projeye özel yaklaşım sergiliyoruz. Mesajınızı bırakın, en kısa sürede dönelim.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-grid">
+    <!-- İletişim Formu -->
+    <div class="info-card">
+      <h2 style="margin-bottom:24px;">Mesaj Gönderin</h2>
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ad">Ad Soyad *</label>
+            <input type="text" id="ad" name="ad" placeholder="Ahmet Yılmaz" required>
+          </div>
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+90 5xx xxx xx xx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="eposta">E-posta Adresi *</label>
+          <input type="email" id="eposta" name="eposta" placeholder="ornek@sirket.com" required>
+        </div>
+        <div class="form-group">
+          <label for="konu">Konu</label>
+          <select id="konu" name="konu">
+            <option value="">Konu seçin</option>
+            <option value="teklif">Proje Teklifi</option>
+            <option value="celik">Çelik Sistem Yapı</option>
+            <option value="konut">Konut Projesi</option>
+            <option value="mimari">Mimari Tasarım</option>
+            <option value="havuz">Havuz ve Sosyal Tesis</option>
+            <option value="diger">Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mesaj">Mesajınız *</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Projeniz hakkında kısa bilgi verin…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:16px 24px;">Mesajı Gönder →</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Mesajınız alındı. En kısa sürede sizinle iletişime geçeceğiz.
+        </div>
+      </form>
+    </div>
+
+    <!-- İletişim Bilgileri -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div class="side-card">
+        <h3 style="margin-bottom:18px;">İletişim Bilgileri</h3>
+        <ul class="list-clean">
+          <li>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Şirket</strong>
+            Aşkın İnşaat Mimarlık Yapı
+          </li>
+          <li>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Telefon</strong>
+            <a href="tel:+905320606612">+90 532 060 66 12</a>
+          </li>
+          <li>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">E-posta</strong>
+            <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+          </li>
+          <li>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Birleşik Krallık Ofisi</strong>
+            71–75 Shelton Street, Covent Garden, Londra, WC2H 9JQ
+          </li>
+          <li>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Türkiye Ofisi</strong>
+            İsmetpaşa Mah., Burmalıçeşme Sok. 90/A, Dikili / İzmir
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-card" style="background:linear-gradient(135deg,#0f172a,#1e2e40);color:#e5e7eb;border-color:transparent;">
+        <h3 style="color:white;margin-bottom:12px;">Teklif Talebi</h3>
+        <p style="color:#cbd5e1;font-size:15px;margin-bottom:18px;">Projenizin detaylarını paylaşın; fizibilite değerlendirmesi ve teklifimizi hazırlayalım.</p>
+        <a href="assets/docs/referanslar-projeler-2011-2025-lite.pdf" target="_blank" class="btn btn-secondary" style="border-color:rgba(255,255,255,.3);background:transparent;color:white;width:100%;justify-content:center;">Referans Dosyasını İncele</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="reveal">
+        <img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı">
+        <p>Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+      </div>
+      <div>
+        <h4>Hızlı Menü</h4>
+        <ul>
+          <li><a href="kurumsal.html">Kurumsal</a></li>
+          <li><a href="faaliyet-alanlari.html">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html">Projeler</a></li>
+          <li><a href="celik-ev-modelleri.html">Çelik Ev Modelleri</a></li>
+          <li><a href="medya-merkezi.html">Medya Merkezi</a></li>
+          <li><a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905320606612">+90 532 060 66 12</a></li>
+          <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
+          <li>71–75 Shelton Street, Covent Garden, Londra, Birleşik Krallık</li>
+          <li>İsmetpaşa Mahallesi, Burmalıçeşme Sokak 90/A, Dikili, İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const btn = form.querySelector('button[type=submit]');
+  const success = document.getElementById('formSuccess');
+  btn.textContent = 'Gönderiliyor…';
+  btn.disabled = true;
+  // mailto fallback - opens mail client with form data
+  const ad = document.getElementById('ad').value;
+  const eposta = document.getElementById('eposta').value;
+  const mesaj = document.getElementById('mesaj').value;
+  const konu = document.getElementById('konu').value || 'Genel Bilgi';
+  const tel = document.getElementById('telefon').value;
+  const body = encodeURIComponent(`Ad Soyad: ${ad}\nTelefon: ${tel}\nE-posta: ${eposta}\nKonu: ${konu}\n\nMesaj:\n${mesaj}`);
+  window.location.href = `mailto:info@askininsaatmimarlik.com?subject=Web%20Sitesi%20Mesaj%3A%20${encodeURIComponent(konu)}&body=${body}`;
+  setTimeout(() => {
+    success.style.display = 'block';
+    btn.textContent = 'Mesajı Gönder →';
+    btn.disabled = false;
+    form.reset();
+  }, 800);
+}
+</script>
+</body></html>

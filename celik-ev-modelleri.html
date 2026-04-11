@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Çelik Ev Modelleri | Aşkın İnşaat Mimarlık Yapı</title>
+<meta name="description" content="45 m²'den 164 m²'ye prefabrik çelik ev modelleri. Tek katlı ve iki katlı çelik sistem yapılar. Aşkın İnşaat Mimarlık Yapı.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  /* ── MODELLER SAYFASI EK STİLLER ── */
+  .models-hero {
+    padding: 64px 0 44px;
+    background: linear-gradient(135deg, #fff 0%, #fdf8f3 50%, #f7f4f0 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .models-hero-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .filter-btn {
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: white;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s;
+    font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .filter-btn.active { background: var(--brand); border-color: var(--brand); color: white; box-shadow: 0 4px 16px rgba(214,119,42,.3); }
+
+  /* ── GRID ── */
+  .models-section { padding: 52px 0 80px; }
+
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .model-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform .35s, box-shadow .35s, border-color .35s;
+    animation: fadeInUp .6s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .model-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(214,119,42,.3);
+  }
+
+  .model-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+  .model-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.22,.61,.36,1);
+  }
+  .model-card:hover .model-thumb img { transform: scale(1.08); }
+
+  .model-badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: var(--brand);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+
+  .model-body { padding: 20px 22px 22px; }
+
+  .model-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .model-type-tag {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  .model-count-tag {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--bg-alt);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .model-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+
+  .model-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .model-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 14px;
+    transition: gap .25s;
+  }
+  .model-card:hover .model-cta { gap: 10px; }
+
+  /* ── LIGHTBOX ── */
+  .lb-overlay {
+    position: fixed; inset: 0;
+    z-index: 999;
+    background: rgba(10,10,10,.97);
+    display: flex; flex-direction: column;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+  }
+  .lb-overlay.open { opacity: 1; pointer-events: all; }
+
+  .lb-top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    flex-shrink: 0;
+  }
+  .lb-top-title { font-size: 17px; font-weight: 700; color: white; }
+  .lb-top-right { display: flex; align-items: center; gap: 16px; }
+  .lb-counter-text { font-size: 13px; color: rgba(255,255,255,.5); }
+  .lb-x {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: none; color: rgba(255,255,255,.7);
+    border-radius: 10px; font-size: 18px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, color .2s;
+  }
+  .lb-x:hover { border-color: var(--brand); color: var(--brand); }
+
+  .lb-main {
+    flex: 1; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .lb-main img {
+    max-width: 90%; max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: opacity .2s;
+  }
+  .lb-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 52px; height: 80px;
+    background: rgba(214,119,42,.15);
+    border: 1px solid rgba(214,119,42,.3);
+    color: var(--brand); font-size: 26px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    border-radius: 10px; transition: background .2s;
+  }
+  .lb-btn:hover { background: rgba(214,119,42,.3); }
+  .lb-btn-prev { left: 20px; }
+  .lb-btn-next { right: 20px; }
+
+  .lb-strip {
+    display: flex; gap: 6px;
+    padding: 12px 24px;
+    background: rgba(0,0,0,.5);
+    border-top: 1px solid rgba(255,255,255,.08);
+    overflow-x: auto;
+    flex-shrink: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.2) transparent;
+  }
+  .lb-strip-img {
+    width: 68px; height: 52px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+    opacity: .5;
+    transition: border-color .2s, opacity .2s;
+  }
+  .lb-strip-img.active, .lb-strip-img:hover { border-color: var(--brand); opacity: 1; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .models-grid { grid-template-columns: repeat(2, 1fr); }
+    .models-hero-inner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 540px) {
+    .models-grid { grid-template-columns: 1fr; }
+    .lb-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="left">
+      <span>İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <a href="tel:+905320606612">+90 532 060 66 12</a>
+      <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+    </div>
+    <div class="right"><span>Türkiye · Birleşik Krallık</span></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-nav>
+      <a href="kurumsal.html">Kurumsal</a>
+      <a href="faaliyet-alanlari.html">Faaliyet Alanları</a>
+      <a href="projeler.html">Projeler</a>
+      <a class="active" href="celik-ev-modelleri.html">Çelik Ev Modelleri</a>
+      <a href="medya-merkezi.html">Medya Merkezi</a>
+      <a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a>
+      <a href="iletisim.html">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html">Teklif Talebi</a>
+    </nav>
+    <a class="cta-btn" href="iletisim.html">Teklif Talebi</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="models-hero">
+  <div class="container">
+    <div class="models-hero-inner">
+      <div>
+        <span class="eyebrow">Prefabrik Çelik Yapı Sistemleri</span>
+        <h1>Çelik Ev Modelleri</h1>
+        <p class="lead" style="margin-top:8px;">45 m²'den 164 m²'ye kadar tek katlı ve iki katlı çelik sistem ev modelleri.</p>
+        <div class="filter-row" id="filterRow">
+          <button class="filter-btn active" onclick="filterModels('all', this)">Tümü (10)</button>
+          <button class="filter-btn" onclick="filterModels('tek-katli', this)">Tek Katlı (5)</button>
+          <button class="filter-btn" onclick="filterModels('iki-katli', this)">İki Katlı (5)</button>
+        </div>
+      </div>
+      <div class="hero-meta" style="max-width:380px;">
+        <div class="metric-card reveal"><strong>10+</strong><span>Hazır Model</span></div>
+        <div class="metric-card reveal"><strong>45–164 m²</strong><span>Metrekare Aralığı</span></div>
+        <div class="metric-card reveal"><strong>Hızlı</strong><span>Montaj Süresi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS GRID -->
+<section class="models-section">
+  <div class="container">
+    <div class="models-grid" id="modelsGrid"></div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section-tight" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="band">
+      <div class="item reveal">
+        <strong>Ücretsiz Keşif</strong>
+        <span>Uzman ekibimiz sizi arar, ihtiyaçlarınızı dinler</span>
+      </div>
+      <div class="item reveal">
+        <strong>Hızlı Montaj</strong>
+        <span>Fabrika üretimi ile sahada kısa sürede tamamlama</span>
+      </div>
+      <div class="item reveal">
+        <strong>Fiyat Teklifi</strong>
+        <span>Modeli seçin, size özel teklif hazırlayalım</span>
+      </div>
+      <div class="item reveal">
+        <a class="btn btn-primary" href="iletisim.html" style="display:inline-flex;margin-top:4px;">Teklif Alın →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="reveal">
+        <img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı">
+        <p>Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+      </div>
+      <div>
+        <h4>Hızlı Menü</h4>
+        <ul>
+          <li><a href="kurumsal.html">Kurumsal</a></li>
+          <li><a href="faaliyet-alanlari.html">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html">Projeler</a></li>
+          <li><a href="celik-ev-modelleri.html">Çelik Ev Modelleri</a></li>
+          <li><a href="medya-merkezi.html">Medya Merkezi</a></li>
+          <li><a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905320606612">+90 532 060 66 12</a></li>
+          <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
+          <li>71–75 Shelton Street, Covent Garden, Londra, Birleşik Krallık</li>
+          <li>İsmetpaşa Mahallesi, Burmalıçeşme Sokak 90/A, Dikili, İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb">
+  <div class="lb-top">
+    <div class="lb-top-title" id="lbTitle"></div>
+    <div class="lb-top-right">
+      <div class="lb-counter-text" id="lbCounter"></div>
+      <button class="lb-x" onclick="lbClose()">✕</button>
+    </div>
+  </div>
+  <div class="lb-main">
+    <button class="lb-btn lb-btn-prev" onclick="lbNav(-1)">‹</button>
+    <img id="lbImg" src="" alt="" />
+    <button class="lb-btn lb-btn-next" onclick="lbNav(1)">›</button>
+  </div>
+  <div class="lb-strip" id="lbStrip"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+const MODELS = [
+  {
+    id: "45-m2-tek-katli-ev",
+    name: "45 m² Tek Katlı Ev",
+    type: "tek-katli",
+    typeLabel: "Tek Katlı",
+    thumb: "45-m2-Model-1.jpg",
+    desc: "Kompakt tasarımıyla ekonomik ve yaşanabilir tek katlı çelik ev.",
+    images: ["45-m2-Model-1.jpg","q1-w.jpg","Q2-w.jpg","Q3-w.jpg","Q4-w.jpg","Q5-w.jpg","Q6-w.jpg","Q7-w.jpg","q8-w.jpg","12.jpg","12-q.jpg","13-q.jpg","14-q.jpg","15-q.jpg"]
+  },
+  {
+    id: "65-m2-tek-katli-ev",
+    name: "65 m² Tek Katlı Ev",
+    type: "tek-katli",
+    typeLabel: "Tek Katlı",
+    thumb: "3D-65-1A.png",
+    desc: "Modern cephe dili ve ferah iç mekanıyla tek katlı çelik yapı.",
+    images: ["3D-65-1A.png","3D-65-2A.png","3D-65-3A.png","3D-65-4A.png","3D-65-5A.png","3D-65-6A.png","3D-65-7A.png","3D-65-8A.png","3D-65-9A.png","3D-65-10A.png","3D-65-11A.png","3D-65-12A.png","3D-65-13A.png","3D-65-14A.png","3D-65.png","plan-perspektiv-1.jpg","plan-perspektiv-2.jpg","plan-perspektiv-3.jpg","67 m2 son-plan.png"]
+  },
+  {
+    id: "75-m2-tek-katli-ev",
+    name: "75 m² Tek Katlı Ev",
+    type: "tek-katli",
+    typeLabel: "Tek Katlı",
+    thumb: "76-M2-Model.jpg",
+    desc: "Geniş yaşam alanı sunan pratik ve hızlı kurulumlu model.",
+    images: ["76-M2-Model.jpg","1q.png","2q.png","3q.png","4q.png","5q.png","6q.png","7q.png","8q.png","9q.png","10q.png","11q.png","12q.png","18s.jpg","19s.jpg","20s.jpg","21s.jpg","22s.jpg"]
+  },
+  {
+    id: "85-m2-tek-katli-ev",
+    name: "85 m² Tek Katlı Ev",
+    type: "tek-katli",
+    typeLabel: "Tek Katlı",
+    thumb: "84-M2-Model.jpg",
+    desc: "Konforlu yaşam için ideal ölçekte tek katlı çelik sistem yapı.",
+    images: ["84-M2-Model.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","1s.jpg","2s.jpg","3s.jpg","4s.jpg"]
+  },
+  {
+    id: "100-m2-tek-katli-ev",
+    name: "100 m² Tek Katlı Ev",
+    type: "tek-katli",
+    typeLabel: "Tek Katlı",
+    thumb: "100-M2-TEK-KAT-Model.jpg",
+    desc: "Tek katlı modeller arasında en geniş yaşam alanını sunan seçenek.",
+    images: ["100-M2-TEK-KAT-Model.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
+  },
+  {
+    id: "90-m2-iki-katli-ev",
+    name: "90 m² İki Katlı Ev",
+    type: "iki-katli",
+    typeLabel: "İki Katlı",
+    thumb: "90-m2-dublex-Model.jpg",
+    desc: "Küçük parsellerde çift katlı kullanım imkânı sunan dubleks model.",
+    images: ["90-m2-dublex-Model.jpg","1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png","12.png"]
+  },
+  {
+    id: "120-m2-iki-katli-ev",
+    name: "120 m² İki Katlı Ev",
+    type: "iki-katli",
+    typeLabel: "İki Katlı",
+    thumb: "120m2-dublex-Model.jpg",
+    desc: "Geniş aileler için tasarlanmış konforlu iki katlı çelik yapı.",
+    images: ["120m2-dublex-Model.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
+  },
+  {
+    id: "130-m2-iki-katli-ev",
+    name: "130 m² İki Katlı Ev",
+    type: "iki-katli",
+    typeLabel: "İki Katlı",
+    thumb: "130-M2-TEK-KAT-Model.jpg",
+    desc: "Ferah iç mekan kurgusu ve modern cephe diliyle öne çıkan model.",
+    images: ["130-M2-TEK-KAT-Model.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
+  },
+  {
+    id: "146-m2-iki-katli-ev",
+    name: "146 m² İki Katlı Ev",
+    type: "iki-katli",
+    typeLabel: "İki Katlı",
+    thumb: "146m2-dublex-Model.jpg",
+    desc: "Villa konforunu çelik sistemle buluşturan prestijli dubleks model.",
+    images: ["146m2-dublex-Model.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
+  },
+  {
+    id: "164-m2-iki-katli-ev",
+    name: "164 m² İki Katlı Ev",
+    type: "iki-katli",
+    typeLabel: "İki Katlı",
+    thumb: "164-m2-dublex.jpg",
+    desc: "En büyük iki katlı modelimiz; geniş aile yaşamına özel çelik villa.",
+    images: ["164-m2-dublex.jpg","164-m2-dublex-2.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
+  }
+];
+
+let currentModel = null, currentIdx = 0;
+
+function renderGrid(filter) {
+  const grid = document.getElementById('modelsGrid');
+  grid.innerHTML = '';
+  const list = filter === 'all' ? MODELS : MODELS.filter(m => m.type === filter);
+  list.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'model-card reveal';
+    card.style.animationDelay = (i * 0.06) + 's';
+    card.onclick = () => lbOpen(m);
+    card.innerHTML = `
+      <div class="model-thumb">
+        <img src="assets/images/celik-ev-modelleri/${m.id}/${m.thumb}" alt="${m.name}" loading="lazy" />
+        <span class="model-badge">${m.typeLabel}</span>
+      </div>
+      <div class="model-body">
+        <div class="model-top">
+          <span class="model-type-tag">${m.typeLabel} · Çelik Sistem</span>
+          <span class="model-count-tag">${m.images.length} fotoğraf</span>
+        </div>
+        <h3 class="model-name">${m.name}</h3>
+        <p class="model-desc">${m.desc}</p>
+        <span class="model-cta">Fotoğrafları İncele →</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  // trigger reveal
+  setTimeout(() => {
+    grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 50);
+}
+
+function filterModels(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(type);
+}
+
+function lbOpen(model) {
+  currentModel = model;
+  currentIdx = 0;
+  document.getElementById('lbTitle').textContent = model.name;
+  // build strip
+  const strip = document.getElementById('lbStrip');
+  strip.innerHTML = '';
+  model.images.forEach((img, i) => {
+    const t = document.createElement('img');
+    t.className = 'lb-strip-img' + (i === 0 ? ' active' : '');
+    t.src = `assets/images/celik-ev-modelleri/${model.id}/${img}`;
+    t.alt = '';
+    t.loading = 'lazy';
+    t.onclick = () => lbShow(i);
+    strip.appendChild(t);
+  });
+  lbShow(0);
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function lbShow(idx) {
+  currentIdx = idx;
+  const m = currentModel;
+  const img = document.getElementById('lbImg');
+  img.style.opacity = 0;
+  img.src = `assets/images/celik-ev-modelleri/${m.id}/${m.images[idx]}`;
+  img.onload = () => { img.style.opacity = 1; };
+  document.getElementById('lbCounter').textContent = `${idx + 1} / ${m.images.length}`;
+  document.querySelectorAll('.lb-strip-img').forEach((t, i) => t.classList.toggle('active', i === idx));
+  const strip = document.getElementById('lbStrip');
+  const active = strip.querySelector('.active');
+  if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function lbNav(dir) {
+  const len = currentModel.images.length;
+  lbShow((currentIdx + dir + len) % len);
+}
+
+function lbClose() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+  if (e.key === 'Escape') lbClose();
+});
+
+renderGrid('all');
+</script>
+</body>
+</html>

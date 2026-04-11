@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referanslar & Projeler | Aşkın Yapı</title>
+<meta name="description" content="Aşkın İnşaat Mimarlık Yapı — 2011–2025 dönemine ait referans projeler: Beypazarı yerleşim, çelik yapılar, havuz projeleri, butik otel ve villa uygulamaları.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .ref-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+  .ref-filter button{
+    border:1.5px solid var(--line);background:white;color:var(--muted);
+    border-radius:999px;padding:9px 20px;font-size:14px;font-weight:700;
+    cursor:pointer;transition:all .2s;font-family:inherit;
+  }
+  .ref-filter button:hover{border-color:var(--brand);color:var(--brand);}
+  .ref-filter button.active{background:var(--brand);color:white;border-color:var(--brand);}
+
+  .ref-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .ref-card{
+    border-radius:18px;overflow:hidden;background:white;
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;
+    display:flex;flex-direction:column;
+  }
+  .ref-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(214,119,42,.3);}
+  .ref-card.hidden{display:none;}
+  .ref-card .thumb{
+    overflow:hidden;aspect-ratio:16/9;
+    position:relative;
+  }
+  .ref-card .thumb img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .5s cubic-bezier(.22,.61,.36,1);
+  }
+  .ref-card:hover .thumb img{transform:scale(1.06);}
+  .ref-card .thumb .zoom-icon{
+    position:absolute;top:12px;right:12px;
+    background:rgba(17,24,39,.6);backdrop-filter:blur(4px);
+    color:white;width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;opacity:0;transition:opacity .2s;
+  }
+  .ref-card:hover .zoom-icon{opacity:1;}
+  .ref-card .ref-body{padding:16px 18px 18px;}
+  .ref-card .ref-cat{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);margin-bottom:6px;}
+  .ref-card .ref-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.3;margin:0;}
+  .ref-card .ref-desc{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+  /* Lightbox */
+  #lightbox{
+    display:none;position:fixed;inset:0;z-index:999;
+    background:rgba(10,15,24,.95);backdrop-filter:blur(8px);
+    align-items:center;justify-content:center;
+    animation:fadeInUp .2s ease;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-inner{
+    position:relative;max-width:92vw;max-height:92vh;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  #lightbox img{
+    max-width:100%;max-height:82vh;
+    border-radius:12px;box-shadow:0 0 80px rgba(0,0,0,.8);
+    object-fit:contain;
+  }
+  #lightbox .lb-caption{
+    color:#e2e8f0;font-size:14px;margin-top:14px;text-align:center;
+    background:rgba(255,255,255,.06);padding:8px 20px;border-radius:99px;
+  }
+  #lightbox .lb-close{
+    position:absolute;top:-16px;right:-16px;
+    width:40px;height:40px;background:rgba(255,255,255,.15);
+    border:none;color:white;font-size:22px;border-radius:50%;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s;backdrop-filter:blur(4px);
+  }
+  #lightbox .lb-close:hover{background:rgba(255,255,255,.3);}
+  #lightbox .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;background:rgba(255,255,255,.12);
+    border:none;color:white;font-size:22px;border-radius:50%;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s;backdrop-filter:blur(4px);
+  }
+  #lightbox .lb-nav:hover{background:rgba(255,255,255,.25);}
+  #lightbox .lb-prev{left:-64px;}
+  #lightbox .lb-next{right:-64px;}
+
+  .section-divider{
+    display:flex;align-items:center;gap:16px;margin:48px 0 24px;
+  }
+  .section-divider h2{font-size:22px;white-space:nowrap;margin:0;}
+  .section-divider::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  @media(max-width:960px){
+    .ref-grid{grid-template-columns:repeat(2,1fr);}
+    #lightbox .lb-prev{left:-48px;}
+    #lightbox .lb-next{right:-48px;}
+  }
+  @media(max-width:540px){
+    .ref-grid{grid-template-columns:1fr;}
+    #lightbox .lb-prev,#lightbox .lb-next{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="left">
+      <span>İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <a href="tel:+905320606612">+90 532 060 66 12</a>
+      <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+    </div>
+    <div class="right"><span>Türkiye · Birleşik Krallık</span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-nav>
+      <a href="kurumsal.html">Kurumsal</a>
+      <a href="faaliyet-alanlari.html">Faaliyet Alanları</a>
+      <a href="projeler.html">Projeler</a>
+      <a class="active" href="medya-merkezi.html">Medya Merkezi</a>
+      <a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a>
+      <a href="iletisim.html">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html">Teklif Talebi</a>
+    </nav>
+    <a class="cta-btn" href="iletisim.html">Teklif Talebi</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Referanslar & Projeler 2011–2025</span>
+    <h1>14 yıllık kurumsal birikim; büyük ölçekli yerleşim, çelik yapılar, havuz projeleri ve daha fazlası.</h1>
+    <p class="lead" style="margin-top:12px;">Beypazarı mega yerleşiminden butik otele, çelik sistem villalardan 100'ün üzerinde havuz projesine uzanan referans arşivimizi inceleyin.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;">
+      <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
+        <strong style="font-size:20px;">17</strong><span>Referans slayt</span>
+      </div>
+      <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
+        <strong style="font-size:20px;">5</strong><span>Proje kategorisi</span>
+      </div>
+      <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
+        <strong style="font-size:20px;">2011–2025</strong><span>Arşiv dönemi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter Buttons -->
+    <div class="ref-filter">
+      <button class="active" data-filter="all">Tümü</button>
+      <button data-filter="beypazari">Beypazarı / Ankara</button>
+      <button data-filter="celik">Çelik Yapılar</button>
+      <button data-filter="konut">Konut & Villa</button>
+      <button data-filter="havuz">Havuz Projeleri</button>
+      <button data-filter="diger">Diğer</button>
+    </div>
+
+    <!-- KAPAK -->
+    <div class="section-divider" data-cat="all">
+      <span class="eyebrow" style="margin:0;">Sunum</span>
+      <h2>Referanslar & Projeler 2011–2025</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="all"
+           data-img="assets/images/ref/ref_01.jpg"
+           data-caption="Aşkın Yapı — Referanslar & Projeler 2011–2025 Kapak">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_01.jpg" alt="Referanslar Kapak" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Kurumsal Sunum</div>
+          <div class="ref-title">Referanslar & Projeler 2011–2025</div>
+          <div class="ref-desc">Tüm referans projelerini kapsayan kurumsal sunum kapağı.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEYPAZARI -->
+    <div class="section-divider">
+      <span class="eyebrow" style="margin:0;">Büyük Ölçek</span>
+      <h2>Beypazarı / Ankara Yerleşim Projesi</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="beypazari"
+           data-img="assets/images/ref/ref_02.jpg"
+           data-caption="Beypazarı/Ankara — 1.350.000 m² alan üzerine kurulan bir kent, 2011–2017">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_02.jpg" alt="Beypazarı Proje Sunumu" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Beypazarı · 2011–2017</div>
+          <div class="ref-title">Proje Sunumu — 1.350.000 m²</div>
+          <div class="ref-desc">1. Etap: 1.200 daire, 50.000 m² AVM ve sosyal tesisler. Tasarım, uygulama ve teslim.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1" data-cat="beypazari"
+           data-img="assets/images/ref/ref_03.jpg"
+           data-caption="Beypazarı AVM — Projeden uygulamaya modern mimari, plan ve proje görselleri">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_03.jpg" alt="Beypazarı AVM" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">AVM · Ticari Yapı</div>
+          <div class="ref-title">AVM — Projeden Uygulamaya Modern Mimari</div>
+          <div class="ref-desc">Plan, proje görselleri ve AVM ana girişi. 50.000 m² ticari hacim.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2" data-cat="beypazari"
+           data-img="assets/images/ref/ref_04.jpg"
+           data-caption="Beypazarı Sosyal Tesisler — İç mekan, AVM alanları ve sosyal donatılar">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_04.jpg" alt="Beypazarı Sosyal Tesisler" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Sosyal Tesisler</div>
+          <div class="ref-title">Sosyal Tesisler & İç Mekan</div>
+          <div class="ref-desc">AVM iç mekan fotoğrafları, sosyal alan ve çocuk etkinlik bölümleri.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÇELİK YAPILAR -->
+    <div class="section-divider">
+      <span class="eyebrow" style="margin:0;">Aşkın Çelik</span>
+      <h2>Çelik Sistem Yapılar</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="celik"
+           data-img="assets/images/ref/ref_05.jpg"
+           data-caption="Aşkın Çelik — Saha fotoğrafları, hafif çelik iskelet yapım aşamaları">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_05.jpg" alt="Çelik Yapılar Saha" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Saha</div>
+          <div class="ref-title">Çelik Yapılar — İnşaat Aşaması</div>
+          <div class="ref-desc">Hafif çelik iskelet kurulum süreci, farklı proje tiplerinden saha fotoğrafları.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1" data-cat="celik"
+           data-img="assets/images/ref/ref_06.jpg"
+           data-caption="Aşkın Çelik — Tamamlanmış çelik sistem villalar ve yapılar">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_06.jpg" alt="Tamamlanmış Çelik Villalar" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Uygulama</div>
+          <div class="ref-title">Tamamlanmış Çelik Sistem Yapılar</div>
+          <div class="ref-desc">Cephe kaplamalı, tamamlanmış hafif çelik villa ve yapı uygulamaları.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2" data-cat="celik"
+           data-img="assets/images/ref/ref_07.jpg"
+           data-caption="Aşkın Çelik — İki katlı villa ve inşaat aşaması görselleri">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_07.jpg" alt="Çelik Villa İki Katlı" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Villa</div>
+          <div class="ref-title">İki Katlı Çelik Sistem Villa</div>
+          <div class="ref-desc">Taş ve panel cephe kombinasyonlu iki katlı villa, inşaat ve teslim aşamaları.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-3" data-cat="celik"
+           data-img="assets/images/ref/ref_08.jpg"
+           data-caption="Aşkın Çelik — İç mekan, dış cephe ve tamamlanmış yapılar">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_08.jpg" alt="Çelik Yapı İç Dış" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Detay</div>
+          <div class="ref-title">İç Mekan & Dış Cephe Detayları</div>
+          <div class="ref-desc">Ham beton iç mekan, gri cephe kaplama, tamamlanmış dış görünüm.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-4" data-cat="celik"
+           data-img="assets/images/ref/ref_09.jpg"
+           data-caption="Aşkın Çelik — Pergola, havuzlu yapı ve çelik sistem uygulamaları">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_09.jpg" alt="Çelik Pergola Havuz" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Özel</div>
+          <div class="ref-title">Pergola & Havuzlu Çelik Yapı</div>
+          <div class="ref-desc">Peyzaj entegrasyonlu çelik pergola ve havuzlu villa uygulaması, görselleştirmeler.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-4" data-cat="celik"
+           data-img="assets/images/ref/ref_10.jpg"
+           data-caption="Aşkın Çelik — Modern villa tasarım görselleri ve çelik iskelet">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_10.jpg" alt="Modern Villa Görselleri" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Çelik · Görselleştirme</div>
+          <div class="ref-title">Modern Villa Tasarım & Uygulama</div>
+          <div class="ref-desc">Çelik iskelet ve tamamlanmış modern villa görselleştirmeleri, farklı cephe seçenekleri.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KONUT & VİLLA -->
+    <div class="section-divider">
+      <span class="eyebrow" style="margin:0;">Konut</span>
+      <h2>Konut & Villa Projeleri</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="konut"
+           data-img="assets/images/ref/ref_11.jpg"
+           data-caption="Kabakum Betonarme Villa — Saha fotoğrafları ve görselleştirmeler">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_11.jpg" alt="Kabakum Betonarme Villa" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Betonarme Villa · Kabakum</div>
+          <div class="ref-title">Kabakum Betonarme Villa</div>
+          <div class="ref-desc">Saha uygulama fotoğrafları ve 3D görselleştirme ile desteklenen villa projesi.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1" data-cat="konut"
+           data-img="assets/images/ref/ref_12.jpg"
+           data-caption="Villakent Seyrek — 2 adet anahtar teslimi villa projesi, 3D tasarım ve uygulama">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_12.jpg" alt="Villakent Seyrek Villa" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Anahtar Teslim · Seyrek</div>
+          <div class="ref-title">Villakent Seyrek — 2 Adet Villa</div>
+          <div class="ref-desc">3D tasarım ve uygulama görselleriyle 2 adet anahtar teslim villa projesi.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2" data-cat="diger"
+           data-img="assets/images/ref/ref_13.jpg"
+           data-caption="Bademli–Dikili Taş Butik Otel — Peyzaj, havuz ve mimari görselleştirmeler">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_13.jpg" alt="Bademli Dikili Butik Otel" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Butik Otel · Dikili</div>
+          <div class="ref-title">Bademli–Dikili Taş Butik Otel</div>
+          <div class="ref-desc">Zeytinlik ve doğayla bütünleşik taş butik otel; havuz, peyzaj ve mimari görselleştirmeler.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAVUZ -->
+    <div class="section-divider">
+      <span class="eyebrow" style="margin:0;">Aşkın Havuz</span>
+      <h2>Havuz Projeleri — 100'ün Üzerinde Uygulama</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="havuz"
+           data-img="assets/images/ref/ref_14.jpg"
+           data-caption="Aşkın Havuz — 100'ün üzerinde havuz projesi; açık alan havuz ve peyzaj uygulamaları">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_14.jpg" alt="Havuz Projeleri 1" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Havuz · Açık Alan</div>
+          <div class="ref-title">Havuz Projeleri — Açık Alan Uygulamaları</div>
+          <div class="ref-desc">Villa havuzları, şelale detayları, bahçe peyzajı ile entegre yüzme havuzu referansları.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1" data-cat="havuz"
+           data-img="assets/images/ref/ref_15.jpg"
+           data-caption="Aşkın Havuz — Taş ev havuz entegrasyonu ve doğal peyzaj uygulamaları">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_15.jpg" alt="Havuz Projeleri 2" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Havuz · Peyzaj</div>
+          <div class="ref-title">Taş Yapı & Havuz Entegrasyonu</div>
+          <div class="ref-desc">Geleneksel taş mimariyle bütünleşik havuz ve doğal peyzaj uygulamaları.</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-2" data-cat="havuz"
+           data-img="assets/images/ref/ref_16.jpg"
+           data-caption="Aşkın Havuz — Havadan görünüm, villa kompleksleri ve çoklu havuz projeleri">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_16.jpg" alt="Havuz Projeleri 3" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Aşkın Havuz · Havadan</div>
+          <div class="ref-title">Villa Kompleksleri — Havadan Görünüm</div>
+          <div class="ref-desc">Çoklu villa komplekslerinde havuz uygulamaları, drone perspektifi.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- İLETİŞİM KAPAĞI -->
+    <div class="section-divider">
+      <span class="eyebrow" style="margin:0;">İletişim</span>
+      <h2>Kurumsal İletişim Bilgileri</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card reveal" data-cat="all"
+           data-img="assets/images/ref/ref_17.jpg"
+           data-caption="Aşkın Yapı — Kurumsal iletişim bilgileri ve ofis adresleri">
+        <div class="thumb">
+          <img src="assets/images/ref/ref_17.jpg" alt="Kurumsal İletişim" loading="lazy">
+          <div class="zoom-icon">⤢</div>
+        </div>
+        <div class="ref-body">
+          <div class="ref-cat">Kurumsal · İletişim</div>
+          <div class="ref-title">Aşkın Yapı — Ofis & İletişim</div>
+          <div class="ref-desc">Londra ve İzmir ofis adresleri, telefon ve kurumsal iletişim bilgileri.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:56px;padding:40px;background:linear-gradient(135deg,#0f172a,#1e2e40);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;" class="reveal">
+      <div>
+        <span class="eyebrow" style="color:#f4a261;">Teklif & Bilgi</span>
+        <h3 style="color:white;margin:8px 0 10px;">Projeniz için benzer bir referans arıyorsanız bizimle iletişime geçin.</h3>
+        <p style="color:#cbd5e1;font-size:15px;">2011'den bu yana edindiğimiz birikim, her ölçekteki projeye uygulanabilir kurumsal çözümler sunmamızı sağlamaktadır.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="iletisim.html">İletişime Geçin →</a>
+        <a class="btn btn-secondary" href="projeler.html" style="border-color:rgba(255,255,255,.3);background:transparent;color:white;">Projeleri İncele</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-nav lb-next" id="lbNext">›</button>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="reveal">
+        <img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı">
+        <p>Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+      </div>
+      <div>
+        <h4>Hızlı Menü</h4>
+        <ul>
+          <li><a href="kurumsal.html">Kurumsal</a></li>
+          <li><a href="faaliyet-alanlari.html">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html">Projeler</a></li>
+          <li><a href="celik-ev-modelleri.html">Çelik Ev Modelleri</a></li>
+          <li><a href="medya-merkezi.html">Medya Merkezi</a></li>
+          <li><a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+905320606612">+90 532 060 66 12</a></li>
+          <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
+          <li>71–75 Shelton Street, Covent Garden, Londra, Birleşik Krallık</li>
+          <li>İsmetpaşa Mahallesi, Burmalıçeşme Sokak 90/A, Dikili, İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+// ── Filter ──────────────────────────────────────────────────────
+const filterBtns = document.querySelectorAll('.ref-filter button');
+const cards = document.querySelectorAll('.ref-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.filter;
+    cards.forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// ── Lightbox ─────────────────────────────────────────────────────
+const lightbox = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lbImg');
+const lbCap    = document.getElementById('lbCaption');
+const lbClose  = document.getElementById('lbClose');
+const lbPrev   = document.getElementById('lbPrev');
+const lbNext   = document.getElementById('lbNext');
+
+let visibleCards = [];
+let currentIdx = 0;
+
+function getVisible() {
+  return [...document.querySelectorAll('.ref-card:not(.hidden)')];
+}
+
+function openLightbox(idx) {
+  visibleCards = getVisible();
+  currentIdx = idx;
+  const card = visibleCards[currentIdx];
+  lbImg.src = card.dataset.img;
+  lbCap.textContent = card.dataset.caption;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lbImg.src = '';
+}
+
+function navigate(dir) {
+  visibleCards = getVisible();
+  currentIdx = (currentIdx + dir + visibleCards.length) % visibleCards.length;
+  const card = visibleCards[currentIdx];
+  lbImg.style.opacity = '0';
+  setTimeout(() => {
+    lbImg.src = card.dataset.img;
+    lbCap.textContent = card.dataset.caption;
+    lbImg.style.opacity = '1';
+  }, 150);
+}
+
+cards.forEach((card, i) => {
+  card.addEventListener('click', () => {
+    const visible = getVisible();
+    const vidx = visible.indexOf(card);
+    openLightbox(vidx);
+  });
+});
+
+lbClose.addEventListener('click', closeLightbox);
+lbPrev.addEventListener('click', () => navigate(-1));
+lbNext.addEventListener('click', () => navigate(1));
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+});
+
+lbImg.style.transition = 'opacity .15s ease';
+</script>
+</body>
+</html>
