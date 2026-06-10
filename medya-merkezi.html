@@ -32,11 +32,30 @@
 <div class="topbar">
   <div class="container">
     <div class="left">
-      <span>İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <span data-i18n="topbar_services">İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
       <a href="tel:+905320606612">+90 532 060 66 12</a>
       <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
     </div>
-    <div class="right"><span>Türkiye · Birleşik Krallık</span></div>
+    <div class="right" style="display:flex;align-items:center;gap:16px;">
+      <span data-i18n="topbar_locations">Türkiye · Birleşik Krallık</span>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langToggle">
+          <span id="currentFlag">🇹🇷</span>
+          <span id="currentLang">TR</span>
+          <span>▾</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" data-lang="tr" class="active"><span class="lang-flag">🇹🇷</span> Türkçe</a>
+          <a href="#" data-lang="en"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="#" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+          <a href="#" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="#" data-lang="it"><span class="lang-flag">🇮🇹</span> Italiano</a>
+          <a href="#" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="#" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</a>
+          <a href="#" data-lang="ru"><span class="lang-flag">🇷🇺</span> Русский</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <header class="site-header">
@@ -44,15 +63,15 @@
     <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></a>
     <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
     <nav class="main-nav" data-nav>
-      <a href="kurumsal.html">Kurumsal</a>
-      <a href="faaliyet-alanlari.html">Faaliyet Alanları</a>
-      <a href="projeler.html">Projeler</a>
-      <a class="active" href="medya-merkezi.html">Medya Merkezi</a>
-      <a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a>
-      <a href="iletisim.html">İletişim</a>
-      <a class="mobile-only btn btn-primary" href="iletisim.html">Teklif Talebi</a>
+      <a href="kurumsal.html" data-i18n="nav_corporate">Kurumsal</a>
+      <a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a>
+      <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+      <a class="active" href="medya-merkezi.html" data-i18n="nav_media">Medya Merkezi</a>
+      <a href="uluslararasi-vizyon.html" data-i18n="nav_international">Uluslararası Vizyon</a>
+      <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
     </nav>
-    <a class="cta-btn" href="iletisim.html">Teklif Talebi</a>
+    <a class="cta-btn" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
   </div>
 </header>
 
@@ -151,22 +170,22 @@
     <div class="footer-top">
       <div class="reveal">
         <img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı">
-        <p>Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+        <p data-i18n="footer_desc">Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
       </div>
       <div>
-        <h4>Hızlı Menü</h4>
+        <h4 data-i18n="footer_menu">Hızlı Menü</h4>
         <ul>
-          <li><a href="kurumsal.html">Kurumsal</a></li>
-          <li><a href="faaliyet-alanlari.html">Faaliyet Alanları</a></li>
-          <li><a href="projeler.html">Projeler</a></li>
-          <li><a href="celik-ev-modelleri.html">Çelik Ev Modelleri</a></li>
-          <li><a href="medya-merkezi.html">Medya Merkezi</a></li>
-          <li><a href="uluslararasi-vizyon.html">Uluslararası Vizyon</a></li>
-          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="kurumsal.html" data-i18n="nav_corporate">Kurumsal</a></li>
+          <li><a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html" data-i18n="nav_projects">Projeler</a></li>
+          <li><a href="celik-ev-modelleri.html" data-i18n="nav_steel">Çelik Ev Modelleri</a></li>
+          <li><a href="medya-merkezi.html" data-i18n="nav_media">Medya Merkezi</a></li>
+          <li><a href="uluslararasi-vizyon.html" data-i18n="nav_international">Uluslararası Vizyon</a></li>
+          <li><a href="iletisim.html" data-i18n="nav_contact">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <h4>İletişim</h4>
+        <h4 data-i18n="footer_contact">İletişim</h4>
         <ul>
           <li><a href="tel:+905320606612">+90 532 060 66 12</a></li>
           <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
@@ -175,9 +194,10 @@
         </ul>
       </div>
     </div>
-    <div class="copyright">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+    <div class="copyright" data-i18n="footer_copy">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
 </body>
 </html>

@@ -1,0 +1,318 @@
+/**
+ * Çok dilli destek (i18n) — tüm sayfalarda paylaşılır.
+ *
+ * Kullanım:
+ *  - Çevrilecek metin:   <h1 data-i18n="hero_h1">...</h1>
+ *  - Attribute çevirisi: <input data-i18n-attr="placeholder:form_name_ph"> (";" ile çoklu)
+ *  - Dil değiştirici UI (topbar) ve bu script tüm sayfalara eklenir.
+ *
+ * Davranış: nav/reveal/WhatsApp gibi şeyler main.js'te kalır; bu dosya yalnız
+ * çeviri + dil seçiciyi yönetir. localStorage ile dil tercihi hatırlanır.
+ */
+(function () {
+  const translations = {
+    tr: {
+      topbar_services: "İnşaat · Yapı · Mimarlık · Müteahhitlik",
+      topbar_locations: "Türkiye · Birleşik Krallık",
+      nav_corporate: "Kurumsal", nav_services: "Faaliyet Alanları", nav_projects: "Projeler",
+      nav_steel: "Çelik Ev Modelleri", nav_media: "Medya Merkezi", nav_international: "Uluslararası Vizyon",
+      nav_contact: "İletişim", cta: "Teklif Talebi",
+      hero_eyebrow: "Kurumsal Yapı · Proje Geliştirme · Uygulama",
+      hero_h1: "İnşaat, yapı, mimarlık ve çelik sistem projelerini kurumsal bir çerçevede yönetiyoruz.",
+      hero_lead: "Aşkın Yapı; konut, ticari yapı, çelik sistem ve proje geliştirme süreçlerinde tasarım, saha koordinasyonu, uygulama ve teslim adımlarını bütüncül bir iş modeliyle ele alır.",
+      btn_projects: "Projeleri İnceleyin", metric_1: "Referans ve proje arşivi", metric_2: "Havuz projesi deneyimi", metric_3: "Kurumsal temsil ağı",
+      hero_overlay_title: "Öne çıkan görselleştirme: Manora Prestij", hero_overlay_desc: "Konut geliştirme, mimari kurgu ve cephe dili bir arada sunuluyor.",
+      band_1_title: "İnşaat & Kat Karşılığı", band_1_desc: "Saha yönetimi, uygulama ve teslim odaklı proje yürütme",
+      band_2_title: "Mimarlık & Tasarım", band_2_desc: "Konsept, teknik proje ve uygulama dili",
+      band_3_title: "Çelik Sistemler", band_3_desc: "Hızlı kurulum, kontrollü üretim ve hafif çelik çözümleri",
+      band_4_title: "Uluslararası Perspektif", band_4_desc: "Türkiye ve Birleşik Krallık merkezli temsil yapısı",
+      projects_eyebrow: "Öne Çıkan Projeler", projects_h2: "Proje fotoğrafları ve proje görselleştirmeleri ile desteklenen kurumsal proje vitrini.",
+      projects_desc: "Çelik sistem yapılar, konut projeleri, görselleştirme çalışmaları ve saha uygulamaları tek çatı altında sunuluyor.",
+      proj_1_type: "Çelik Sistem", proj_1_title: "Çelik Villa Uygulaması", proj_1_desc: "Hafif çelik sistem taşıyıcı çözüm ile villa tipi yapıda sahaya özel uygulama.",
+      proj_2_type: "Konut Geliştirme", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Konut ve açık alan kurgusunu bir araya getiren proje görseli ve geliştirme dili.",
+      proj_3_type: "Görselleştirme", proj_3_title: "Manora Prestij", proj_3_desc: "Konut bloğu için geliştirilen cephe dili ve sunum görselleri.",
+      btn_view_project: "Projeyi İncele →",
+      ref_eyebrow: "Kurumsal Referanslar", ref_h3: "2011–2025 referans arşivi; büyük ölçekli yerleşim, AVM, sosyal tesisler ve 100+ havuz projesi.",
+      ref_desc: "Beypazarı / Ankara büyük ölçekli yerleşim projesi (1.350.000 m²), AVM ve sosyal tesisler, çelik yapılar ve havuz projeleri referans portföyümüzü oluşturmaktadır.",
+      btn_ref_files: "Referans Dosyaları", btn_photo_video: "Foto & Video",
+      why_eyebrow: "Neden Aşkın Yapı?", why_h2: "Kurumsal yapımız, her projeye tek elden çözüm sunar.",
+      why_1_title: "Bütünleşik Hizmet", why_1_desc: "Tasarım, mühendislik, saha uygulaması ve teslim yönetimi tek çatı altında. Farklı firmalar arasında koordinasyon yükü olmadan proje teslimi.",
+      why_2_title: "Kanıtlanmış Referanslar", why_2_desc: "2011'den bu yana yüzlerce proje ve 100'ün üzerinde havuz uygulaması. Beypazarı gibi 1.35 milyon m² ölçeğinde proje deneyimi.",
+      why_3_title: "Uluslararası Temsil", why_3_desc: "Türkiye ve Birleşik Krallık'ta kurumsal ofis varlığı. Yabancı yatırımcı ve ortaklar için tanıdık bir iş ortamı, Türkiye'de güçlü saha ağı.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.",
+      footer_menu: "Hızlı Menü", footer_contact: "İletişim", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır."
+    },
+    en: {
+      topbar_services: "Construction · Building · Architecture · Contracting",
+      topbar_locations: "Turkey · United Kingdom",
+      nav_corporate: "Corporate", nav_services: "Services", nav_projects: "Projects",
+      nav_steel: "Steel Home Models", nav_media: "Media Centre", nav_international: "International Vision",
+      nav_contact: "Contact", cta: "Request a Quote",
+      hero_eyebrow: "Corporate Building · Project Development · Implementation",
+      hero_h1: "We manage construction, architecture and steel system projects within a corporate framework.",
+      hero_lead: "Aşkın Yapı handles design, site coordination, implementation and delivery in residential, commercial, steel system and project development processes through an integrated business model.",
+      btn_projects: "Explore Projects", metric_1: "Reference & project archive", metric_2: "Pool project experience", metric_3: "Corporate representation network",
+      hero_overlay_title: "Featured visualisation: Manora Prestij", hero_overlay_desc: "Residential development, architectural concept and façade design presented together.",
+      band_1_title: "Construction & Revenue Share", band_1_desc: "Site management, implementation and delivery-focused project execution",
+      band_2_title: "Architecture & Design", band_2_desc: "Concept, technical project and implementation language",
+      band_3_title: "Steel Systems", band_3_desc: "Fast assembly, controlled production and light steel solutions",
+      band_4_title: "International Perspective", band_4_desc: "Corporate representation structure based in Turkey and the United Kingdom",
+      projects_eyebrow: "Featured Projects", projects_h2: "Corporate project showcase supported by project photographs and visualisations.",
+      projects_desc: "Steel system structures, residential projects, visualisation work and site applications presented under one roof.",
+      proj_1_type: "Steel System", proj_1_title: "Steel Villa Application", proj_1_desc: "Site-specific application in a villa-type structure with light steel load-bearing solution.",
+      proj_2_type: "Residential Development", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Project visual and development language combining residential and open-space design.",
+      proj_3_type: "Visualisation", proj_3_title: "Manora Prestij", proj_3_desc: "Façade language and presentation visuals developed for a residential block.",
+      btn_view_project: "View Project →",
+      ref_eyebrow: "Corporate References", ref_h3: "2011–2025 reference archive; large-scale residential, shopping centres, social facilities and 100+ pool projects.",
+      ref_desc: "Beypazarı / Ankara large-scale residential project (1,350,000 m²), shopping centres and social facilities, steel structures and pool projects form our reference portfolio.",
+      btn_ref_files: "Reference Files", btn_photo_video: "Photo & Video",
+      why_eyebrow: "Why Aşkın Yapı?", why_h2: "Our corporate structure offers a single-source solution for every project.",
+      why_1_title: "Integrated Service", why_1_desc: "Design, engineering, site implementation and delivery management under one roof. Project delivery without the coordination burden between different firms.",
+      why_2_title: "Proven References", why_2_desc: "Hundreds of projects and over 100 pool applications since 2011. Project experience at the scale of 1.35 million m² such as Beypazarı.",
+      why_3_title: "International Representation", why_3_desc: "Corporate office presence in Turkey and the United Kingdom. A familiar business environment for foreign investors and partners, with a strong site network in Turkey.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı is a corporate entity managing residential, commercial, steel system, project development and implementation processes under one roof.",
+      footer_menu: "Quick Menu", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. All rights reserved."
+    },
+    de: {
+      topbar_services: "Bau · Konstruktion · Architektur · Auftragnehmer",
+      topbar_locations: "Türkei · Vereinigtes Königreich",
+      nav_corporate: "Unternehmen", nav_services: "Leistungen", nav_projects: "Projekte",
+      nav_steel: "Stahlhaus-Modelle", nav_media: "Medienzentrum", nav_international: "Internationale Vision",
+      nav_contact: "Kontakt", cta: "Angebot anfordern",
+      hero_eyebrow: "Unternehmensstruktur · Projektentwicklung · Umsetzung",
+      hero_h1: "Wir steuern Bau-, Architektur- und Stahlsystemprojekte in einem professionellen Rahmen.",
+      hero_lead: "Aşkın Yapı übernimmt Entwurf, Baustellenkoordination, Ausführung und Übergabe bei Wohn-, Gewerbe-, Stahlsystem- und Projektentwicklungsprozessen durch ein integriertes Geschäftsmodell.",
+      btn_projects: "Projekte erkunden", metric_1: "Referenz- und Projektarchiv", metric_2: "Erfahrung mit Poolprojekten", metric_3: "Unternehmensvertretungsnetz",
+      hero_overlay_title: "Vorgestellte Visualisierung: Manora Prestij", hero_overlay_desc: "Wohnentwicklung, architektonisches Konzept und Fassadengestaltung gemeinsam präsentiert.",
+      band_1_title: "Bau & Umsatzbeteiligung", band_1_desc: "Baustellenmanagement, Ausführung und lieferungsorientierte Projektabwicklung",
+      band_2_title: "Architektur & Design", band_2_desc: "Konzept, technisches Projekt und Ausführungssprache",
+      band_3_title: "Stahlsysteme", band_3_desc: "Schnellmontage, kontrollierte Produktion und Leichtstahlösungen",
+      band_4_title: "Internationale Perspektive", band_4_desc: "Unternehmensvertretungsstruktur in der Türkei und im Vereinigten Königreich",
+      projects_eyebrow: "Ausgewählte Projekte", projects_h2: "Unternehmens-Projektschaufenster unterstützt durch Projektfotos und Visualisierungen.",
+      projects_desc: "Stahlsystembauten, Wohnprojekte, Visualisierungsarbeiten und Baustellenanwendungen unter einem Dach.",
+      proj_1_type: "Stahlsystem", proj_1_title: "Stahlvilla-Anwendung", proj_1_desc: "Standortspezifische Anwendung in einem villaartigen Gebäude mit Leichtstahltragwerk.",
+      proj_2_type: "Wohnentwicklung", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Projektvisualisierung und Entwicklungssprache, die Wohn- und Außenraumgestaltung verbindet.",
+      proj_3_type: "Visualisierung", proj_3_title: "Manora Prestij", proj_3_desc: "Fassadensprache und Präsentationsvisualisierungen für einen Wohnblock.",
+      btn_view_project: "Projekt ansehen →",
+      ref_eyebrow: "Unternehmensreferenzen", ref_h3: "Referenzarchiv 2011–2025; großflächige Wohnanlagen, Einkaufszentren, Sozialeinrichtungen und 100+ Poolprojekte.",
+      ref_desc: "Großflächiges Wohnprojekt Beypazarı / Ankara (1.350.000 m²), Einkaufszentren und Sozialeinrichtungen, Stahlbauten und Poolprojekte bilden unser Referenzportfolio.",
+      btn_ref_files: "Referenzdateien", btn_photo_video: "Foto & Video",
+      why_eyebrow: "Warum Aşkın Yapı?", why_h2: "Unsere Unternehmensstruktur bietet für jedes Projekt eine einheitliche Lösung.",
+      why_1_title: "Integrierter Service", why_1_desc: "Design, Ingenieurwesen, Baustellenausführung und Liefermanagement unter einem Dach.",
+      why_2_title: "Bewährte Referenzen", why_2_desc: "Hunderte von Projekten und über 100 Poolanwendungen seit 2011.",
+      why_3_title: "Internationale Vertretung", why_3_desc: "Unternehmensstandorte in der Türkei und im Vereinigten Königreich.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı ist ein Unternehmen, das Wohn-, Gewerbe-, Stahlsystem-, Projektentwicklungs- und Ausführungsprozesse unter einem Dach verwaltet.",
+      footer_menu: "Schnellmenü", footer_contact: "Kontakt", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Alle Rechte vorbehalten."
+    },
+    fr: {
+      topbar_services: "Construction · Bâtiment · Architecture · Entrepreneur",
+      topbar_locations: "Turquie · Royaume-Uni",
+      nav_corporate: "Entreprise", nav_services: "Services", nav_projects: "Projets",
+      nav_steel: "Maisons en Acier", nav_media: "Centre Médias", nav_international: "Vision Internationale",
+      nav_contact: "Contact", cta: "Demander un Devis",
+      hero_eyebrow: "Structure d'Entreprise · Développement de Projets · Réalisation",
+      hero_h1: "Nous gérons des projets de construction, d'architecture et de systèmes en acier dans un cadre professionnel.",
+      hero_lead: "Aşkın Yapı prend en charge la conception, la coordination de chantier, la mise en œuvre et la livraison dans les processus résidentiels, commerciaux, en acier et de développement de projets grâce à un modèle commercial intégré.",
+      btn_projects: "Explorer les Projets", metric_1: "Archive de références et projets", metric_2: "Expérience en projets de piscines", metric_3: "Réseau de représentation",
+      hero_overlay_title: "Visualisation vedette : Manora Prestij", hero_overlay_desc: "Développement résidentiel, concept architectural et façade présentés ensemble.",
+      band_1_title: "Construction & Partage de Revenus", band_1_desc: "Gestion de chantier, exécution et livraison axées sur le projet",
+      band_2_title: "Architecture & Design", band_2_desc: "Concept, projet technique et langage d'exécution",
+      band_3_title: "Systèmes en Acier", band_3_desc: "Assemblage rapide, production contrôlée et solutions en acier léger",
+      band_4_title: "Perspective Internationale", band_4_desc: "Structure de représentation en Turquie et au Royaume-Uni",
+      projects_eyebrow: "Projets Vedettes", projects_h2: "Vitrine de projets d'entreprise soutenue par des photos et des visualisations.",
+      projects_desc: "Structures en acier, projets résidentiels, visualisations et applications de chantier sous un même toit.",
+      proj_1_type: "Système Acier", proj_1_title: "Villa en Acier", proj_1_desc: "Application spécifique au site dans une villa avec structure portante en acier léger.",
+      proj_2_type: "Développement Résidentiel", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Visuel de projet et langage de développement combinant résidentiel et espace extérieur.",
+      proj_3_type: "Visualisation", proj_3_title: "Manora Prestij", proj_3_desc: "Langage de façade et visuels de présentation développés pour un bloc résidentiel.",
+      btn_view_project: "Voir le Projet →",
+      ref_eyebrow: "Références d'Entreprise", ref_h3: "Archive de références 2011–2025 ; résidentiel à grande échelle, centres commerciaux, équipements sociaux et 100+ projets de piscines.",
+      ref_desc: "Projet résidentiel à grande échelle de Beypazarı / Ankara (1 350 000 m²), centres commerciaux, équipements sociaux, structures en acier et projets de piscines.",
+      btn_ref_files: "Fichiers de Références", btn_photo_video: "Photo & Vidéo",
+      why_eyebrow: "Pourquoi Aşkın Yapı ?", why_h2: "Notre structure d'entreprise offre une solution unique pour chaque projet.",
+      why_1_title: "Service Intégré", why_1_desc: "Conception, ingénierie, exécution sur site et gestion de livraison sous un même toit.",
+      why_2_title: "Références Éprouvées", why_2_desc: "Des centaines de projets et plus de 100 applications de piscines depuis 2011.",
+      why_3_title: "Représentation Internationale", why_3_desc: "Présence de bureaux en Turquie et au Royaume-Uni.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı est une entité gérant les processus résidentiels, commerciaux, en acier et de développement sous un même toit.",
+      footer_menu: "Menu Rapide", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tous droits réservés."
+    },
+    it: {
+      topbar_services: "Costruzione · Edilizia · Architettura · Appaltatore",
+      topbar_locations: "Turchia · Regno Unito",
+      nav_corporate: "Azienda", nav_services: "Servizi", nav_projects: "Progetti",
+      nav_steel: "Case in Acciaio", nav_media: "Centro Media", nav_international: "Visione Internazionale",
+      nav_contact: "Contatto", cta: "Richiedi un Preventivo",
+      hero_eyebrow: "Struttura Aziendale · Sviluppo Progetti · Realizzazione",
+      hero_h1: "Gestiamo progetti di costruzione, architettura e sistemi in acciaio in un quadro professionale.",
+      hero_lead: "Aşkın Yapı gestisce progettazione, coordinamento del cantiere, realizzazione e consegna nei processi residenziali, commerciali, in acciaio e di sviluppo progetti tramite un modello di business integrato.",
+      btn_projects: "Esplora i Progetti", metric_1: "Archivio referenze e progetti", metric_2: "Esperienza in progetti piscine", metric_3: "Rete di rappresentanza aziendale",
+      hero_overlay_title: "Visualizzazione in evidenza: Manora Prestij", hero_overlay_desc: "Sviluppo residenziale, concept architettonico e linguaggio della facciata presentati insieme.",
+      band_1_title: "Costruzione & Condivisione Ricavi", band_1_desc: "Gestione del cantiere, esecuzione e consegna orientate al progetto",
+      band_2_title: "Architettura & Design", band_2_desc: "Concept, progetto tecnico e linguaggio esecutivo",
+      band_3_title: "Sistemi in Acciaio", band_3_desc: "Montaggio rapido, produzione controllata e soluzioni in acciaio leggero",
+      band_4_title: "Prospettiva Internazionale", band_4_desc: "Struttura di rappresentanza in Turchia e nel Regno Unito",
+      projects_eyebrow: "Progetti in Evidenza", projects_h2: "Vetrina aziendale dei progetti supportata da fotografie e visualizzazioni.",
+      projects_desc: "Strutture in acciaio, progetti residenziali, visualizzazioni e applicazioni di cantiere sotto un unico tetto.",
+      proj_1_type: "Sistema Acciaio", proj_1_title: "Villa in Acciaio", proj_1_desc: "Applicazione specifica per il sito in una villa con struttura portante in acciaio leggero.",
+      proj_2_type: "Sviluppo Residenziale", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Visuale del progetto e linguaggio di sviluppo che unisce residenziale e spazi aperti.",
+      proj_3_type: "Visualizzazione", proj_3_title: "Manora Prestij", proj_3_desc: "Linguaggio della facciata e visuali di presentazione sviluppati per un blocco residenziale.",
+      btn_view_project: "Vedi Progetto →",
+      ref_eyebrow: "Referenze Aziendali", ref_h3: "Archivio referenze 2011–2025; residenziale su larga scala, centri commerciali, strutture sociali e 100+ progetti piscine.",
+      ref_desc: "Progetto residenziale su larga scala Beypazarı / Ankara (1.350.000 m²), centri commerciali, strutture sociali, costruzioni in acciaio e progetti piscine.",
+      btn_ref_files: "File di Referenze", btn_photo_video: "Foto & Video",
+      why_eyebrow: "Perché Aşkın Yapı?", why_h2: "La nostra struttura aziendale offre una soluzione unica per ogni progetto.",
+      why_1_title: "Servizio Integrato", why_1_desc: "Progettazione, ingegneria, esecuzione in cantiere e gestione della consegna sotto un unico tetto.",
+      why_2_title: "Referenze Comprovate", why_2_desc: "Centinaia di progetti e oltre 100 applicazioni piscine dal 2011.",
+      why_3_title: "Rappresentanza Internazionale", why_3_desc: "Presenza di uffici aziendali in Turchia e nel Regno Unito.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı è un'entità aziendale che gestisce processi residenziali, commerciali, in acciaio e di sviluppo sotto un unico tetto.",
+      footer_menu: "Menu Rapido", footer_contact: "Contatto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tutti i diritti riservati."
+    },
+    es: {
+      topbar_services: "Construcción · Edificación · Arquitectura · Contratista",
+      topbar_locations: "Turquía · Reino Unido",
+      nav_corporate: "Empresa", nav_services: "Servicios", nav_projects: "Proyectos",
+      nav_steel: "Casas de Acero", nav_media: "Centro de Medios", nav_international: "Visión Internacional",
+      nav_contact: "Contacto", cta: "Solicitar Presupuesto",
+      hero_eyebrow: "Estructura Empresarial · Desarrollo de Proyectos · Ejecución",
+      hero_h1: "Gestionamos proyectos de construcción, arquitectura y sistemas de acero en un marco profesional.",
+      hero_lead: "Aşkın Yapı gestiona diseño, coordinación de obra, implementación y entrega en procesos residenciales, comerciales, de acero y de desarrollo de proyectos a través de un modelo de negocio integrado.",
+      btn_projects: "Explorar Proyectos", metric_1: "Archivo de referencias y proyectos", metric_2: "Experiencia en proyectos de piscinas", metric_3: "Red de representación corporativa",
+      hero_overlay_title: "Visualización destacada: Manora Prestij", hero_overlay_desc: "Desarrollo residencial, concepto arquitectónico y lenguaje de fachada presentados juntos.",
+      band_1_title: "Construcción & Participación en Ingresos", band_1_desc: "Gestión de obra, ejecución y entrega orientada al proyecto",
+      band_2_title: "Arquitectura & Diseño", band_2_desc: "Concepto, proyecto técnico y lenguaje de ejecución",
+      band_3_title: "Sistemas de Acero", band_3_desc: "Montaje rápido, producción controlada y soluciones de acero ligero",
+      band_4_title: "Perspectiva Internacional", band_4_desc: "Estructura de representación en Turquía y el Reino Unido",
+      projects_eyebrow: "Proyectos Destacados", projects_h2: "Escaparate de proyectos corporativos apoyado por fotografías y visualizaciones.",
+      projects_desc: "Estructuras de acero, proyectos residenciales, trabajos de visualización y aplicaciones de obra bajo un mismo techo.",
+      proj_1_type: "Sistema Acero", proj_1_title: "Villa de Acero", proj_1_desc: "Aplicación específica del sitio en una villa con solución de estructura portante de acero ligero.",
+      proj_2_type: "Desarrollo Residencial", proj_2_title: "Çayyolu Ankara", proj_2_desc: "Visual del proyecto y lenguaje de desarrollo que combina residencial y espacios abiertos.",
+      proj_3_type: "Visualización", proj_3_title: "Manora Prestij", proj_3_desc: "Lenguaje de fachada y visuales de presentación desarrollados para un bloque residencial.",
+      btn_view_project: "Ver Proyecto →",
+      ref_eyebrow: "Referencias Corporativas", ref_h3: "Archivo de referencias 2011–2025; residencial a gran escala, centros comerciales, instalaciones sociales y 100+ proyectos de piscinas.",
+      ref_desc: "Proyecto residencial a gran escala Beypazarı / Ankara (1.350.000 m²), centros comerciales, instalaciones sociales, estructuras de acero y proyectos de piscinas.",
+      btn_ref_files: "Archivos de Referencias", btn_photo_video: "Foto & Video",
+      why_eyebrow: "¿Por qué Aşkın Yapı?", why_h2: "Nuestra estructura corporativa ofrece una solución integral para cada proyecto.",
+      why_1_title: "Servicio Integrado", why_1_desc: "Diseño, ingeniería, ejecución en obra y gestión de entrega bajo un mismo techo.",
+      why_2_title: "Referencias Probadas", why_2_desc: "Cientos de proyectos y más de 100 aplicaciones de piscinas desde 2011.",
+      why_3_title: "Representación Internacional", why_3_desc: "Presencia de oficinas corporativas en Turquía y el Reino Unido.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı es una entidad corporativa que gestiona procesos residenciales, comerciales, de acero y de desarrollo bajo un mismo techo.",
+      footer_menu: "Menú Rápido", footer_contact: "Contacto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Todos los derechos reservados."
+    },
+    ar: {
+      topbar_services: "إنشاء · بناء · معمار · مقاولات",
+      topbar_locations: "تركيا · المملكة المتحدة",
+      nav_corporate: "الشركة", nav_services: "الخدمات", nav_projects: "المشاريع",
+      nav_steel: "منازل الفولاذ", nav_media: "مركز الإعلام", nav_international: "الرؤية الدولية",
+      nav_contact: "اتصل بنا", cta: "طلب عرض سعر",
+      hero_eyebrow: "هيكل مؤسسي · تطوير مشاريع · تنفيذ",
+      hero_h1: "ندير مشاريع البناء والعمارة وأنظمة الفولاذ في إطار مؤسسي متكامل.",
+      hero_lead: "تتولى شركة أشكين يابي التصميم وتنسيق المواقع والتنفيذ والتسليم في مشاريع السكن والتجارة والفولاذ وتطوير المشاريع من خلال نموذج عمل متكامل.",
+      btn_projects: "استعراض المشاريع", metric_1: "أرشيف المراجع والمشاريع", metric_2: "خبرة في مشاريع المسابح", metric_3: "شبكة تمثيل مؤسسي",
+      hero_overlay_title: "التصور المميز: مانورا بريستيج", hero_overlay_desc: "تطوير سكني ومفهوم معماري ولغة واجهة مقدمة معاً.",
+      band_1_title: "إنشاء ومشاركة الإيرادات", band_1_desc: "إدارة الموقع والتنفيذ والتسليم الموجه للمشروع",
+      band_2_title: "العمارة والتصميم", band_2_desc: "المفهوم والمشروع التقني ولغة التنفيذ",
+      band_3_title: "أنظمة الفولاذ", band_3_desc: "تجميع سريع وإنتاج متحكم وحلول فولاذ خفيف",
+      band_4_title: "المنظور الدولي", band_4_desc: "هيكل تمثيل مؤسسي في تركيا والمملكة المتحدة",
+      projects_eyebrow: "المشاريع المميزة", projects_h2: "واجهة مشاريع مؤسسية مدعومة بصور وتصورات.",
+      projects_desc: "منشآت فولاذية ومشاريع سكنية وأعمال تصور وتطبيقات ميدانية تحت سقف واحد.",
+      proj_1_type: "نظام فولاذي", proj_1_title: "فيلا فولاذية", proj_1_desc: "تطبيق خاص بالموقع في فيلا بهيكل حامل من الفولاذ الخفيف.",
+      proj_2_type: "تطوير سكني", proj_2_title: "تشاييولو أنقرة", proj_2_desc: "تصور مشروع ولغة تطوير تجمع بين السكن والفضاء المفتوح.",
+      proj_3_type: "تصور", proj_3_title: "مانورا بريستيج", proj_3_desc: "لغة واجهة وتصورات عرض تم تطويرها لكتلة سكنية.",
+      btn_view_project: "عرض المشروع →",
+      ref_eyebrow: "المراجع المؤسسية", ref_h3: "أرشيف المراجع 2011–2025؛ سكن واسع النطاق ومراكز تسوق ومرافق اجتماعية و100+ مشروع مسبح.",
+      ref_desc: "مشروع سكني واسع النطاق في بيباذاري / أنقرة (1.350.000 م²) ومراكز تسوق ومرافق اجتماعية وهياكل فولاذية ومشاريع مسابح.",
+      btn_ref_files: "ملفات المراجع", btn_photo_video: "صور وفيديو",
+      why_eyebrow: "لماذا أشكين يابي؟", why_h2: "هيكلنا المؤسسي يوفر حلاً شاملاً لكل مشروع.",
+      why_1_title: "خدمة متكاملة", why_1_desc: "التصميم والهندسة والتنفيذ الميداني وإدارة التسليم تحت سقف واحد.",
+      why_2_title: "مراجع موثوقة", why_2_desc: "مئات المشاريع وأكثر من 100 تطبيق مسابح منذ 2011.",
+      why_3_title: "تمثيل دولي", why_3_desc: "حضور مكتبي مؤسسي في تركيا والمملكة المتحدة.",
+      footer_desc: "أشكين إنشاات ميمارلق يابي كيان مؤسسي يدير عمليات سكنية وتجارية وفولاذية وتطوير مشاريع تحت سقف واحد.",
+      footer_menu: "قائمة سريعة", footer_contact: "اتصل بنا", footer_copy: "© 2025 أشكين إنشاات ميمارلق يابي. جميع الحقوق محفوظة."
+    },
+    ru: {
+      topbar_services: "Строительство · Здания · Архитектура · Подрядчик",
+      topbar_locations: "Турция · Великобритания",
+      nav_corporate: "Компания", nav_services: "Услуги", nav_projects: "Проекты",
+      nav_steel: "Стальные дома", nav_media: "Медиацентр", nav_international: "Международное видение",
+      nav_contact: "Контакт", cta: "Запросить предложение",
+      hero_eyebrow: "Корпоративная структура · Разработка проектов · Реализация",
+      hero_h1: "Мы управляем строительными, архитектурными и стальными системными проектами в профессиональных рамках.",
+      hero_lead: "Aşkın Yapı берёт на себя проектирование, координацию объекта, реализацию и сдачу в жилых, коммерческих, стальных и проектно-строительных процессах через интегрированную бизнес-модель.",
+      btn_projects: "Просмотр проектов", metric_1: "Архив референсов и проектов", metric_2: "Опыт в проектах бассейнов", metric_3: "Сеть корпоративного представительства",
+      hero_overlay_title: "Рекомендуемая визуализация: Manora Prestij", hero_overlay_desc: "Жилищное строительство, архитектурная концепция и фасадный дизайн представлены вместе.",
+      band_1_title: "Строительство и долевое участие", band_1_desc: "Управление объектом, исполнение и ориентированная на сдачу реализация проекта",
+      band_2_title: "Архитектура и дизайн", band_2_desc: "Концепция, технический проект и исполнительный язык",
+      band_3_title: "Стальные системы", band_3_desc: "Быстрый монтаж, контролируемое производство и решения из лёгкой стали",
+      band_4_title: "Международная перспектива", band_4_desc: "Корпоративная структура представительства в Турции и Великобритании",
+      projects_eyebrow: "Избранные проекты", projects_h2: "Корпоративная витрина проектов с фотографиями и визуализациями.",
+      projects_desc: "Стальные конструкции, жилые проекты, визуализации и строительные приложения под одной крышей.",
+      proj_1_type: "Стальная система", proj_1_title: "Стальная вилла", proj_1_desc: "Индивидуальное применение в вилле с несущей конструкцией из лёгкой стали.",
+      proj_2_type: "Жилищное развитие", proj_2_title: "Чайёлу Анкара", proj_2_desc: "Проектная визуализация и язык разработки, объединяющие жилое и открытое пространство.",
+      proj_3_type: "Визуализация", proj_3_title: "Manora Prestij", proj_3_desc: "Фасадный язык и презентационные визуализации для жилого блока.",
+      btn_view_project: "Смотреть проект →",
+      ref_eyebrow: "Корпоративные референсы", ref_h3: "Архив референсов 2011–2025; крупномасштабное жильё, торговые центры, социальные объекты и 100+ проектов бассейнов.",
+      ref_desc: "Крупномасштабный жилой проект Beypazarı / Анкара (1 350 000 м²), торговые центры, социальные объекты, стальные конструкции и проекты бассейнов.",
+      btn_ref_files: "Файлы референсов", btn_photo_video: "Фото и видео",
+      why_eyebrow: "Почему Aşkın Yapı?", why_h2: "Наша корпоративная структура предлагает единое решение для каждого проекта.",
+      why_1_title: "Интегрированный сервис", why_1_desc: "Проектирование, инжиниринг, строительство и управление сдачей под одной крышей.",
+      why_2_title: "Подтверждённые референсы", why_2_desc: "Сотни проектов и более 100 применений бассейнов с 2011 года.",
+      why_3_title: "Международное представительство", why_3_desc: "Корпоративное присутствие в Турции и Великобритании.",
+      footer_desc: "Aşkın İnşaat Mimarlık Yapı — корпоративная структура, управляющая жилыми, коммерческими, стальными и строительными процессами под одной крышей.",
+      footer_menu: "Быстрое меню", footer_contact: "Контакт", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Все права защищены."
+    }
+  };
+
+  const langFlags = { tr:"🇹🇷", en:"🇬🇧", de:"🇩🇪", fr:"🇫🇷", it:"🇮🇹", es:"🇪🇸", ar:"🇸🇦", ru:"🇷🇺" };
+  const langNames = { tr:"TR", en:"EN", de:"DE", fr:"FR", it:"IT", es:"ES", ar:"AR", ru:"RU" };
+
+  function applyLang(lang) {
+    const t = translations[lang] || translations.tr;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (t[key] != null) el.textContent = t[key];
+    });
+    // attribute çevirileri:  data-i18n-attr="placeholder:form_msg_ph;title:foo"
+    document.querySelectorAll("[data-i18n-attr]").forEach(el => {
+      el.getAttribute("data-i18n-attr").split(";").forEach(pair => {
+        const idx = pair.indexOf(":");
+        if (idx === -1) return;
+        const attr = pair.slice(0, idx).trim();
+        const key = pair.slice(idx + 1).trim();
+        if (attr && key && t[key] != null) el.setAttribute(attr, t[key]);
+      });
+    });
+    const cf = document.getElementById("currentFlag"); if (cf) cf.textContent = langFlags[lang];
+    const cl = document.getElementById("currentLang"); if (cl) cl.textContent = langNames[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.querySelectorAll(".lang-dropdown a").forEach(a => {
+      a.classList.toggle("active", a.dataset.lang === lang);
+    });
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+
+  function init() {
+    const toggle = document.getElementById("langToggle");
+    const dropdown = document.getElementById("langDropdown");
+    if (toggle && dropdown) {
+      toggle.addEventListener("click", e => { e.stopPropagation(); dropdown.classList.toggle("open"); });
+      document.addEventListener("click", () => dropdown.classList.remove("open"));
+      document.querySelectorAll(".lang-dropdown a").forEach(a => {
+        a.addEventListener("click", e => {
+          e.preventDefault();
+          applyLang(a.dataset.lang);
+          dropdown.classList.remove("open");
+        });
+      });
+    }
+    let saved = "tr";
+    try { saved = localStorage.getItem("lang") || "tr"; } catch (e) {}
+    applyLang(saved);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+
+  // Dinamik içerik (örn. çelik ev galerisi) yeniden render edildiğinde tekrar çağrılabilir.
+  window.applyLang = applyLang;
+  window.currentLang = () => { try { return localStorage.getItem("lang") || "tr"; } catch (e) { return "tr"; } };
+})();
