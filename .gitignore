@@ -1,0 +1,10 @@
+# Bağımlılıklar (sadece görsel optimizasyon scripti için, siteye dahil değil)
+node_modules/
+package-lock.json
+
+# Orijinal (optimize edilmemiş) görsel yedekleri — ~178MB, repoda tutulmaz
+assets/images-original/
+
+# Sistem
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--akninaatmimarlk-8kcm72ffa.com/sitemap.xml

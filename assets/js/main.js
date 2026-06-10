@@ -1,5 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── WebP otomatik yükseltme (performans / LCP) ───────────────
+  // Optimize edilmiş görsellerin .webp sürümü varsa <img>'leri otomatik
+  // webp'ye çevirir; webp yüklenemezse sessizce orijinale döner.
+  // Statik + dinamik (çelik ev galerisi, lightbox) tüm görselleri kapsar.
+  (async () => {
+    let webpSet;
+    try {
+      const res = await fetch('assets/images/webp-manifest.json', { cache: 'force-cache' });
+      webpSet = new Set(await res.json());
+    } catch (_) { return; }
+
+    const toWebp = (src) => {
+      if (!src) return null;
+      const i = src.indexOf('assets/images/');         // mutlak URL de gelebilir
+      if (i === -1) return null;
+      const rel = src.slice(i);
+      if (!/\.(jpe?g|png)$/i.test(rel)) return null;
+      const webp = rel.replace(/\.(jpe?g|png)$/i, '.webp');
+      return webpSet.has(webp) ? webp : null;
+    };
+
+    const upgrade = (img) => {
+      const cur = img.getAttribute('src');
+      if (!cur || img.dataset.webpFail === cur) return; // bu kaynak için webp başarısız olmuştu
+      const webp = toWebp(cur);
+      if (!webp) return;
+      img.addEventListener('error', () => { img.dataset.webpFail = cur; img.src = cur; }, { once: true });
+      img.src = webp;
+    };
+
+    document.querySelectorAll('img').forEach(upgrade);
+    // dinamik eklenen/değişen görseller için izle (galeri kartları, lightbox)
+    new MutationObserver((muts) => {
+      muts.forEach((m) => {
+        if (m.type === 'attributes' && m.target.tagName === 'IMG') { upgrade(m.target); return; }
+        m.addedNodes.forEach((n) => {
+          if (n.nodeType !== 1) return;
+          if (n.tagName === 'IMG') upgrade(n);
+          else if (n.querySelectorAll) n.querySelectorAll('img').forEach(upgrade);
+        });
+      });
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+  })();
+
   // ── Mobil menü ──────────────────────────────────────────────
   const btn = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav]');
@@ -87,5 +131,24 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.main-nav a').forEach(a => {
     if(a.getAttribute('href') === page) a.classList.add('active');
   });
+
+  // ── Yüzen WhatsApp butonu (tüm sayfalarda) ───────────────────
+  // Türkiye'de inşaat/müteahhitlik işinde en yüksek dönüşümlü lead kanalı.
+  const WA_PHONE = '905320606612';
+  const WA_TEXT  = encodeURIComponent('Merhaba, web siteniz üzerinden proje/teklif hakkında bilgi almak istiyorum.');
+  if(!document.querySelector('.wa-float')){
+    const wa = document.createElement('a');
+    wa.className = 'wa-float';
+    wa.href = `https://wa.me/${WA_PHONE}?text=${WA_TEXT}`;
+    wa.target = '_blank';
+    wa.rel = 'noopener';
+    wa.setAttribute('aria-label', 'WhatsApp ile iletişime geçin');
+    wa.innerHTML = `
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" fill="currentColor">
+        <path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.8 1.3 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13 13-13s13 5.8 13 13-5.8 13.9-13 13.9zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+      </svg>
+      <span class="wa-float-label">WhatsApp</span>`;
+    document.body.appendChild(wa);
+  }
 
 });

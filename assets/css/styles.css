@@ -224,3 +224,40 @@ h3{font-size:22px}
   .hero-media{min-height:280px}
   .gallery{grid-template-columns:1fr}
 }
+
+/* ===== YÜZEN WHATSAPP BUTONU ===== */
+.wa-float{
+  position:fixed;right:20px;bottom:20px;z-index:90;
+  display:flex;align-items:center;gap:10px;
+  background:#25d366;color:#fff;
+  padding:14px 18px;border-radius:50px;
+  box-shadow:0 10px 30px rgba(37,211,102,.45);
+  font-weight:700;font-size:15px;
+  transition:transform .25s ease,box-shadow .25s ease;
+  animation:wa-pulse 2.4s ease-in-out infinite;
+}
+.wa-float:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 40px rgba(37,211,102,.55)}
+.wa-float svg{flex-shrink:0}
+@keyframes wa-pulse{
+  0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.45)}
+  50%{box-shadow:0 10px 30px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.12)}
+}
+@media(max-width:480px){
+  .wa-float{right:16px;bottom:16px;padding:14px}
+  .wa-float-label{display:none}
+}
+
+/* ===== İLETİŞİM: WHATSAPP GÖNDER BUTONU ===== */
+.btn-whatsapp{
+  background:#25d366;color:#fff;border:none;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-whatsapp:hover{background:#1ebe5d}
+.form-divider{
+  text-align:center;color:var(--muted);font-size:13px;
+  margin:14px 0;position:relative;
+}
+.form-divider::before,.form-divider::after{
+  content:"";position:absolute;top:50%;width:38%;height:1px;background:var(--line);
+}
+.form-divider::before{left:0}.form-divider::after{right:0}
