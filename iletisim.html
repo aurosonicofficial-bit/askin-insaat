@@ -78,9 +78,9 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow">İletişim</span>
-    <h1>Proje, teklif ve kurumsal görüşmeler için bizimle iletişime geçin.</h1>
-    <p class="lead" style="margin-top:12px;">Aşkın İnşaat Mimarlık Yapı ekibi olarak her projeye özel yaklaşım sergiliyoruz. Mesajınızı bırakın, en kısa sürede dönelim.</p>
+    <span class="eyebrow" data-i18n="ile_eyebrow">İletişim</span>
+    <h1 data-i18n="ile_h1">Proje, teklif ve kurumsal görüşmeler için bizimle iletişime geçin.</h1>
+    <p class="lead" style="margin-top:12px;" data-i18n="ile_lead">Aşkın İnşaat Mimarlık Yapı ekibi olarak her projeye özel yaklaşım sergiliyoruz. Mesajınızı bırakın, en kısa sürede dönelim.</p>
   </div>
 </section>
 
@@ -88,46 +88,46 @@
   <div class="container content-grid">
     <!-- İletişim Formu -->
     <div class="info-card">
-      <h2 style="margin-bottom:24px;">Mesaj Gönderin</h2>
+      <h2 style="margin-bottom:24px;" data-i18n="ile_form_h">Mesaj Gönderin</h2>
       <!-- Formspree formu canlı — gönderimler bağlı e-posta adresine düşer -->
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpqejzyp" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <div class="form-group">
-            <label for="ad">Ad Soyad *</label>
-            <input type="text" id="ad" name="ad" placeholder="Ahmet Yılmaz" required>
+            <label for="ad" data-i18n="ile_lbl_name">Ad Soyad *</label>
+            <input type="text" id="ad" name="ad" placeholder="Ahmet Yılmaz" data-i18n-attr="placeholder:ile_ph_name" required>
           </div>
           <div class="form-group">
-            <label for="telefon">Telefon</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="+90 5xx xxx xx xx">
+            <label for="telefon" data-i18n="ile_lbl_phone">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+90 5xx xxx xx xx" data-i18n-attr="placeholder:ile_ph_phone">
           </div>
         </div>
         <div class="form-group">
-          <label for="eposta">E-posta Adresi *</label>
-          <input type="email" id="eposta" name="eposta" placeholder="ornek@sirket.com" required>
+          <label for="eposta" data-i18n="ile_lbl_email">E-posta Adresi *</label>
+          <input type="email" id="eposta" name="eposta" placeholder="ornek@sirket.com" data-i18n-attr="placeholder:ile_ph_email" required>
         </div>
         <div class="form-group">
-          <label for="konu">Konu</label>
+          <label for="konu" data-i18n="ile_lbl_subject">Konu</label>
           <select id="konu" name="konu">
-            <option value="">Konu seçin</option>
-            <option value="teklif">Proje Teklifi</option>
-            <option value="celik">Çelik Sistem Yapı</option>
-            <option value="konut">Konut Projesi</option>
-            <option value="mimari">Mimari Tasarım</option>
-            <option value="havuz">Havuz ve Sosyal Tesis</option>
-            <option value="diger">Diğer</option>
+            <option value="" data-i18n="ile_opt_select">Konu seçin</option>
+            <option value="teklif" data-i18n="ile_opt_quote">Proje Teklifi</option>
+            <option value="celik" data-i18n="ile_opt_steel">Çelik Sistem Yapı</option>
+            <option value="konut" data-i18n="ile_opt_residential">Konut Projesi</option>
+            <option value="mimari" data-i18n="ile_opt_arch">Mimari Tasarım</option>
+            <option value="havuz" data-i18n="ile_opt_pool">Havuz ve Sosyal Tesis</option>
+            <option value="diger" data-i18n="ile_opt_other">Diğer</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="mesaj">Mesajınız *</label>
-          <textarea id="mesaj" name="mesaj" placeholder="Projeniz hakkında kısa bilgi verin…" required></textarea>
+          <label for="mesaj" data-i18n="ile_lbl_message">Mesajınız *</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Projeniz hakkında kısa bilgi verin…" data-i18n-attr="placeholder:ile_ph_message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:16px 24px;">Mesajı Gönder →</button>
-        <div class="form-divider">veya anında ulaşın</div>
+        <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:16px 24px;" data-i18n="ile_btn_send">Mesajı Gönder →</button>
+        <div class="form-divider" data-i18n="ile_divider">veya anında ulaşın</div>
         <button type="button" onclick="sendWhatsApp()" class="btn btn-whatsapp" style="width:100%;font-size:16px;padding:16px 24px;">
           <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.8 1.3 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13 13-13s13 5.8 13 13-5.8 13.9-13 13.9zm7.2-9.8c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg>
-          WhatsApp ile Gönder
+          <span data-i18n="ile_btn_whatsapp">WhatsApp ile Gönder</span>
         </button>
-        <div class="form-success" id="formSuccess">
+        <div class="form-success" id="formSuccess" data-i18n="ile_success">
           ✓ Mesajınız alındı. En kısa sürede sizinle iletişime geçeceğiz.
         </div>
       </form>
@@ -136,35 +136,35 @@
     <!-- İletişim Bilgileri -->
     <div style="display:flex;flex-direction:column;gap:20px;">
       <div class="side-card">
-        <h3 style="margin-bottom:18px;">İletişim Bilgileri</h3>
+        <h3 style="margin-bottom:18px;" data-i18n="ile_info_h">İletişim Bilgileri</h3>
         <ul class="list-clean">
           <li>
-            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Şirket</strong>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;" data-i18n="ile_lbl_company">Şirket</strong>
             Aşkın İnşaat Mimarlık Yapı
           </li>
           <li>
-            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Telefon</strong>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;" data-i18n="ile_s_phone">Telefon</strong>
             <a href="tel:+905320606612">+90 532 060 66 12</a>
           </li>
           <li>
-            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">E-posta</strong>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;" data-i18n="ile_s_email">E-posta</strong>
             <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
           </li>
           <li>
-            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Birleşik Krallık Ofisi</strong>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;" data-i18n="ile_s_uk">Birleşik Krallık Ofisi</strong>
             71–75 Shelton Street, Covent Garden, Londra, WC2H 9JQ
           </li>
           <li>
-            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;">Türkiye Ofisi</strong>
+            <strong style="font-size:13px;color:var(--muted);display:block;margin-bottom:2px;" data-i18n="ile_s_tr">Türkiye Ofisi</strong>
             İsmetpaşa Mah., Burmalıçeşme Sok. 90/A, Dikili / İzmir
           </li>
         </ul>
       </div>
 
       <div class="side-card" style="background:linear-gradient(135deg,#0f172a,#1e2e40);color:#e5e7eb;border-color:transparent;">
-        <h3 style="color:white;margin-bottom:12px;">Teklif Talebi</h3>
-        <p style="color:#cbd5e1;font-size:15px;margin-bottom:18px;">Projenizin detaylarını paylaşın; fizibilite değerlendirmesi ve teklifimizi hazırlayalım.</p>
-        <a href="assets/docs/referanslar-projeler-2011-2025-lite.pdf" target="_blank" class="btn btn-secondary" style="border-color:rgba(255,255,255,.3);background:transparent;color:white;width:100%;justify-content:center;">Referans Dosyasını İncele</a>
+        <h3 style="color:white;margin-bottom:12px;" data-i18n="ile_quote_h">Teklif Talebi</h3>
+        <p style="color:#cbd5e1;font-size:15px;margin-bottom:18px;" data-i18n="ile_quote_p">Projenizin detaylarını paylaşın; fizibilite değerlendirmesi ve teklifimizi hazırlayalım.</p>
+        <a href="assets/docs/referanslar-projeler-2011-2025-lite.pdf" target="_blank" class="btn btn-secondary" style="border-color:rgba(255,255,255,.3);background:transparent;color:white;width:100%;justify-content:center;" data-i18n="ile_ref_btn">Referans Dosyasını İncele</a>
       </div>
     </div>
   </div>
