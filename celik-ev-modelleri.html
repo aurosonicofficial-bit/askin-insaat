@@ -309,19 +309,19 @@
   <div class="container">
     <div class="models-hero-inner">
       <div>
-        <span class="eyebrow">Prefabrik Çelik Yapı Sistemleri</span>
-        <h1>Çelik Ev Modelleri</h1>
-        <p class="lead" style="margin-top:8px;">45 m²'den 164 m²'ye kadar tek katlı ve iki katlı çelik sistem ev modelleri.</p>
+        <span class="eyebrow" data-i18n="cev_eyebrow">Prefabrik Çelik Yapı Sistemleri</span>
+        <h1 data-i18n="cev_h1">Çelik Ev Modelleri</h1>
+        <p class="lead" style="margin-top:8px;" data-i18n="cev_lead">45 m²'den 164 m²'ye kadar tek katlı ve iki katlı çelik sistem ev modelleri.</p>
         <div class="filter-row" id="filterRow">
-          <button class="filter-btn active" onclick="filterModels('all', this)">Tümü (10)</button>
-          <button class="filter-btn" onclick="filterModels('tek-katli', this)">Tek Katlı (5)</button>
-          <button class="filter-btn" onclick="filterModels('iki-katli', this)">İki Katlı (5)</button>
+          <button class="filter-btn active" onclick="filterModels('all', this)" data-i18n="cev_filter_all">Tümü (10)</button>
+          <button class="filter-btn" onclick="filterModels('tek-katli', this)" data-i18n="cev_filter_single">Tek Katlı (5)</button>
+          <button class="filter-btn" onclick="filterModels('iki-katli', this)" data-i18n="cev_filter_double">İki Katlı (5)</button>
         </div>
       </div>
       <div class="hero-meta" style="max-width:380px;">
-        <div class="metric-card reveal"><strong>10+</strong><span>Hazır Model</span></div>
-        <div class="metric-card reveal"><strong>45–164 m²</strong><span>Metrekare Aralığı</span></div>
-        <div class="metric-card reveal"><strong>Hızlı</strong><span>Montaj Süresi</span></div>
+        <div class="metric-card reveal"><strong>10+</strong><span data-i18n="cev_meta1">Hazır Model</span></div>
+        <div class="metric-card reveal"><strong>45–164 m²</strong><span data-i18n="cev_meta2">Metrekare Aralığı</span></div>
+        <div class="metric-card reveal"><strong data-i18n="cev_meta3_val">Hızlı</strong><span data-i18n="cev_meta3">Montaj Süresi</span></div>
       </div>
     </div>
   </div>
@@ -339,19 +339,19 @@
   <div class="container">
     <div class="band">
       <div class="item reveal">
-        <strong>Ücretsiz Keşif</strong>
-        <span>Uzman ekibimiz sizi arar, ihtiyaçlarınızı dinler</span>
+        <strong data-i18n="cev_b1_t">Ücretsiz Keşif</strong>
+        <span data-i18n="cev_b1_d">Uzman ekibimiz sizi arar, ihtiyaçlarınızı dinler</span>
       </div>
       <div class="item reveal">
-        <strong>Hızlı Montaj</strong>
-        <span>Fabrika üretimi ile sahada kısa sürede tamamlama</span>
+        <strong data-i18n="cev_b2_t">Hızlı Montaj</strong>
+        <span data-i18n="cev_b2_d">Fabrika üretimi ile sahada kısa sürede tamamlama</span>
       </div>
       <div class="item reveal">
-        <strong>Fiyat Teklifi</strong>
-        <span>Modeli seçin, size özel teklif hazırlayalım</span>
+        <strong data-i18n="cev_b3_t">Fiyat Teklifi</strong>
+        <span data-i18n="cev_b3_d">Modeli seçin, size özel teklif hazırlayalım</span>
       </div>
       <div class="item reveal">
-        <a class="btn btn-primary" href="iletisim.html" style="display:inline-flex;margin-top:4px;">Teklif Alın →</a>
+        <a class="btn btn-primary" href="iletisim.html" style="display:inline-flex;margin-top:4px;" data-i18n="cev_b_btn">Teklif Alın →</a>
       </div>
     </div>
   </div>
@@ -515,23 +515,27 @@ function renderGrid(filter) {
     card.className = 'model-card reveal';
     card.style.animationDelay = (i * 0.06) + 's';
     card.onclick = () => lbOpen(m);
+    const typeKey = m.type === 'tek-katli' ? 'cev_type_single' : 'cev_type_double';
+    const area = parseInt(m.name, 10); // "45 m² Tek Katlı Ev" → 45
     card.innerHTML = `
       <div class="model-thumb">
         <img src="assets/images/celik-ev-modelleri/${m.id}/${m.thumb}" alt="${m.name}" loading="lazy" />
-        <span class="model-badge">${m.typeLabel}</span>
+        <span class="model-badge" data-i18n="${typeKey}">${m.typeLabel}</span>
       </div>
       <div class="model-body">
         <div class="model-top">
-          <span class="model-type-tag">${m.typeLabel} · Çelik Sistem</span>
-          <span class="model-count-tag">${m.images.length} fotoğraf</span>
+          <span class="model-type-tag"><span data-i18n="${typeKey}">${m.typeLabel}</span> · <span data-i18n="cev_steel">Çelik Sistem</span></span>
+          <span class="model-count-tag">${m.images.length} <span data-i18n="cev_photos">fotoğraf</span></span>
         </div>
-        <h3 class="model-name">${m.name}</h3>
-        <p class="model-desc">${m.desc}</p>
-        <span class="model-cta">Fotoğrafları İncele →</span>
+        <h3 class="model-name">${area} m² <span data-i18n="${typeKey}">${m.typeLabel}</span> <span data-i18n="cev_house">Ev</span></h3>
+        <p class="model-desc" data-i18n="cev_d_${m.id}">${m.desc}</p>
+        <span class="model-cta" data-i18n="cev_gallery_cta">Fotoğrafları İncele →</span>
       </div>
     `;
     grid.appendChild(card);
   });
+  // yeni eklenen kartların metinlerini seçili dile çevir
+  if (window.applyLang) window.applyLang(window.currentLang());
   // trigger reveal
   setTimeout(() => {
     grid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
@@ -547,7 +551,10 @@ function filterModels(type, btn) {
 function lbOpen(model) {
   currentModel = model;
   currentIdx = 0;
-  document.getElementById('lbTitle').textContent = model.name;
+  const _tk = model.type === 'tek-katli' ? 'cev_type_single' : 'cev_type_double';
+  const _area = parseInt(model.name, 10);
+  document.getElementById('lbTitle').textContent =
+    window.t ? `${_area} m² ${window.t(_tk)} ${window.t('cev_house')}` : model.name;
   // build strip
   const strip = document.getElementById('lbStrip');
   strip.innerHTML = '';
