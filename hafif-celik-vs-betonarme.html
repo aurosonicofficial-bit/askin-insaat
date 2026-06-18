@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hafif Çelik vs. Betonarme: Hangisi Daha İyi? 2026 Karşılaştırma | Aşkın Yapı</title>
+<meta name="description" content="Hafif çelik yapı mı betonarme mi? Maliyet, yapım süresi, deprem dayanımı, enerji verimliliği ve uzun vadeli performans karşılaştırması. Uzman değerlendirmesi.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .comp-hero {
+    padding: 64px 0 48px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Yan yana karşılaştırma tablosu */
+  .big-compare {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .bc-head { padding: 18px 20px; font-weight: 700; font-size: 15px; }
+  .bc-head.label { background: #f8fafc; }
+  .bc-head.steel { background: var(--brand); color: white; text-align: center; font-size: 16px; }
+  .bc-head.concrete { background: #0f172a; color: white; text-align: center; font-size: 16px; }
+
+  .bc-row { display: contents; }
+  .bc-cell {
+    padding: 14px 20px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bc-cell.label-cell { font-weight: 600; color: var(--text); background: #f8fafc; }
+  .bc-cell.steel-cell { background: #fffaf5; }
+  .bc-cell.concrete-cell { background: white; }
+  .bc-cell.steel-cell.win { background: #fef3e2; font-weight: 600; color: #c06020; }
+  .bc-cell.concrete-cell.win { background: #f1f5f9; font-weight: 600; }
+  .win-badge { font-size: 16px; flex-shrink: 0; }
+
+  /* Derinlemesine bölümler */
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .detail-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .detail-header {
+    padding: 16px 22px;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .detail-header.steel { background: linear-gradient(90deg, #fef3e2, #fff8f2); color: #c06020; }
+  .detail-header.concrete { background: #f8fafc; color: var(--text); }
+  .detail-body { padding: 18px 22px; }
+  .detail-row {
+    display: flex; gap: 10px; font-size: 14px; padding: 8px 0;
+    border-bottom: 1px solid var(--line); line-height: 1.5; color: var(--muted);
+  }
+  .detail-row:last-child { border: none; }
+  .dr-icon { flex-shrink: 0; font-size: 16px; }
+
+  /* SSS */
+  .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-q {
+    font-size: 17px; font-weight: 700; color: var(--text);
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; list-style: none; margin: 0;
+  }
+  .faq-q::after { content: "+"; font-size: 22px; color: var(--brand); flex-shrink: 0; transition: transform .25s; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 15px; color: var(--muted); line-height: 1.75;
+    max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; padding: 0;
+  }
+  .faq-item.open .faq-a { max-height: 600px; padding-top: 14px; }
+
+  /* Kim ne seçmeli */
+  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .choice-card {
+    border-radius: 18px; padding: 28px 24px;
+    border: 2px solid transparent;
+  }
+  .choice-card.steel { background: #fffaf5; border-color: rgba(214,119,42,.3); }
+  .choice-card.concrete { background: #f8fafc; border-color: rgba(15,23,42,.15); }
+  .choice-card h3 { font-size: 17px; margin: 0 0 14px; }
+  .choice-card ul { padding-left: 18px; margin: 0; color: var(--muted); font-size: 14px; line-height: 2; }
+
+  .cta-band {
+    background: linear-gradient(135deg, #0f172a, #1e2e40);
+    border-radius: 24px; padding: 48px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .big-compare { grid-template-columns: 1fr; }
+    .bc-head.label, .bc-cell.label-cell { display: none; }
+    .bc-head.steel, .bc-head.concrete { text-align: left; padding: 14px 16px; }
+    .bc-cell { padding: 10px 16px; }
+    .detail-grid, .choice-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) { .cta-band { padding: 32px 24px; } }
+</style>
+
+<link rel="canonical" href="https://xn--akninaatmimarlk-8kcm72ffa.com/hafif-celik-vs-betonarme.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Aşkın İnşaat Mimarlık Yapı">
+<meta name="geo.region" content="TR-35"><meta name="geo.placename" content="Dikili, İzmir">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aşkın İnşaat Mimarlık Yapı">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Hafif Çelik vs. Betonarme: Hangisi Daha İyi? 2026 Karşılaştırma">
+<meta property="og:description" content="Hafif çelik yapı mı betonarme mi? Maliyet, yapım süresi, deprem dayanımı ve enerji verimliliği karşılaştırması. Uzman değerlendirmesi.">
+<meta property="og:url" content="https://xn--akninaatmimarlk-8kcm72ffa.com/hafif-celik-vs-betonarme.html">
+<meta property="og:image" content="https://xn--akninaatmimarlk-8kcm72ffa.com/assets/images/steel-villa-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hafif Çelik vs. Betonarme: Hangisi Daha İyi? 2026">
+<meta name="twitter:description" content="Hafif çelik yapı mı betonarme mi? Maliyet, süre, deprem ve enerji karşılaştırması.">
+<meta name="twitter:image" content="https://xn--akninaatmimarlk-8kcm72ffa.com/assets/images/steel-villa-1.jpg">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+<meta name="theme-color" content="#d6772a">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hafif çelik ev mi betonarme mi daha iyi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Her iki sistem de farklı önceliklere göre üstündür. Hafif çelik: hız (kaba montaj 4–14 hafta), hafiflik (betonarme'nin 1/3 ağırlığı), taşınabilirlik ve fabrika kalitesinde öne çıkar. Betonarme: istenilen forma uyarlanabilirlik, toprak altı kullanım imkânı ve yüksek katlı yapılarda avantajlıdır. Villa ve tek/iki katlı konut için hafif çelik çoğunlukla daha hızlı ve maliyet açısından rekabetçi bir seçenektir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Çelik ev mi betonarme ev mi daha ucuz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yapım sürecinde hafif çelik sistem evler betonarme yapılara kıyasla genellikle %15–30 daha hızlı tamamlanır; bu durum işçilik ve finansman maliyetini düşürür. m² malzeme maliyeti iki sistem arasında benzer olmakla birlikte hız avantajı nedeniyle toplam proje maliyeti çelik sistemde daha düşük çıkabilir. Zemin koşulları, lokasyon ve özelleştirme derecesi belirleyicidir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Çelik ev depreme dayanıklı mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Evet. Hafif çelik yapılar yüksek çekme mukavemeti ve esnekliği sayesinde deprem enerjisini betonarme yapılara kıyasla daha etkin absorbe eder. Yapının hafifliği (betonarme'nin ~1/3'ü) deprem yükünü önemli ölçüde azaltır. TBDY 2018 kapsamında projelendirilen hafif çelik yapılar deprem bölgesi 1 ve 2'de uygulanabilmektedir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hafif çelik evin ömrü ne kadar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doğru projelendirilmiş ve bakımlı tutulan hafif çelik yapıların ömrü 50+ yıldır. Kullanılan profiller galvanizli çelikten üretilir; nem ve korozyona karşı koruma sağlanır. Betonarme yapılarla benzer bakım gereksinimleri vardır. Bazı üreticiler 50 yıl yapısal garanti sunmaktadır."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hafif çelik ev soğuk yapar mı?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hayır; doğru yalıtım sistemiyle hafif çelik yapılar yüksek enerji verimliliği sunar. Çelik profilin ısıl köprü oluşturmasını önlemek için profil aralarına mineral yün veya EPS yalıtım uygulanır. Dış cephe yalıtım sistemi ile A veya A+ enerji sınıfı elde edilebilir; bu da ısıtma-soğutma maliyetini betonarme'ye göre %20–40 düşürebilir."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="left">
+      <span data-i18n="topbar_services">İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <a href="tel:+905320606612">+90 532 060 66 12</a>
+      <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+    </div>
+    <div class="right" style="display:flex;align-items:center;gap:16px;">
+      <span data-i18n="topbar_locations">Türkiye · Birleşik Krallık</span>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langToggle"><span id="currentFlag">🇹🇷</span><span id="currentLang">TR</span><span>▾</span></button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" data-lang="tr" class="active"><span class="lang-flag">🇹🇷</span> Türkçe</a>
+          <a href="#" data-lang="en"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="#" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+          <a href="#" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="#" data-lang="it"><span class="lang-flag">🇮🇹</span> Italiano</a>
+          <a href="#" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="#" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</a>
+          <a href="#" data-lang="ru"><span class="lang-flag">🇷🇺</span> Русский</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-nav>
+      <a href="kurumsal.html" data-i18n="nav_corporate">Kurumsal</a>
+      <a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a>
+      <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+      <a class="active" href="celik-ev-modelleri.html" data-i18n="nav_steel">Çelik Ev Modelleri</a>
+      <a href="medya-merkezi.html" data-i18n="nav_media">Medya Merkezi</a>
+      <a href="uluslararasi-vizyon.html" data-i18n="nav_international">Uluslararası Vizyon</a>
+      <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
+    </nav>
+    <a class="cta-btn" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="comp-hero">
+  <div class="container">
+    <div style="max-width:760px;">
+      <nav aria-label="breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+        <a href="index.html" style="color:var(--muted);text-decoration:none;">Ana Sayfa</a>
+        <span style="margin:0 8px;">›</span>
+        <a href="celik-ev-modelleri.html" style="color:var(--muted);text-decoration:none;">Çelik Ev Modelleri</a>
+        <span style="margin:0 8px;">›</span>
+        <span>Çelik vs. Betonarme</span>
+      </nav>
+      <span class="eyebrow">Yapı Sistemleri Karşılaştırması · 2026</span>
+      <h1 style="font-size:clamp(26px,4vw,46px);margin:12px 0 16px;line-height:1.15;">Hafif Çelik Yapı mı,<br>Betonarme mi? Hangisi Daha İyi?</h1>
+      <p class="lead">Maliyet, yapım süresi, deprem dayanımı, enerji verimliliği ve uzun vadeli performans kriterlerine göre kapsamlı karşılaştırma. 2011'den bu yana her iki sistemde de uygulama deneyimine sahip ekibimizin değerlendirmesi.</p>
+      <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+        <div style="background:white;border:2px solid rgba(214,119,42,.4);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:700;color:var(--brand);">🏆 Hız: Hafif Çelik</div>
+        <div style="background:white;border:2px solid rgba(15,23,42,.2);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:700;color:#0f172a;">🏆 Şekil Esnekliği: Betonarme</div>
+        <div style="background:white;border:2px solid rgba(214,119,42,.4);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:700;color:var(--brand);">🏆 Deprem: Hafif Çelik</div>
+        <div style="background:white;border:2px solid rgba(214,119,42,.4);border-radius:12px;padding:12px 20px;font-size:14px;font-weight:700;color:var(--brand);">🏆 Enerji: Hafif Çelik</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANA KARŞILAŞTIRMA TABLOSU -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Kriter Bazlı Karşılaştırma</span>
+    <h2 style="margin-bottom:28px;">Hafif Çelik vs. Betonarme — 12 Kriter</h2>
+    <div class="big-compare">
+      <div class="bc-head label">Kriter</div>
+      <div class="bc-head steel">🔩 Hafif Çelik Sistem</div>
+      <div class="bc-head concrete">🏛️ Betonarme</div>
+
+      <div class="bc-cell label-cell">Kaba yapım süresi</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> 4–14 hafta (modele göre)</div>
+      <div class="bc-cell concrete-cell">6–18 ay</div>
+
+      <div class="bc-cell label-cell">Yapı ağırlığı</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> ~120–200 kg/m² (hafif)</div>
+      <div class="bc-cell concrete-cell">~400–600 kg/m²</div>
+
+      <div class="bc-cell label-cell">Deprem dayanımı</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> Esnek, yüksek enerji yutma</div>
+      <div class="bc-cell concrete-cell">Rijit; tasarıma bağımlı</div>
+
+      <div class="bc-cell label-cell">Enerji verimliliği</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> A/A+ sınıfı mümkün</div>
+      <div class="bc-cell concrete-cell">Ek yalıtım gerektirir</div>
+
+      <div class="bc-cell label-cell">Şekil esnekliği</div>
+      <div class="bc-cell steel-cell">Standart dikdörtgen planlar ideal</div>
+      <div class="bc-cell concrete-cell win"><span class="win-badge">✅</span> Her forma uyarlanabilir</div>
+
+      <div class="bc-cell label-cell">Katlar arası ses yalıtımı</div>
+      <div class="bc-cell steel-cell">Ek akustik paket gerekebilir</div>
+      <div class="bc-cell concrete-cell win"><span class="win-badge">✅</span> Yüksek kütle = doğal yalıtım</div>
+
+      <div class="bc-cell label-cell">Taşınabilirlik</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> Söküp başka yere kurulabilir</div>
+      <div class="bc-cell concrete-cell">Kalıcı yapı, taşınamaz</div>
+
+      <div class="bc-cell label-cell">Kalite kontrolü</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> Fabrikada üretim, hassas tolerans</div>
+      <div class="bc-cell concrete-cell">Sahada döküm; hava/işçilik bağımlı</div>
+
+      <div class="bc-cell label-cell">Bodrum / zemin altı kullanım</div>
+      <div class="bc-cell steel-cell">Sınırlı; nem yönetimi gerekir</div>
+      <div class="bc-cell concrete-cell win"><span class="win-badge">✅</span> Uygun</div>
+
+      <div class="bc-cell label-cell">Zayıf zemin performansı</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> Hafif ağırlık avantaj sağlar</div>
+      <div class="bc-cell concrete-cell">Güçlü temel zorunlu, pahalı</div>
+
+      <div class="bc-cell label-cell">Tadilat kolaylığı</div>
+      <div class="bc-cell steel-cell win"><span class="win-badge">✅</span> Bölme duvarlar kolayca değişir</div>
+      <div class="bc-cell concrete-cell">Taşıyıcı duvar kısıtlamaları</div>
+
+      <div class="bc-cell label-cell">Uzun vadeli değer</div>
+      <div class="bc-cell steel-cell">50+ yıl doğru bakımla</div>
+      <div class="bc-cell concrete-cell win"><span class="win-badge">✅</span> 50–100 yıl piyasa kabulü</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAYLI BÖLÜMLER -->
+<section class="section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <span class="eyebrow">Derinlemesine İnceleme</span>
+    <h2 style="margin-bottom:28px;">4 Kritik Faktörde Detaylı Karşılaştırma</h2>
+    <div class="detail-grid">
+
+      <div class="detail-card reveal">
+        <div class="detail-header steel">🔩 Hafif Çelik — Deprem Davranışı</div>
+        <div class="detail-body">
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Çelik profil yüksek çekme mukavemeti sayesinde çatlama yerine esner</div></div>
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Düşük ağırlık (~200 kg/m²) deprem kuvvetini zemin üzerinde önemli ölçüde azaltır</div></div>
+          <div class="detail-row"><span class="dr-icon">✅</span><div>TBDY 2018 kapsamında deprem bölgesi 1–2'de uygulanabilir</div></div>
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Çerçeve+diyafram sistemi enerji yutma kapasitesini artırır</div></div>
+          <div class="detail-row"><span class="dr-icon">ℹ️</span><div>Uygun zemin tespiti ve statik proje şart; hafifliği her zemin için avantajdır</div></div>
+        </div>
+      </div>
+
+      <div class="detail-card reveal">
+        <div class="detail-header concrete">🏛️ Betonarme — Deprem Davranışı</div>
+        <div class="detail-body">
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Tasarım ve denetim kalitesiyle yüksek performans elde edilebilir</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Yüksek ağırlık (600 kg/m²+) sismik kuvveti artırır; daha güçlü temel zorunlu</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Saha kalite kontrolü kritik; hatalı uygulama düşük performansa yol açar</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Rijit yapı; sismik hasar genellikle kalıcı ve onarımı pahalıdır</div></div>
+          <div class="detail-row"><span class="dr-icon">ℹ️</span><div>Yüksek katlı ve çok daireli yapılarda tercih edilmeye devam eder</div></div>
+        </div>
+      </div>
+
+      <div class="detail-card reveal">
+        <div class="detail-header steel">🔩 Hafif Çelik — Enerji ve Yalıtım</div>
+        <div class="detail-body">
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Profil araları tamamen mineral yün veya EPS ile doldurulur: U değeri 0.2–0.3 W/m²K</div></div>
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Dış cephe ek yalıtım sistemi ile A+ enerji sınıfı mümkün</div></div>
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Isıtma-soğutma maliyeti betonarme'ye göre yıllık %20–40 düşük olabilir</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Isıl köprü oluşmaması için özel profil kesitleri (thermobreak) kullanılmalı</div></div>
+          <div class="detail-row"><span class="dr-icon">ℹ️</span><div>Güneş paneli entegrasyonu çatı strüktürü sayesinde kolayca yapılabilir</div></div>
+        </div>
+      </div>
+
+      <div class="detail-card reveal">
+        <div class="detail-header concrete">🏛️ Betonarme — Enerji ve Yalıtım</div>
+        <div class="detail-body">
+          <div class="detail-row"><span class="dr-icon">✅</span><div>Yüksek termal kütle: gündüz ısıyı depolar, gece salar; yaz konforu avantajı</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Duvar yalıtımı sonradan eklenmezse enerji performansı düşük kalır</div></div>
+          <div class="detail-row"><span class="dr-icon">⚠️</span><div>Dış ETICS yalıtım sistemi ek maliyet ve süre gerektirir</div></div>
+          <div class="detail-row"><span class="dr-icon">ℹ️</span><div>Bodrum katlarda toprak yalıtımı sorunları ek önlem gerektirebilir</div></div>
+          <div class="detail-row"><span class="dr-icon">ℹ️</span><div>Doğru tasarımda betonarme de A sınıfı enerji performansına ulaşabilir</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KİM NE SEÇMELİ -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Karar Rehberi</span>
+    <h2 style="margin-bottom:28px;">Kim Hangi Sistemi Seçmeli?</h2>
+    <div class="choice-grid">
+      <div class="choice-card steel reveal">
+        <h3 style="color:var(--brand);">🔩 Hafif Çelik'i tercih edin:</h3>
+        <ul>
+          <li>Villa, tek veya iki katlı bağımsız konut planlıyorsanız</li>
+          <li>Hızlı teslim öncelikli ise (4–14 hafta kaba montaj)</li>
+          <li>Zayıf veya orta kalite zemin söz konusu ise</li>
+          <li>Yazlık, tatil evi veya geçici/taşınabilir yapı istiyorsanız</li>
+          <li>Enerji maliyetini düşürmek önceliğinizse</li>
+          <li>Fabrika kalitesi ve kontrollü üretim istiyorsanız</li>
+          <li>Gelecekte binayı başka arsaya taşımayı düşünüyorsanız</li>
+        </ul>
+      </div>
+      <div class="choice-card concrete reveal">
+        <h3 style="color:#0f172a;">🏛️ Betonarme'yi tercih edin:</h3>
+        <ul>
+          <li>Çok katlı (3+) apartman veya ticari bina yapacaksanız</li>
+          <li>Bodrum kat veya yarı bodrum zorunlu ise</li>
+          <li>Özel organik formlu mimari tasarım istiyorsanız</li>
+          <li>Yüksek sesli ortama yakın (gürültü yalıtımı kritik) ise</li>
+          <li>Bölgede satış/kiralama için piyasa kabulü öncelikli ise</li>
+          <li>Uzun vadede değişmeyecek kalıcı yapı planlıyorsanız</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:24px;background:var(--bg-alt);border:1px solid var(--line);border-radius:16px;padding:22px 24px;font-size:15px;color:var(--muted);line-height:1.8;">
+      <strong style="color:var(--text);">Uzman görüşümüz:</strong> Villa ve tek/iki katlı konut segmentinde hafif çelik sistem; hız, enerji verimliliği ve zayıf zemin avantajları nedeniyle çoğunlukla daha uygun tercihtir. Ancak her parsel ve ihtiyaç farklıdır — ücretsiz keşif ile doğru sistemi birlikte belirleyelim.
+    </div>
+  </div>
+</section>
+
+<!-- SSS -->
+<section class="section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <span class="eyebrow">Sıkça Sorulan Sorular</span>
+    <h2 style="margin-bottom:32px;">Hafif Çelik vs. Betonarme SSS</h2>
+    <div style="max-width:800px;">
+      <div class="faq-item">
+        <p class="faq-q">Hafif çelik ev mi betonarme mi daha iyi?</p>
+        <div class="faq-a">Her iki sistem de farklı senaryolarda üstündür. Hafif çelik; hız, deprem esnekliği, enerji verimliliği ve hafiflik konularında öne çıkar. Betonarme; şekil serbestliği, bodrum kullanımı ve çok katlı yapılarda avantajlıdır. Villa ve 1–2 katlı konut için hafif çelik genellikle daha hızlı ve rekabetçi bir seçenektir.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Çelik ev mi betonarme ev mi daha ucuz?</p>
+        <div class="faq-a">m² malzeme maliyeti iki sistem için benzerdir; ancak hafif çeliğin yapım hızı (%15–30 daha kısa) işçilik ve finansman maliyetini düşürür. Zayıf zemin durumunda hafif çeliğin düşük ağırlığı temel maliyetini önemli ölçüde azaltır. Lokasyon, zemin ve özelleştirme faktörlerine göre toplam maliyet değişir; kesin karşılaştırma için teklif alınması önerilir.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Çelik ev depreme dayanıklı mı?</p>
+        <div class="faq-a">Evet. Hafif çelik yapılar yüksek çekme mukavemeti ve esnekliği sayesinde deprem enerjisini betonarme yapılara kıyasla daha etkin absorbe eder. Düşük ağırlık (~200 kg/m²) sismik kuvveti azaltır; çerçeve sistemi enerji yutma kapasitesini artırır. TBDY 2018 kapsamında projelendirilen hafif çelik yapılar deprem bölgesi 1–2'de uygulanabilmektedir.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Hafif çelik evin ömrü ne kadar?</p>
+        <div class="faq-a">Doğru projelendirilmiş ve düzenli bakımlı hafif çelik yapıların ömrü 50+ yıldır. Galvanizli çelik profiller korozyona karşı korumalıdır. Dış cephe ve çatı kaplamalarının periyodik bakımı yapı ömrünü doğrudan etkiler. Betonarme yapılarla benzer uzun vadeli performans beklentisi mevcuttur.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Hafif çelik ev soğuk yapar mı?</p>
+        <div class="faq-a">Hayır; doğru yalıtım uygulandığında hafif çelik yapılar yüksek enerji verimliliği sunar. Profil aralarına mineral yün / EPS yalıtım, dışarıdan ise ETICS (ısı yalıtım kompozit sistemi) uygulanır. A veya A+ enerji sınıfı mümkün olup ısıtma-soğutma maliyeti betonarme'ye göre %20–40 düşük olabilir. Isıl köprü oluşmaması için thermobreak profil kullanımı önerilir.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAĞLANTI LİNKLERİ -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Daha Fazla Bilgi</span>
+    <h2 style="margin-bottom:20px;">Çelik Ev Kararınızı Netleştirin</h2>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="celik-ev-modelleri.html" class="btn btn-primary">10+ Çelik Ev Modelini İncele →</a>
+      <a href="celik-ev-fiyatlari.html" class="btn btn-secondary">2026 Çelik Ev Fiyatları</a>
+      <a href="proje-celik-villa-dikili.html" class="btn btn-secondary">Gerçek Uygulama: Çelik Villa</a>
+      <a href="raporlar.html" class="btn btn-secondary">Referans Arşivi</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:#f7f4f0;border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <span class="eyebrow" style="color:#f4a261;">Ücretsiz Danışmanlık</span>
+        <h3 style="color:white;margin:8px 0 10px;font-size:clamp(18px,2.5vw,26px);">Projeniz için doğru sistemi birlikte belirleyelim.</h3>
+        <p style="color:#cbd5e1;font-size:15px;max-width:520px;">Parsel bilgisi, bütçe ve beklentilerinizi paylaşın; her iki sistemde de deneyimli ekibimiz en uygun çözümü önererek yazılı teklif sunsun.</p>
+        <div style="display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;align-items:center;">
+          <a href="tel:+905320606612" style="color:#f4a261;font-size:18px;font-weight:700;text-decoration:none;">📞 +90 532 060 66 12</a>
+          <span style="color:#4a5568;">·</span>
+          <a href="https://wa.me/905320606612?text=Merhaba%2C+çelik+ev+ve+betonarme+karşılaştırması+hakkında+bilgi+almak+istiyorum." target="_blank" rel="noopener" style="color:#25d366;font-size:15px;font-weight:700;text-decoration:none;">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="iletisim.html">Teklif Formu →</a>
+        <a class="btn btn-secondary" href="celik-ev-modelleri.html" style="border-color:rgba(255,255,255,.3);background:transparent;color:white;">Modelleri İncele</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="reveal">
+        <img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı">
+        <p data-i18n="footer_desc">Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_menu">Hızlı Menü</h4>
+        <ul>
+          <li><a href="celik-ev-modelleri.html" data-i18n="nav_steel">Çelik Ev Modelleri</a></li>
+          <li><a href="celik-ev-fiyatlari.html" style="color:var(--brand);font-weight:600;">Çelik Ev Fiyatları</a></li>
+          <li><a href="hafif-celik-vs-betonarme.html" style="color:var(--brand);font-weight:600;">Çelik vs. Betonarme</a></li>
+          <li><a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html" data-i18n="nav_projects">Projeler</a></li>
+          <li><a href="iletisim.html" data-i18n="nav_contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact">İletişim</h4>
+        <ul>
+          <li><a href="tel:+905320606612">+90 532 060 66 12</a></li>
+          <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
+          <li>71–75 Shelton Street, Covent Garden, Londra, Birleşik Krallık</li>
+          <li>İsmetpaşa Mahallesi, Burmalıçeşme Sokak 90/A, Dikili, İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright" data-i18n="footer_copy">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
