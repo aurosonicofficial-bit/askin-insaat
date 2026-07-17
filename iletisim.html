@@ -252,6 +252,10 @@ async function handleSubmit(e) {
     btn.textContent = 'Mesajı Gönder →';
     btn.disabled = false;
     form.reset();
+    // Google Ads: form gerçekten gönderildiğinde say (denemede değil)
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', { send_to: 'AW-10888629695/WXq1CJOTh9IcEL-bjcgo' });
+    }
   };
 
   // 1) Formspree yapılandırılmışsa sunucu taraflı gönder (lead kaybolmaz)

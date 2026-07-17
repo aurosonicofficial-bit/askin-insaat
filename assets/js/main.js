@@ -152,3 +152,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ---- Google Ads donusum olcumu (telefon / WhatsApp tiklamalari) ----
+   Etiket <head>'de yuklu (AW-10888629695). Burasi sadece "ne zaman sayilacagini" soyler.
+   Form gonderimi iletisim.html icinde, gonderim BASARILI olunca ateslenir. */
+(function () {
+  var HEDEF = {
+    telefon:  'AW-10888629695/Bm8ACI2Th9IcEL-bjcgo',
+    whatsapp: 'AW-10888629695/YpRPCJCTh9IcEL-bjcgo'
+  };
+
+  window.auraDonusum = function (hedef) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', { send_to: hedef });
+  };
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.slice(0, 4) === 'tel:') {
+      window.auraDonusum(HEDEF.telefon);
+    } else if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) {
+      window.auraDonusum(HEDEF.whatsapp);
+    }
+  }, true);
+})();
