@@ -9,6 +9,10 @@
   --brand:#d6772a;
   --brand-dark:#b25d17;
   --brand-light:#f4eee8;
+  /* 8 Agu 2026: 12px eyebrow icin ayri ton. --brand-dark beyazda
+     4.70 veriyor ama --bg-alt (#f5f6f8) uzerinde 4.34'e dusuyor.
+     Bu ton her iki zeminde de 4.5'i geciyor. */
+  --brand-ink:#a75c20;
   --shadow:0 18px 45px rgba(17,24,39,.10);
   --shadow-lg:0 32px 64px rgba(17,24,39,.18);
   --radius:20px;
@@ -65,9 +69,15 @@ img{max-width:100%;display:block} a{text-decoration:none;color:inherit}
 
 /* ===== BUTTONS ===== */
 .cta-btn,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 24px;font-weight:700;transition:transform .2s,box-shadow .2s,background .25s;}
-.cta-btn,.btn-primary{background:var(--brand);color:white;box-shadow:0 4px 20px rgba(214,119,42,.35)}
-.cta-btn:hover,.btn-primary:hover{background:var(--brand-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(214,119,42,.5);}
+/* 8 Agu 2026: beyaz yazi/#d6772a = 3.22, WCAG AA (4.5) KALIYORDU.
+   Zemin --brand-dark'a alindi -> 4.70. Golge marka turuncusu kaldi. */
+.cta-btn,.btn-primary{background:var(--brand-dark);color:white;box-shadow:0 4px 20px rgba(214,119,42,.35)}
+.cta-btn:hover,.btn-primary:hover{background:#8f4a12;transform:translateY(-2px);box-shadow:0 8px 28px rgba(214,119,42,.5);}
 .cta-btn:active,.btn-primary:active{transform:translateY(0)}
+/* 8 Agu 2026: .main-nav a (0,2,0) .btn-primary'yi (0,1,0) eziyordu;
+   mobil menudeki 'Teklif Talebi' koyu yaziyla 3.13'e dusuyordu.
+   Ozgullugu esitleyip beyazi geri aliyoruz -> 4.70. */
+.main-nav a.btn-primary,.main-nav a.cta-btn{color:#fff}
 .btn-secondary{border:1px solid var(--line);background:white;color:var(--text);box-shadow:0 2px 8px rgba(17,24,39,.06);}
 .btn-secondary:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-2px);box-shadow:0 6px 18px rgba(17,24,39,.10);}
 .mobile-only{display:none}
@@ -79,7 +89,9 @@ img{max-width:100%;display:block} a{text-decoration:none;color:inherit}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(214,119,42,.06) 0%,transparent 70%);pointer-events:none;}
 @keyframes hero-bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .hero-grid{display:grid;grid-template-columns:1.1fr .95fr;gap:40px;align-items:center}
-.eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.14em;color:var(--brand);font-size:12px;font-weight:800;margin-bottom:14px;}
+/* 8 Agu 2026: 12px yazi 4.5:1 ister; --brand ile 3.22 (beyaz) ve
+   2.97 (acik gri) idi. --brand-dark ile 4.70 / 4.45. */
+.eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-ink);font-size:12px;font-weight:800;margin-bottom:14px;}
 h1,h2,h3,h4{line-height:1.12;margin:0 0 14px}
 h1{font-size:clamp(28px,4.5vw,58px);letter-spacing:-.03em}
 h2{font-size:clamp(24px,3.5vw,42px);letter-spacing:-.02em}
@@ -101,6 +113,10 @@ h3{font-size:22px}
 .hero-media:hover img{transform:scale(1.05)}
 .hero-overlay{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(17,24,39,.75);backdrop-filter:blur(8px);color:#fff;padding:16px 18px;border-radius:16px;transform:translateY(4px);transition:transform .3s;}
 .hero-media:hover .hero-overlay{transform:translateY(0)}
+/* 8 Agu 2026 GORUNEN HATA: <strong> ve <span> satir-ici oldugu icin
+   "Manora PrestijKonut gelistirme" diye yapisik cikiyordu. */
+.hero-overlay strong{display:block;margin-bottom:5px;font-size:15px}
+.hero-overlay span{display:block;font-size:13.5px;opacity:.82;line-height:1.5}
 
 /* ===== BAND ===== */
 .section{padding:72px 0}.section-tight{padding:28px 0}.alt{background:var(--bg-alt)}
