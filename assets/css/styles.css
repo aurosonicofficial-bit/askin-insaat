@@ -313,3 +313,22 @@ h3{font-size:22px}
 .lang-flag{font-size:18px}
 /* RTL (Arapça) için temel düzeltme */
 html[dir="rtl"] .lang-dropdown{right:auto;left:0}
+
+/* 8 Agu 2026 — anasayfa hizli teklif formu */
+.hizli-teklif{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.teklif-kutu{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:40px;box-shadow:var(--shadow)}
+.teklif-metin h2{margin:0 0 12px;font-size:32px;line-height:1.25}
+.teklif-metin p{color:var(--muted);margin:0 0 18px}
+.teklif-guven{display:flex;flex-wrap:wrap;gap:10px}
+.teklif-guven span{font-size:13px;font-weight:600;color:var(--brand-ink);
+  background:var(--brand-light);border-radius:999px;padding:7px 14px}
+.teklif-form{gap:14px}
+.teklif-form .btn{width:100%;padding:15px 24px;font-size:16px}
+.teklif-form .form-success{display:none;background:#e8f7ee;border:1px solid #b6e3c8;
+  color:#166534;border-radius:12px;padding:13px 16px;font-weight:600;font-size:14px}
+@media(max-width:960px){
+  .teklif-kutu{grid-template-columns:1fr;gap:26px;padding:26px}
+  .teklif-metin h2{font-size:26px}
+}
