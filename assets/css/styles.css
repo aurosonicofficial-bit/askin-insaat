@@ -19,6 +19,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',Inter,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;}
+/* 8 Agu 2026: <img> etiketleri <picture> ile sarmalandi (webp cift-indirme fixi).
+   picture varsayilan olarak satir-ici; display:contents ile kutu agacindan
+   cikarilir, boylece .hero-media img{height:100%} gibi kurallar AYNEN calisir. */
+picture{display:contents}
 img{max-width:100%;display:block} a{text-decoration:none;color:inherit}
 
 /* ===== CONTAINER - CRITICAL FIX ===== */
@@ -207,6 +211,14 @@ h3{font-size:22px}
   .main-nav.open{display:flex;position:absolute;left:20px;right:20px;top:82px;flex-direction:column;background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow-lg);animation:fadeInUp .3s ease;z-index:50;}
   .mobile-only{display:inline-flex}
   .hero-grid,.page-hero-grid,.highlight,.content-grid{grid-template-columns:1fr}
+  /* 8 Agu 2026 HATA DUZELTMESI (bu degisiklikten ONCE de vardi, tespit edildi):
+     .highlight tek sutuna dusunce .image kendi satirinda kaliyor; yuksekligi
+     icerikten geliyor ama icindeki img de height:100% diyor -> daire kapanmiyor,
+     ikisi de 0 olup gorsel HIC GORUNMUYORDU. 960px altindaki TUM cihazlarda
+     (yani butun telefonlarda) "Kurumsal Referanslar" gorseli kayipti.
+     Kardes kapsayicilarda bu sorun yok: .hero-media min-height,
+     .project-card .media aspect-ratio tasiyor — sadece bu biri aciktaydi. */
+  .highlight .image{aspect-ratio:16/10}
   .hero-meta,.band,.grid-4,.grid-3,.gallery,.footer-top,.kv-list{grid-template-columns:1fr}
   .section-head{flex-direction:column;align-items:start}.brand img{height:42px}
   .band .item{border-right:0;border-bottom:1px solid var(--line)}.band .item:last-child{border-bottom:0}

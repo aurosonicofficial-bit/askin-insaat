@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const upgrade = (img) => {
+      // 8 Agu 2026: statik gorseller artik HTML'de <picture>+<source webp>
+      // ile geliyor; tarayici webp'yi zaten sectí. Burada src'yi degistirmek
+      // AYNI gorseli BIR KEZ DAHA indirtir. Sadece JS ile olusturulan
+      // gorseller (galeri lightbox) bu yoldan gecmeli.
+      if (img.closest && img.closest('picture')) return;
       const cur = img.getAttribute('src');
       if (!cur || img.dataset.webpFail === cur) return; // bu kaynak için webp başarısız olmuştu
       const webp = toWebp(cur);
