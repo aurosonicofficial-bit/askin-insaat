@@ -12,6 +12,13 @@
 (function () {
   const translations = {
     tr: {
+      nav_hizmetler: "Hizmetler",
+      nav_tadilat: "Tadilat ve Yenileme",
+      nav_mantolama: "Mantolama ve Cephe",
+      nav_celik_fiyat: "Çelik Ev Fiyatları",
+      nav_kk: "Kat Karşılığı İnşaat",
+      nav_havuz: "Havuz Yapımı",
+      nav_karsilastirma: "Çelik mi Betonarme mi?",
       qf_opt_tadilat: "Tadilat ve Yenileme",
       qf_opt_izolasyon: "İzolasyon ve Mantolama",
       qf_eyebrow: "ÜCRETSİZ KEŞİF VE TEKLİF",
@@ -60,6 +67,13 @@
       footer_menu: "Hızlı Menü", footer_contact: "İletişim", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır."
     },
     en: {
+      nav_hizmetler: "Services",
+      nav_tadilat: "Renovation",
+      nav_mantolama: "Insulation & Facade",
+      nav_celik_fiyat: "Steel Home Prices",
+      nav_kk: "Land-for-Flat",
+      nav_havuz: "Pool Construction",
+      nav_karsilastirma: "Steel or Concrete?",
       qf_opt_tadilat: "Renovation & Refurbishment",
       qf_opt_izolasyon: "Insulation & External Cladding",
       qf_eyebrow: "FREE SITE VISIT & QUOTE",
@@ -108,6 +122,13 @@
       footer_menu: "Quick Menu", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. All rights reserved."
     },
     de: {
+      nav_hizmetler: "Leistungen",
+      nav_tadilat: "Renovierung",
+      nav_mantolama: "Dämmung & Fassade",
+      nav_celik_fiyat: "Stahlhaus-Preise",
+      nav_kk: "Bauträgerprojekt",
+      nav_havuz: "Poolbau",
+      nav_karsilastirma: "Stahl oder Beton?",
       qf_opt_tadilat: "Renovierung & Sanierung",
       qf_opt_izolasyon: "Dämmung & Wärmedämmverbundsystem",
       qf_eyebrow: "KOSTENLOSE BESICHTIGUNG & ANGEBOT",
@@ -156,6 +177,13 @@
       footer_menu: "Schnellmenü", footer_contact: "Kontakt", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Alle Rechte vorbehalten."
     },
     fr: {
+      nav_hizmetler: "Services",
+      nav_tadilat: "Rénovation",
+      nav_mantolama: "Isolation et façade",
+      nav_celik_fiyat: "Prix maisons acier",
+      nav_kk: "Promotion immobilière",
+      nav_havuz: "Construction de piscines",
+      nav_karsilastirma: "Acier ou béton ?",
       qf_opt_tadilat: "Rénovation",
       qf_opt_izolasyon: "Isolation et bardage",
       qf_eyebrow: "VISITE ET DEVIS GRATUITS",
@@ -204,6 +232,13 @@
       footer_menu: "Menu Rapide", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tous droits réservés."
     },
     it: {
+      nav_hizmetler: "Servizi",
+      nav_tadilat: "Ristrutturazione",
+      nav_mantolama: "Isolamento e facciata",
+      nav_celik_fiyat: "Prezzi case in acciaio",
+      nav_kk: "Permuta immobiliare",
+      nav_havuz: "Costruzione piscine",
+      nav_karsilastirma: "Acciaio o cemento?",
       qf_opt_tadilat: "Ristrutturazione",
       qf_opt_izolasyon: "Isolamento e cappotto termico",
       qf_eyebrow: "SOPRALLUOGO E PREVENTIVO GRATUITI",
@@ -252,6 +287,13 @@
       footer_menu: "Menu Rapido", footer_contact: "Contatto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tutti i diritti riservati."
     },
     es: {
+      nav_hizmetler: "Servicios",
+      nav_tadilat: "Reformas",
+      nav_mantolama: "Aislamiento y fachada",
+      nav_celik_fiyat: "Precios casas de acero",
+      nav_kk: "Permuta de suelo",
+      nav_havuz: "Construcción de piscinas",
+      nav_karsilastirma: "¿Acero u hormigón?",
       qf_opt_tadilat: "Reforma y renovación",
       qf_opt_izolasyon: "Aislamiento y SATE",
       qf_eyebrow: "VISITA Y PRESUPUESTO GRATIS",
@@ -300,6 +342,13 @@
       footer_menu: "Menú Rápido", footer_contact: "Contacto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Todos los derechos reservados."
     },
     ar: {
+      nav_hizmetler: "الخدمات",
+      nav_tadilat: "التجديد",
+      nav_mantolama: "العزل والواجهة",
+      nav_celik_fiyat: "أسعار المنازل الفولاذية",
+      nav_kk: "مقاولات مقابل حصص",
+      nav_havuz: "إنشاء المسابح",
+      nav_karsilastirma: "فولاذ أم خرسانة؟",
       qf_opt_tadilat: "التجديد والترميم",
       qf_opt_izolasyon: "العزل والتكسية الخارجية",
       qf_eyebrow: "زيارة ميدانية وعرض سعر مجاني",
@@ -348,6 +397,13 @@
       footer_menu: "قائمة سريعة", footer_contact: "اتصل بنا", footer_copy: "© 2025 أشكين إنشاات ميمارلق يابي. جميع الحقوق محفوظة."
     },
     ru: {
+      nav_hizmetler: "Услуги",
+      nav_tadilat: "Ремонт",
+      nav_mantolama: "Утепление и фасад",
+      nav_celik_fiyat: "Цены на стальные дома",
+      nav_kk: "Застройка по обмену",
+      nav_havuz: "Строительство бассейнов",
+      nav_karsilastirma: "Сталь или бетон?",
       qf_opt_tadilat: "Ремонт и отделка",
       qf_opt_izolasyon: "Утепление и облицовка",
       qf_eyebrow: "БЕСПЛАТНЫЙ ВЫЕЗД И СМЕТА",

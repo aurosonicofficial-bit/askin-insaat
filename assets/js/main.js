@@ -183,3 +183,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, true);
 })();
+
+/* Hizmetler acilir listesi — mobil dokunus (9 Agu 2026).
+   Masaustunde CSS hover/focus-within yeter; dokunmatikte hover yok.
+   AYRI IIFE: mevcut blogun icine sokulursa main.js sozdizimi bozulur. */
+(function () {
+  function kapat(d) {
+    d.classList.remove('open');
+    var b = d.querySelector('.nav-drop-btn');
+    if (b) b.setAttribute('aria-expanded', 'false');
+  }
+  function kur() {
+    var ds = document.querySelectorAll('[data-drop]');
+    for (var i = 0; i < ds.length; i++) {
+      (function (d) {
+        var btn = d.querySelector('.nav-drop-btn');
+        if (!btn || btn.dataset.bagli) return;
+        btn.dataset.bagli = '1';
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var acik = d.classList.toggle('open');
+          btn.setAttribute('aria-expanded', acik ? 'true' : 'false');
+        });
+      })(ds[i]);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', kur);
+  } else {
+    kur();
+  }
+  document.addEventListener('click', function (e) {
+    var ds = document.querySelectorAll('[data-drop].open');
+    for (var i = 0; i < ds.length; i++) {
+      if (!ds[i].contains(e.target)) kapat(ds[i]);
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var ds = document.querySelectorAll('[data-drop].open');
+    for (var i = 0; i < ds.length; i++) kapat(ds[i]);
+  });
+})();
