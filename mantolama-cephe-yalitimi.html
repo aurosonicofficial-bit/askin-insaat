@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10888629695"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-10888629695');
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mantolama ve Cephe Yalıtımı 2026 — Sistem Seçimi, Cephe Tasarımı ve Uygulama | Aşkın Yapı</title>
+<meta name="description" content="Mantolama, çatı ve su yalıtımı ile cephe tasarımı ve uygulaması. EPS, taş yünü ve XPS sistemlerinin bina bazlı seçimi. Mimari görselleştirme, ücretsiz keşif ve teklif.">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260809c">
+<style>
+  .havuz-hero {
+    padding: 64px 0 48px;
+    background: linear-gradient(135deg, #fff 0%, #e8f4fd 50%, #d6eaf8 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Tip kartları */
+  .pool-types-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .pool-type-card {
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .pool-type-card:hover { border-color: rgba(214,119,42,.4); box-shadow: var(--shadow-lg); }
+  .pool-type-header {
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pool-type-header h3 { font-size: 18px; margin: 0 0 4px; }
+  .pool-type-header .price-range { font-size: 20px; font-weight: 800; color: var(--brand); }
+  .pool-type-header .price-sub { font-size: 12px; color: var(--muted); }
+  .pool-type-body { padding: 18px 22px; }
+  .pool-feature {
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 13px; color: var(--muted); padding: 6px 0;
+    border-bottom: 1px solid var(--line); line-height: 1.5;
+  }
+  .pool-feature:last-child { border: none; }
+  .pool-feature .pf-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+  /* Fiyat tablosu */
+  .price-table {
+    width: 100%; border-collapse: collapse; font-size: 15px;
+  }
+  .price-table th {
+    background: #0f172a; color: white; font-weight: 700;
+    padding: 14px 18px; text-align: left;
+  }
+  .price-table th:not(:first-child) { text-align: center; }
+  .price-table td {
+    padding: 13px 18px; border-bottom: 1px solid var(--line);
+  }
+  .price-table td:not(:first-child) { text-align: center; }
+  .price-table tr:nth-child(even) td { background: #fafafa; }
+  .price-table tr:hover td { background: #e8f4fd; }
+  .price-range-cell { font-weight: 700; color: var(--brand); }
+
+  /* Süreç */
+  .process-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .process-timeline::before {
+    content: "";
+    position: absolute;
+    left: 12px; top: 4px; bottom: 4px;
+    width: 2px; background: var(--line);
+  }
+  .process-step {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .process-step:last-child { margin-bottom: 0; }
+  .process-step::before {
+    content: "";
+    position: absolute;
+    left: -32px; top: 4px;
+    width: 16px; height: 16px;
+    background: var(--brand);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--brand);
+  }
+  .process-step h4 { font-size: 16px; margin: 0 0 6px; }
+  .process-step p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.65; }
+
+  /* SSS */
+  .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-q {
+    font-size: 17px; font-weight: 700; color: var(--text);
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; list-style: none; margin: 0;
+  }
+  .faq-q::after { content: "+"; font-size: 22px; color: var(--brand); flex-shrink: 0; transition: transform .25s; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 15px; color: var(--muted); line-height: 1.75;
+    max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; padding: 0;
+  }
+  .faq-item.open .faq-a { max-height: 600px; padding-top: 14px; }
+
+  /* CTA */
+  .cta-band {
+    background: linear-gradient(135deg, #0a2540, #0f4c75);
+    border-radius: 24px; padding: 48px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+
+  @media (max-width: 960px) { .pool-types-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .cta-band { padding: 32px 24px; } }
+</style>
+
+<link rel="canonical" href="https://xn--akninaatmimarlk-8kcm72ffa.com/mantolama-cephe-yalitimi.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Aşkın İnşaat Mimarlık Yapı">
+<meta name="geo.region" content="TR-35"><meta name="geo.placename" content="Dikili, İzmir">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aşkın İnşaat Mimarlık Yapı">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Mantolama ve Cephe Yalıtımı 2026 — Sistem Seçimi, Cephe Tasarımı ve Uygulama | Aşkın Yapı">
+<meta property="og:description" content="Mantolama, çatı ve su yalıtımı ile cephe tasarımı ve uygulaması. EPS, taş yünü ve XPS sistemlerinin bina bazlı seçimi. Mimari görselleştirme, ücretsiz keşif ve teklif.">
+<meta property="og:url" content="https://xn--akninaatmimarlk-8kcm72ffa.com/mantolama-cephe-yalitimi.html">
+<meta property="og:image" content="https://xn--akninaatmimarlk-8kcm72ffa.com/assets/images/ref/ref_14.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mantolama ve Cephe Yalıtımı 2026 — Sistem Seçimi, Cephe Tasarımı ve Uygulama | Aşkın Yapı">
+<meta name="twitter:description" content="Mantolama, çatı ve su yalıtımı ile cephe tasarımı ve uygulaması. EPS, taş yünü ve XPS sistemlerinin bina bazlı seçimi. Mimari görselleştirme, ücretsiz keşif ve teklif.">
+<meta name="twitter:image" content="https://xn--akninaatmimarlk-8kcm72ffa.com/assets/images/ref/ref_14.jpg">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48.png">
+<meta name="theme-color" content="#d6772a">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Havuz yapım maliyeti 2026'da ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026 yılında Türkiye'de villa tipi beton havuz (4×8 m, yaklaşık 32 m²) için anahtar teslim fiyat 550.000–1.100.000 TL aralığındadır. PP (polipropilen) panel havuzlar 400.000–750.000 TL, fiberglas hazır havuzlar 300.000–600.000 TL arasında değişmektedir. m² bazında ortalama maliyet 15.000–35.000 TL'dir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Beton havuz mu PP havuz mu daha iyi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beton havuzlar özel şekil ve boyuta uyarlanabilirlik, uzun ömür ve sağlam yapısıyla öne çıkar; ancak yapım süresi uzun ve maliyeti yüksektir. PP (polipropilen) panel havuzlar daha hızlı kurulur, bakımı kolaydır ve hidrolitik ayrışmaya karşı dayanıklıdır; orta-büyük boyutlarda tercih edilir. Fiberglas hazır havuzlar ise en hızlı kurulum seçeneğidir; küçük-orta boyutlar için uygundur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Havuz yapım süresi ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hazır (fiberglas) havuz kurulumu 3–7 gün içinde tamamlanabilir. PP panel havuzlar için toprak kazısı dahil kurulum 2–4 hafta sürer. Beton havuzlarda proje, kazı, kalıp, beton dökümü, kür süresi ve kaplama dahil toplam süre 4–10 hafta arasındadır. Filtre, ısıtma ve aydınlatma sistemleri bu sürelere ek 3–5 gün alır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Havuz işletme maliyeti ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standart bir villa havuzunun (30–40 m²) aylık işletme maliyeti: su kimyasalları 500–1.500 TL, elektrik (pompa+filtre) 800–2.000 TL, periyodik bakım hizmeti 1.500–3.000 TL olmak üzere toplam aylık 3.000–7.000 TL civarındadır. Isıtma sistemi varsa kış aylarında ek maliyet oluşur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Havuz için ruhsat gerekiyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Türkiye'de özel mülk içindeki villa havuzları genellikle basit tamir veya tadilat kapsamında değerlendirilir; ancak yüzme alanı, derinlik ve kullanım amacına göre belediyeden izin gerekebilir. Ticari havuzlar (otel, rezidans, site) ise mutlaka yapı ruhsatı ve teknik proje gerektirir. Kesin bilgi için bulunduğunuz belediyeye danışmanız önerilir."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Havuz Yapım ve Peyzaj Uygulamaları",
+      "provider": {
+        "@type": "GeneralContractor",
+        "name": "Aşkın İnşaat Mimarlık Yapı",
+        "url": "https://xn--akninaatmimarlk-8kcm72ffa.com/",
+        "telephone": "+905320606612"
+      },
+      "description": "100'ün üzerinde villa ve konut havuzu projesi; beton, PP ve fiberglas havuz uygulamaları",
+      "areaServed": { "@type": "Country", "name": "Türkiye" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="left">
+      <span data-i18n="topbar_services">İnşaat · Yapı · Mimarlık · Müteahhitlik</span>
+      <a href="tel:+905320606612">+90 532 060 66 12</a>
+      <a href="tel:+447882747808">+44 7882 747808</a>
+      <a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a>
+    </div>
+    <div class="right" style="display:flex;align-items:center;gap:16px;">
+      <span data-i18n="topbar_locations">Türkiye · Birleşik Krallık</span>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langToggle"><span id="currentFlag">🇹🇷</span><span id="currentLang">TR</span><span>▾</span></button>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" data-lang="tr" class="active"><span class="lang-flag">🇹🇷</span> Türkçe</a>
+          <a href="#" data-lang="en"><span class="lang-flag">🇬🇧</span> English</a>
+          <a href="#" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</a>
+          <a href="#" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</a>
+          <a href="#" data-lang="it"><span class="lang-flag">🇮🇹</span> Italiano</a>
+          <a href="#" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="#" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</a>
+          <a href="#" data-lang="ru"><span class="lang-flag">🇷🇺</span> Русский</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="Aşkın Yapı logosu"></picture></a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Menüyü aç"><span></span><span></span><span></span></button>
+    <nav class="main-nav" data-nav>
+      <a href="kurumsal.html" data-i18n="nav_corporate">Kurumsal</a>
+      <a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a>
+      <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+      <a href="celik-ev-modelleri.html" data-i18n="nav_steel">Çelik Ev Modelleri</a>
+      <a href="medya-merkezi.html" data-i18n="nav_media">Medya Merkezi</a>
+      <a href="uluslararasi-vizyon.html" data-i18n="nav_international">Uluslararası Vizyon</a>
+      <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+      <a class="mobile-only btn btn-primary" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
+    </nav>
+    <a class="cta-btn" href="iletisim.html" data-i18n="cta">Teklif Talebi</a>
+  </div>
+</header>
+<section class="price-hero">
+  <div class="container">
+    <span class="eyebrow">AŞKIN YAPI · YALITIM VE CEPHE</span>
+    <h1>Mantolama ve Cephe Yalıtımı — Sistem Seçimi ve Cephe Tasarımı</h1>
+    <p class="lead">Mantolama tek başına bir kaplama işi değildir; binanın yüksekliği, mevcut cephe durumu ve kullanım amacına göre <strong>sistem seçilir</strong>. Biz işin iki tarafını birlikte yürütüyoruz: yalıtımın teknik kısmını ve cephenin nasıl görüneceğini. <strong>Mimarlık kökenli çalıştığımız için</strong> cephe tasarımını da biz yapar, uygulamadan önce üç boyutlu olarak sunarız.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#teklif">Ücretsiz Keşif İsteyin</a>
+      <a class="btn btn-secondary" href="tel:+905320606612">+90 532 060 66 12</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">MİMARİ YAKLAŞIM</span>
+      <h2>Cephenin nasıl görüneceğini önceden görürsünüz</h2>
+      <p>Mantolama kararı çoğu zaman "ısı kaçağı" diye başlar, ama bina bir daha on beş yıl o cepheyle yaşar. Renk, doku ve kaplama kararlarını uygulamadan sonra değiştirmek mümkün değildir. Bu yüzden cephe tasarımını önce çizer, görselleştirir ve sunarız.</p>
+    </div>
+    <div class="uc-gorsel-grid">
+        <figure class="uc-gorsel reveal">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/images/cephe-3d-apartman-760.webp 760w,
+                            assets/images/cephe-3d-apartman-1180.webp 1180w"
+                    sizes="(max-width:960px) 92vw, 33vw">
+            <img src="assets/images/cephe-3d-apartman.jpg" alt="Apartman cephe tasarımı ve mantolama görselleştirmesi" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="uc-gorsel reveal">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/images/cephe-3d-villa-760.webp 760w,
+                            assets/images/cephe-3d-villa-1180.webp 1180w"
+                    sizes="(max-width:960px) 92vw, 33vw">
+            <img src="assets/images/cephe-3d-villa.jpg" alt="Villa cephe tasarımı görselleştirmesi" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="uc-gorsel reveal">
+          <picture>
+            <source type="image/webp"
+                    srcset="assets/images/cephe-3d-ticari-760.webp 760w,
+                            assets/images/cephe-3d-ticari-1180.webp 1180w"
+                    sizes="(max-width:960px) 92vw, 33vw">
+            <img src="assets/images/cephe-3d-ticari.jpg" alt="Ticari yapı cephe tasarımı görselleştirmesi" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+    </div>
+    <div class="kv-list reveal" style="margin-top:28px;">
+      <div class="kv"><strong>Mevcut durum tespiti</strong><span>Cephenin ölçüsü, mevcut sıva ve boyanın durumu, nem ve çatlak tespiti. Yalıtım, bozuk bir zemine yapıştırılırsa birkaç yıl içinde şişer ve ayrılır — tespit bu yüzden ilk adımdır.</span></div>
+      <div class="kv"><strong>Cephe tasarımı</strong><span>Renk, doku, kaplama bölgeleri ve detaylar çizilir. Aynı bina, aynı yalıtım kalınlığıyla bambaşka görünebilir; fark tasarımdadır.</span></div>
+      <div class="kv"><strong>Üç boyutlu sunum</strong><span>Tasarım gerçekçi görsellerle sunulur. Apartmanlarda bu, kat malikleri toplantısında karar almayı ciddi şekilde kolaylaştırır — herkes aynı şeyi görür.</span></div>
+      <div class="kv"><strong>Uygulama</strong><span>Onaylanan tasarım, seçilen yalıtım sistemiyle sahada uygulanır. Teslimde çıkan sonuç, onayladığınız görselin aynısıdır.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">SİSTEM SEÇİMİ</span>
+      <h2>Hangi binada hangi yalıtım sistemi</h2>
+      <p>Tek doğru malzeme yoktur; doğru olan binaya uyandır. Sistem, yapının yüksekliğine, cephe durumuna ve bütçeye göre seçilir.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3>EPS — Genleştirilmiş Polistiren</h3>
+        <p>Konutlarda en yaygın kullanılan sistem. Hafiftir, uygulaması hızlıdır ve maliyet avantajı sağlar. Karbon katkılı (grafitli) türü aynı kalınlıkta daha yüksek yalıtım değeri verir.</p>
+        <p><strong>Uygun olduğu yer:</strong> Az ve orta katlı konut binaları, müstakil evler, villa cepheleri.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Taş Yünü — Mineral Yün</h3>
+        <p>Yanmaz sınıfta bir malzemedir; yangın güvenliği öne çıktığında ve yönetmelik gereği yüksek yapı sınıfına giren binalarda kullanılır. Ayrıca ses yalıtımı EPS'e göre belirgin şekilde iyidir.</p>
+        <p><strong>Uygun olduğu yer:</strong> Yüksek katlı binalar, cadde üzerindeki gürültülü konumlar, yangın gerekliliği olan yapılar.</p>
+      </div>
+      <div class="card reveal">
+        <h3>XPS — Ekstrüde Polistiren</h3>
+        <p>Suya ve basınca dayanıklıdır. Cephenin tamamında değil, suyla temas eden ve yük alan bölgelerde kullanılır.</p>
+        <p><strong>Uygun olduğu yer:</strong> Bina eteği (subasman), bodrum duvarları, teras ve balkon zeminleri.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Kalınlık kararı</h3>
+        <p>Kalınlık marka değil hesap işidir: bölgenin iklim kuşağı, duvar yapısı ve hedeflenen tasarruf birlikte değerlendirilir. Gereğinden ince yalıtım parayı boşa harcar, gereğinden kalın olan da kendini amorti etmez.</p>
+        <p><strong>Karar:</strong> Keşifte binanın duvar kesiti ve konumu görülerek belirlenir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">KAPSAM</span>
+      <h2>Yalıtım sadece dış cephe değildir</h2>
+      <p>Isı kaybının tamamı duvardan olmaz. Cepheyi yalıtıp çatıyı ya da terası atlamak, sonucu ciddi şekilde düşürür.</p>
+    </div>
+    <div class="kv-list reveal">
+      <div class="kv"><strong>Dış cephe (mantolama)</strong><span>Isı kaybının en büyük kalemi ve cephenin görünümünü belirleyen katman. Yalıtım levhası, donatı sıvası, file ve dekoratif son kat birlikte bir sistem oluşturur; biri eksik olursa sistem çalışmaz.</span></div>
+      <div class="kv"><strong>Çatı yalıtımı</strong><span>Isı yukarı çıkar; yalıtımsız çatı, mantolamanın etkisini gözle görülür şekilde azaltır. Çatı tipine göre şap altı, ahşap arası ya da üstten uygulama yapılır.</span></div>
+      <div class="kv"><strong>Teras ve balkon su yalıtımı</strong><span>Su kaçağı en pahalı hasardır ve genellikle alt kata verilen zararla fark edilir. Membran ya da sürme yalıtım, üzerine gelen kaplamayla birlikte planlanır.</span></div>
+      <div class="kv"><strong>Islak hacim su yalıtımı</strong><span>Banyo ve mutfak zemin ve duvarlarında, seramik altına uygulanan katman. Tadilat sırasında yapılmazsa sonradan yapmak seramiği sökmek demektir.</span></div>
+      <div class="kv"><strong>Ses yalıtımı</strong><span>Cadde üzerindeki binalarda ve komşu duvarlarında ayrıca değerlendirilir. Taş yünü bu konuda EPS'ten belirgin şekilde üstündür.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FİYATI BELİRLEYEN KALEMLER</span>
+      <h2>İki mantolama teklifi neden farklı çıkar</h2>
+      <p>Mantolamada m² fiyatı en çok yanıltan rakamdır; aynı sayı, çok farklı işleri anlatabilir. Farkı yaratan kalemler:</p>
+    </div>
+    <div class="kv-list reveal">
+      <div class="kv"><strong>Yalıtım cinsi ve kalınlığı</strong><span>EPS, grafitli EPS, taş yünü ve XPS arasında ciddi fiyat farkı vardır. Kalınlık arttıkça malzeme maliyeti de artar. Teklifte cins ve kalınlık yazmıyorsa o teklif karşılaştırılamaz.</span></div>
+      <div class="kv"><strong>Sistem bütünlüğü</strong><span>Yapıştırıcı, dübel, donatı filesi, köşe profilleri, denizlik ve damlalıklar sistemin parçasıdır. Ucuz tekliflerde en sık atlanan kalemler bunlardır ve eksikleri birkaç yıl içinde çatlak olarak görünür.</span></div>
+      <div class="kv"><strong>Son kat kaplama</strong><span>Düz boya ile dekoratif sıva, taş görünümlü panel ya da ahşap doku arasında hem malzeme hem işçilik farkı vardır. Cephenin görünümünü belirleyen kalem budur.</span></div>
+      <div class="kv"><strong>İskele ve yükseklik</strong><span>Bina yüksekliği iskele maliyetini ve iş süresini doğrudan etkiler. Dar sokak ya da iskele kurulamayan cephelerde farklı yöntem gerekir; bu baştan görülmelidir.</span></div>
+      <div class="kv"><strong>Mevcut cephenin durumu</strong><span>Kabaran boya, bozuk sıva, çatlak ya da nem varsa önce onarım gerekir. Bu hazırlık yapılmadan yapılan yalıtım, zeminiyle birlikte ayrılır.</span></div>
+      <div class="kv"><strong>Detaylar</strong><span>Pencere kenarları, balkon altları, çatı birleşimleri ve zemin etek bölgesi. Isı köprüsü buralarda oluşur; düzgün çözülmezse yalıtımın verimi düşer.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">SÜREÇ</span>
+      <h2>Keşiften teslime</h2>
+    </div>
+    <div class="kv-list reveal">
+      <div class="kv"><strong>1 · Keşif ve tespit</strong><span>Cephe ölçüsü, mevcut yüzeyin durumu, nem ve çatlak tespiti, bina yüksekliği ve iskele koşulları. Ücretsizdir.</span></div>
+      <div class="kv"><strong>2 · Sistem ve kalınlık kararı</strong><span>Binaya uygun yalıtım cinsi ve kalınlığı belirlenir; yangın ve ses gereklilikleri varsa burada değerlendirilir.</span></div>
+      <div class="kv"><strong>3 · Cephe tasarımı ve sunum</strong><span>Renk, doku ve kaplama bölgeleri çizilir, üç boyutlu görselleştirilir ve sunulur. Apartmanlarda karar bu aşamada kolaylaşır.</span></div>
+      <div class="kv"><strong>4 · Yüzey hazırlığı</strong><span>Bozuk sıva ve kabaran boya alınır, çatlaklar onarılır, yüzey yalıtım alacak hale getirilir. Atlanırsa tüm iş risk altındadır.</span></div>
+      <div class="kv"><strong>5 · Uygulama</strong><span>Levha yapıştırma ve dübelleme, donatı sıvası ve file, köşe profilleri, astar ve son kat kaplama sırasıyla uygulanır.</span></div>
+      <div class="kv"><strong>6 · Kontrol ve teslim</strong><span>Detaylar, denizlikler ve birleşim noktaları birlikte gezilerek kontrol edilir, eksikler giderilir ve teslim yapılır.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">DİKKAT</span>
+      <h2>Mantolamada en sık yapılan beş hata</h2>
+    </div>
+    <div class="kv-list reveal">
+      <div class="kv"><strong>Yüzey hazırlığını atlamak</strong><span>Kabaran boyanın üzerine yapıştırılan levha, boyayla birlikte cepheden ayrılır. En pahalı hata budur; iş baştan yapılır.</span></div>
+      <div class="kv"><strong>Dübel kullanmamak</strong><span>Sadece yapıştırıcıyla tutturulan levhalar zamanla ve rüzgâr yüküyle gevşer. Dübel sayısı ve deseni sistemin parçasıdır.</span></div>
+      <div class="kv"><strong>Detayları çözmeden başlamak</strong><span>Pencere kenarı, denizlik ve balkon altı çözülmezse su yalıtımın arkasına girer. Isı köprüsü ve nem sorunu buradan çıkar.</span></div>
+      <div class="kv"><strong>Sadece cepheyi yalıtmak</strong><span>Çatı ve teras atlanırsa beklenen tasarruf oluşmaz ve "mantolama işe yaramadı" sonucuna varılır. Oysa sistem eksik uygulanmıştır.</span></div>
+      <div class="kv"><strong>Rengi cephede seçmek</strong><span>Küçük renk kartelasında beğenilen ton, yüzlerce m² cephede çok farklı görünür. Görselleştirme tam olarak bunun içindir.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">SIKÇA SORULANLAR</span>
+      <h2>Mantolama ve cephe hakkında SSS</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <p class="faq-q">Mantolama ne kadar sürede kendini amorti eder?</p>
+        <div class="faq-a">Isıtma giderindeki azalma; binanın mevcut durumuna, yakıt tipine ve iklim bölgesine göre değişir. Amortisman süresi bu üç değişkenin bileşimidir — tek bir rakam vermek doğru olmaz. Keşifte binanın duvar yapısı ve konumu görülerek <strong>gerçekçi bir beklenti</strong> paylaşılır. Yalıtımın tek faydası yakıt tasarrufu da değildir: yoğuşma ve küf sorunu ortadan kalkar, iç mekân konforu belirgin şekilde artar.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">EPS mi taş yünü mü kullanmalıyım?</p>
+        <div class="faq-a">Binaya göre değişir. <strong>EPS</strong>, az ve orta katlı konutlarda maliyet ve uygulama hızı bakımından öne çıkar. <strong>Taş yünü</strong>, yangın güvenliğinin gerekli olduğu yüksek yapılarda ve gürültülü konumlarda tercih edilir; ses yalıtımı belirgin şekilde daha iyidir. <strong>XPS</strong> ise cephenin tamamında değil, bina eteği ve teras gibi su ile temas eden bölgelerde kullanılır. Doğru seçim keşifte binanın yüksekliği ve konumu görülerek yapılır.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Apartmanda mantolama kararı nasıl alınır?</p>
+        <div class="faq-a">Kat malikleri kararı gerekir. Uygulamada en çok zorlanılan nokta, herkesin sonucu farklı hayal etmesidir. Bu yüzden karar toplantısından önce <strong>cephe tasarımını görselleştirip sunmak</strong> süreci ciddi şekilde kolaylaştırır — renk ve kaplama tartışması somut bir görsel üzerinden yapılır, herkes aynı şeyi görür. Talep edilirse toplantı için sunum hazırlanır.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Kışın mantolama yapılabilir mi?</p>
+        <div class="faq-a">Yapıştırıcı, sıva ve son kat kaplamanın priz alması için belirli bir sıcaklık ve kuruluk gerekir. Çok soğuk, yağışlı ya da donlu havada uygulama <strong>yapılmamalıdır</strong>; yapılırsa sistem beklenen dayanımı göstermez. Uygun mevsim genellikle ilkbahar ve sonbahardır. Kış aylarında keşif, tasarım ve teklif süreci yürütülür, uygulama havaya göre planlanır.</div>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Cephe tasarımı ayrı bir ücret mi?</p>
+        <div class="faq-a">Uygulamayı biz yapıyorsak cephe tasarımı ve görselleştirme <strong>işin parçasıdır</strong>, ayrıca ücretlendirilmez. Mimarlık kökenli çalıştığımız için bu bizim için ek bir hizmet değil, işin doğal ilk adımıdır. Keşif ve teklif de ücretsizdir ve bağlayıcılığı yoktur.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hizli-teklif" id="teklif">
+  <div class="container">
+    <div class="teklif-kutu">
+      <div class="teklif-metin">
+        <span class="eyebrow" data-i18n="qf_eyebrow">ÜCRETSİZ KEŞİF VE TEKLİF</span>
+        <h2 data-i18n="qf_h2">Projenizi anlatın, size dönelim.</h2>
+        <p data-i18n="qf_desc">Çelik ev, kat karşılığı, havuz ya da mimari proje — adınızı ve telefonunuzu bırakın, size uygun çözümü konuşalım.</p>
+        <div class="teklif-guven">
+          <span data-i18n="qf_trust_1">2011'den beri saha deneyimi</span>
+          <span data-i18n="qf_trust_2">100+ havuz projesi</span>
+          <span data-i18n="qf_trust_3">Türkiye ve Birleşik Krallık</span>
+        </div>
+      </div>
+      <form class="contact-form teklif-form" id="hizliTeklif"
+            action="https://formspree.io/f/xpqejzyp" method="POST"
+            onsubmit="hizliGonder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="h_ad" data-i18n="qf_lbl_name">Ad Soyad *</label>
+            <input type="text" id="h_ad" name="ad" required placeholder="Ahmet Yılmaz" data-i18n-attr="placeholder:qf_ph_name">
+          </div>
+          <div class="form-group">
+            <label for="h_tel" data-i18n="qf_lbl_phone">Telefon *</label>
+            <input type="tel" id="h_tel" name="telefon" required placeholder="+90 5xx xxx xx xx" data-i18n-attr="placeholder:qf_ph_phone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="h_konu" data-i18n="qf_lbl_type">Proje tipi</label>
+          <select id="h_konu" name="konu">
+            <option value="celik" data-i18n="ile_opt_steel">Çelik Sistem Yapı</option>
+            <option value="kat-karsiligi" data-i18n="qf_opt_kk">Kat Karşılığı İnşaat</option>
+            <option value="konut" data-i18n="ile_opt_residential">Konut Projesi</option>
+            <option value="havuz" data-i18n="ile_opt_pool">Havuz ve Sosyal Tesis</option>
+            <option value="tadilat" data-i18n="qf_opt_tadilat">Tadilat ve Yenileme</option>
+            <option value="izolasyon" selected data-i18n="qf_opt_izolasyon">İzolasyon ve Mantolama</option>
+            <option value="mimari" data-i18n="ile_opt_arch">Mimari Tasarım</option>
+            <option value="diger" data-i18n="ile_opt_other">Diğer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="qf_btn_send">Teklif İste →</button>
+        <button type="button" class="btn btn-whatsapp" onclick="hizliWhatsApp()">
+          <svg viewBox="0 0 32 32" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.7L.5 31.5l8-2.1c2.2 1.2 4.8 1.9 7.5 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.8 1.3 1.3-4.6-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.2 5.9-13 13-13s13 5.8 13 13-5.8 13.9-13 13.9z"/></svg>
+          <span data-i18n="qf_btn_wa">WhatsApp'tan yazın</span>
+        </button>
+        <div class="form-success" id="hizliSuccess" data-i18n="qf_success">✓ Talebiniz alındı. En kısa sürede sizi arayacağız.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="reveal">
+        <picture><source srcset="assets/images/logo.webp" type="image/webp"><img class="footer-logo" src="assets/images/logo.png" alt="Aşkın Yapı"></picture>
+        <p data-i18n="footer_desc">Aşkın İnşaat Mimarlık Yapı; konut, ticari yapı, çelik sistem, proje geliştirme ve uygulama süreçlerini tek çatı altında yöneten kurumsal bir yapıdır.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_menu">Hızlı Menü</h4>
+        <ul>
+          <li><a href="kurumsal.html" data-i18n="nav_corporate">Kurumsal</a></li>
+          <li><a href="faaliyet-alanlari.html" data-i18n="nav_services">Faaliyet Alanları</a></li>
+          <li><a href="projeler.html" data-i18n="nav_projects">Projeler</a></li>
+          <li><a href="celik-ev-modelleri.html" data-i18n="nav_steel">Çelik Ev Modelleri</a></li>
+          <li><a href="havuz-yapim-maliyeti.html" style="color:var(--brand);font-weight:600;">Havuz Yapım Maliyeti</a></li>
+          <li><a href="medya-merkezi.html" data-i18n="nav_media">Medya Merkezi</a></li>
+          <li><a href="iletisim.html" data-i18n="nav_contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact">İletişim</h4>
+        <ul>
+          <li><a href="tel:+905320606612">+90 532 060 66 12 (TR)</a></li>
+          <li><a href="tel:+447882747808">+44 7882 747808 (UK)</a></li>
+          <li><a href="mailto:info@askininsaatmimarlik.com">info@askininsaatmimarlik.com</a></li>
+          <li>71–75 Shelton Street, Covent Garden, Londra, Birleşik Krallık</li>
+          <li>İsmetpaşa Mahallesi, Burmalıçeşme Sokak 90/A, Dikili, İzmir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright" data-i18n="footer_copy">© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=20260809c"></script>
+<script src="assets/js/i18n.js?v=20260809c"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+
+<script>
+// 9 Agu 2026 — hizli teklif formu (anasayfadakiyle ayni mantik).
+// Donusum SADECE gonderim gercekten basarili olunca tetiklenir.
+function hizliWhatsApp(){
+  var ad  = (document.getElementById('h_ad')||{}).value || '';
+  var tel = (document.getElementById('h_tel')||{}).value || '';
+  var k   = (document.getElementById('h_konu')||{}).value || '';
+  var m = 'Merhaba, teklif almak istiyorum.' +
+          (ad  ? '\nAd: ' + ad : '') +
+          (tel ? '\nTelefon: ' + tel : '') +
+          (k   ? '\nProje: ' + k : '');
+  if (typeof gtag === 'function') {
+    gtag('event','conversion',{send_to:'AW-10888629695/YpRPCJCTh9IcEL-bjcgo'});
+  }
+  window.open('https://wa.me/905320606612?text=' + encodeURIComponent(m), '_blank');
+}
+async function hizliGonder(e){
+  e.preventDefault();
+  var form = document.getElementById('hizliTeklif');
+  var btn  = form.querySelector('button[type=submit]');
+  var ok   = document.getElementById('hizliSuccess');
+  var eski = btn.textContent;
+  btn.textContent = 'Gönderiliyor…'; btn.disabled = true;
+  var bitir = function(){
+    ok.style.display = 'block';
+    btn.textContent = eski; btn.disabled = false;
+    form.reset();
+    if (typeof gtag === 'function') {
+      gtag('event','conversion',{send_to:'AW-10888629695/WXq1CJOTh9IcEL-bjcgo'});
+    }
+  };
+  try {
+    var res = await fetch(form.getAttribute('action'), {
+      method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}
+    });
+    if (res.ok) { bitir(); return; }
+  } catch(_) {}
+  btn.textContent = eski; btn.disabled = false;
+  hizliWhatsApp();   // aglar koptuysa lead kaybolmasin
+}
+</script>
+
+</body>
+</html>
