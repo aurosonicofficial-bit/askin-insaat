@@ -131,8 +131,10 @@ h3{font-size:22px}
 /* ===== SECTION HEAD ===== */
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:32px}
 .section-head p{max-width:460px;color:var(--muted)}
-.grid-4,.grid-3{display:grid;gap:20px}
-.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}
+/* 9 Agu 2026: .grid-2 yoktu; tadilat sayfasindaki 4 kart
+   yan yana gelmeyip alt alta diziliyordu. */
+.grid-4,.grid-3,.grid-2{display:grid;gap:20px}
+.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
 
 /* ===== PROJECT CARDS ===== */
 .card,.project-card{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:transform .35s,box-shadow .35s,border-color .35s;}
@@ -235,7 +237,7 @@ h3{font-size:22px}
      Kardes kapsayicilarda bu sorun yok: .hero-media min-height,
      .project-card .media aspect-ratio tasiyor — sadece bu biri aciktaydi. */
   .highlight .image{aspect-ratio:16/10}
-  .hero-meta,.band,.grid-4,.grid-3,.gallery,.footer-top,.kv-list{grid-template-columns:1fr}
+  .hero-meta,.band,.grid-4,.grid-3,.grid-2,.gallery,.footer-top,.kv-list{grid-template-columns:1fr}
   .section-head{flex-direction:column;align-items:start}.brand img{height:42px}
   .band .item{border-right:0;border-bottom:1px solid var(--line)}.band .item:last-child{border-bottom:0}
   .contact-form .form-row{grid-template-columns:1fr}

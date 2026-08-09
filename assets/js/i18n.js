@@ -12,6 +12,8 @@
 (function () {
   const translations = {
     tr: {
+      qf_opt_tadilat: "Tadilat ve Yenileme",
+      qf_opt_izolasyon: "İzolasyon ve Mantolama",
       qf_eyebrow: "ÜCRETSİZ KEŞİF VE TEKLİF",
       qf_h2: "Projenizi anlatın, size dönelim.",
       qf_desc: "Çelik ev, kat karşılığı, havuz ya da mimari proje — adınızı ve telefonunuzu bırakın, size uygun çözümü konuşalım.",
@@ -58,6 +60,8 @@
       footer_menu: "Hızlı Menü", footer_contact: "İletişim", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tüm hakları saklıdır."
     },
     en: {
+      qf_opt_tadilat: "Renovation & Refurbishment",
+      qf_opt_izolasyon: "Insulation & External Cladding",
       qf_eyebrow: "FREE SITE VISIT & QUOTE",
       qf_h2: "Tell us about your project.",
       qf_desc: "Steel homes, land-for-flat deals, pools or architectural work — leave your name and number and we will call you back.",
@@ -104,6 +108,8 @@
       footer_menu: "Quick Menu", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. All rights reserved."
     },
     de: {
+      qf_opt_tadilat: "Renovierung & Sanierung",
+      qf_opt_izolasyon: "Dämmung & Wärmedämmverbundsystem",
       qf_eyebrow: "KOSTENLOSE BESICHTIGUNG & ANGEBOT",
       qf_h2: "Erzählen Sie uns von Ihrem Projekt.",
       qf_desc: "Stahlhäuser, Bauträgerprojekte, Pools oder Architektur — hinterlassen Sie Name und Nummer, wir rufen zurück.",
@@ -150,6 +156,8 @@
       footer_menu: "Schnellmenü", footer_contact: "Kontakt", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Alle Rechte vorbehalten."
     },
     fr: {
+      qf_opt_tadilat: "Rénovation",
+      qf_opt_izolasyon: "Isolation et bardage",
       qf_eyebrow: "VISITE ET DEVIS GRATUITS",
       qf_h2: "Parlez-nous de votre projet.",
       qf_desc: "Maisons en acier, promotion immobilière, piscines ou architecture — laissez vos coordonnées, nous vous rappelons.",
@@ -196,6 +204,8 @@
       footer_menu: "Menu Rapide", footer_contact: "Contact", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tous droits réservés."
     },
     it: {
+      qf_opt_tadilat: "Ristrutturazione",
+      qf_opt_izolasyon: "Isolamento e cappotto termico",
       qf_eyebrow: "SOPRALLUOGO E PREVENTIVO GRATUITI",
       qf_h2: "Raccontaci il tuo progetto.",
       qf_desc: "Case in acciaio, permute, piscine o progetti architettonici — lasci nome e numero, la richiamiamo.",
@@ -242,6 +252,8 @@
       footer_menu: "Menu Rapido", footer_contact: "Contatto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Tutti i diritti riservati."
     },
     es: {
+      qf_opt_tadilat: "Reforma y renovación",
+      qf_opt_izolasyon: "Aislamiento y SATE",
       qf_eyebrow: "VISITA Y PRESUPUESTO GRATIS",
       qf_h2: "Cuéntenos su proyecto.",
       qf_desc: "Casas de acero, permuta, piscinas o proyectos arquitectónicos — deje su nombre y teléfono y le llamamos.",
@@ -288,6 +300,8 @@
       footer_menu: "Menú Rápido", footer_contact: "Contacto", footer_copy: "© 2025 Aşkın İnşaat Mimarlık Yapı. Todos los derechos reservados."
     },
     ar: {
+      qf_opt_tadilat: "التجديد والترميم",
+      qf_opt_izolasyon: "العزل والتكسية الخارجية",
       qf_eyebrow: "زيارة ميدانية وعرض سعر مجاني",
       qf_h2: "أخبرنا عن مشروعك وسنعاود الاتصال بك.",
       qf_desc: "منازل فولاذية، مقاولات، مسابح أو مشاريع معمارية — اترك اسمك ورقمك وسنتصل بك.",
@@ -334,6 +348,8 @@
       footer_menu: "قائمة سريعة", footer_contact: "اتصل بنا", footer_copy: "© 2025 أشكين إنشاات ميمارلق يابي. جميع الحقوق محفوظة."
     },
     ru: {
+      qf_opt_tadilat: "Ремонт и отделка",
+      qf_opt_izolasyon: "Утепление и облицовка",
       qf_eyebrow: "БЕСПЛАТНЫЙ ВЫЕЗД И СМЕТА",
       qf_h2: "Расскажите о вашем проекте.",
       qf_desc: "Стальные дома, застройка, бассейны или архитектура — оставьте имя и телефон, мы перезвоним.",
