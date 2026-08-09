@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mantolama ve Cephe Yalıtımı 2026 — Sistem Seçimi, Cephe Tasarımı ve Uygulama | Aşkın Yapı</title>
 <meta name="description" content="Mantolama, çatı ve su yalıtımı ile cephe tasarımı ve uygulaması. EPS, taş yünü ve XPS sistemlerinin bina bazlı seçimi. Mimari görselleştirme, ücretsiz keşif ve teklif.">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260809c">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260809d">
 <style>
   .havuz-hero {
     padding: 64px 0 48px;
@@ -31,7 +31,7 @@
   .pool-type-card {
     background: white;
     border: 2px solid var(--line);
-    border-radius: 20px;
+    border-radius:var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: border-color .25s, box-shadow .25s;
@@ -41,21 +41,21 @@
     padding: 20px 22px 16px;
     border-bottom: 1px solid var(--line);
   }
-  .pool-type-header h3 { font-size: 18px; margin: 0 0 4px; }
-  .pool-type-header .price-range { font-size: 20px; font-weight: 800; color: var(--brand); }
-  .pool-type-header .price-sub { font-size: 12px; color: var(--muted); }
+  .pool-type-header h3 { font-size:var(--fs-lg); margin: 0 0 4px; }
+  .pool-type-header .price-range { font-size:var(--fs-lg); font-weight: 800; color: var(--brand); }
+  .pool-type-header .price-sub { font-size:var(--fs-xs); color: var(--muted); }
   .pool-type-body { padding: 18px 22px; }
   .pool-feature {
     display: flex; gap: 8px; align-items: flex-start;
-    font-size: 13px; color: var(--muted); padding: 6px 0;
+    font-size:var(--fs-xs); color: var(--muted); padding: 6px 0;
     border-bottom: 1px solid var(--line); line-height: 1.5;
   }
   .pool-feature:last-child { border: none; }
-  .pool-feature .pf-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+  .pool-feature .pf-icon { flex-shrink: 0; font-size:var(--fs-sm); margin-top: 1px; }
 
   /* Fiyat tablosu */
   .price-table {
-    width: 100%; border-collapse: collapse; font-size: 15px;
+    width: 100%; border-collapse: collapse; font-size:var(--fs-sm);
   }
   .price-table th {
     background: #0f172a; color: white; font-weight: 700;
@@ -96,21 +96,21 @@
     border: 3px solid white;
     box-shadow: 0 0 0 2px var(--brand);
   }
-  .process-step h4 { font-size: 16px; margin: 0 0 6px; }
-  .process-step p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.65; }
+  .process-step h4 { font-size:var(--fs-md); margin: 0 0 6px; }
+  .process-step p { font-size:var(--fs-sm); color: var(--muted); margin: 0; line-height: 1.65; }
 
   /* SSS */
   .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
   .faq-item:first-child { border-top: 1px solid var(--line); }
   .faq-q {
-    font-size: 17px; font-weight: 700; color: var(--text);
+    font-size:var(--fs-md); font-weight: 700; color: var(--text);
     cursor: pointer; display: flex; justify-content: space-between;
     align-items: center; gap: 16px; list-style: none; margin: 0;
   }
-  .faq-q::after { content: "+"; font-size: 22px; color: var(--brand); flex-shrink: 0; transition: transform .25s; }
+  .faq-q::after { content: "+"; font-size:var(--fs-xl); color: var(--brand); flex-shrink: 0; transition: transform .25s; }
   .faq-item.open .faq-q::after { transform: rotate(45deg); }
   .faq-a {
-    font-size: 15px; color: var(--muted); line-height: 1.75;
+    font-size:var(--fs-sm); color: var(--muted); line-height: 1.75;
     max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; padding: 0;
   }
   .faq-item.open .faq-a { max-height: 600px; padding-top: 14px; }
@@ -118,7 +118,7 @@
   /* CTA */
   .cta-band {
     background: linear-gradient(135deg, #0a2540, #0f4c75);
-    border-radius: 24px; padding: 48px 40px;
+    border-radius:var(--r-lg); padding: 48px 40px;
     display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
   }
 
@@ -527,8 +527,8 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260809c"></script>
-<script src="assets/js/i18n.js?v=20260809c"></script>
+<script src="assets/js/main.js?v=20260809d"></script>
+<script src="assets/js/i18n.js?v=20260809d"></script>
 <script>
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {

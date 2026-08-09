@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Çelik Ev Modelleri | Aşkın İnşaat Mimarlık Yapı</title>
 <meta name="description" content="45 m²'den 164 m²'ye prefabrik çelik ev modelleri. Tek katlı ve iki katlı çelik sistem yapılar. Aşkın İnşaat Mimarlık Yapı.">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260809c">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260809d">
 <style>
   /* ── MODELLER SAYFASI EK STİLLER ── */
   .models-hero {
@@ -40,11 +40,11 @@
 
   .filter-btn {
     padding: 9px 20px;
-    border-radius: 999px;
+    border-radius:var(--r-full);
     border: 1.5px solid var(--line);
     background: white;
     color: var(--muted);
-    font-size: 13px;
+    font-size:var(--fs-xs);
     font-weight: 700;
     cursor: pointer;
     transition: all .25s;
@@ -65,7 +65,7 @@
   .model-card {
     background: white;
     border: 1px solid var(--line);
-    border-radius: 22px;
+    border-radius:var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -95,12 +95,12 @@
     top: 14px; left: 14px;
     background: var(--brand);
     color: white;
-    font-size: 11px;
+    font-size:var(--fs-xs);
     font-weight: 800;
     letter-spacing: .1em;
     text-transform: uppercase;
     padding: 5px 12px;
-    border-radius: 999px;
+    border-radius:var(--r-full);
   }
 
   .model-body { padding: 20px 22px 22px; }
@@ -113,7 +113,7 @@
   }
 
   .model-type-tag {
-    font-size: 12px;
+    font-size:var(--fs-xs);
     color: var(--muted);
     font-weight: 600;
     text-transform: uppercase;
@@ -121,15 +121,15 @@
   }
 
   .model-count-tag {
-    font-size: 12px;
+    font-size:var(--fs-xs);
     color: var(--muted);
     background: var(--bg-alt);
     padding: 3px 10px;
-    border-radius: 999px;
+    border-radius:var(--r-full);
   }
 
   .model-name {
-    font-size: 20px;
+    font-size:var(--fs-lg);
     font-weight: 800;
     letter-spacing: -.02em;
     margin: 0 0 6px;
@@ -137,7 +137,7 @@
   }
 
   .model-desc {
-    font-size: 14px;
+    font-size:var(--fs-sm);
     color: var(--muted);
     margin: 0 0 14px;
   }
@@ -148,7 +148,7 @@
     gap: 6px;
     color: var(--brand);
     font-weight: 700;
-    font-size: 14px;
+    font-size:var(--fs-sm);
     transition: gap .25s;
   }
   .model-card:hover .model-cta { gap: 10px; }
@@ -170,14 +170,14 @@
     border-bottom: 1px solid rgba(255,255,255,.1);
     flex-shrink: 0;
   }
-  .lb-top-title { font-size: 17px; font-weight: 700; color: white; }
+  .lb-top-title { font-size:var(--fs-md); font-weight: 700; color: white; }
   .lb-top-right { display: flex; align-items: center; gap: 16px; }
-  .lb-counter-text { font-size: 13px; color: rgba(255,255,255,.5); }
+  .lb-counter-text { font-size:var(--fs-xs); color: rgba(255,255,255,.5); }
   .lb-x {
     width: 38px; height: 38px;
     border: 1px solid rgba(255,255,255,.2);
     background: none; color: rgba(255,255,255,.7);
-    border-radius: 10px; font-size: 18px;
+    border-radius:var(--r-sm); font-size:var(--fs-lg);
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     transition: border-color .2s, color .2s;
   }
@@ -191,7 +191,7 @@
   .lb-main img {
     max-width: 90%; max-height: 90%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius:var(--r-sm);
     transition: opacity .2s;
   }
   .lb-btn {
@@ -199,9 +199,9 @@
     width: 52px; height: 80px;
     background: rgba(214,119,42,.15);
     border: 1px solid rgba(214,119,42,.3);
-    color: var(--brand); font-size: 26px;
+    color: var(--brand); font-size:var(--fs-xl);
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    border-radius: 10px; transition: background .2s;
+    border-radius:var(--r-sm); transition: background .2s;
   }
   .lb-btn:hover { background: rgba(214,119,42,.3); }
   .lb-btn-prev { left: 20px; }
@@ -220,7 +220,7 @@
   .lb-strip-img {
     width: 68px; height: 52px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius:var(--r-sm);
     cursor: pointer;
     flex-shrink: 0;
     border: 2px solid transparent;
@@ -322,7 +322,7 @@
         <span class="eyebrow" data-i18n="cev_eyebrow">Prefabrik Çelik Yapı Sistemleri</span>
         <h1 data-i18n="cev_h1">Çelik Ev Modelleri</h1>
         <p class="lead" style="margin-top:8px;" data-i18n="cev_lead">45 m²'den 164 m²'ye kadar tek katlı ve iki katlı çelik sistem ev modelleri.</p>
-        <p style="margin:12px 0 4px;font-size:14px;display:flex;gap:20px;flex-wrap:wrap;">
+        <p style="margin:12px 0 4px;font-size:var(--fs-sm);display:flex;gap:20px;flex-wrap:wrap;">
           <a href="celik-ev-fiyatlari.html" style="color:var(--brand);font-weight:700;text-decoration:none;">→ 2026 Fiyat Tablosunu Gör</a>
           <a href="hafif-celik-vs-betonarme.html" style="color:var(--muted);font-weight:600;text-decoration:none;">→ Çelik vs. Betonarme Karşılaştırması</a>
         </p>
@@ -366,7 +366,7 @@
       </div>
       <div class="item reveal" style="display:flex;flex-direction:column;gap:8px;">
         <a class="btn btn-primary" href="iletisim.html" style="display:inline-flex;" data-i18n="cev_b_btn">Teklif Alın →</a>
-        <a class="btn btn-secondary" href="celik-ev-fiyatlari.html" style="display:inline-flex;font-size:13px;">Fiyat Tablosunu Gör</a>
+        <a class="btn btn-secondary" href="celik-ev-fiyatlari.html" style="display:inline-flex;font-size:var(--fs-xs);">Fiyat Tablosunu Gör</a>
       </div>
     </div>
   </div>
@@ -478,8 +478,8 @@
   <div class="lb-strip" id="lbStrip"></div>
 </div>
 
-<script src="assets/js/main.js?v=20260809c"></script>
-<script src="assets/js/i18n.js?v=20260809c"></script>
+<script src="assets/js/main.js?v=20260809d"></script>
+<script src="assets/js/i18n.js?v=20260809d"></script>
 <script>
 const MODELS = [
   {

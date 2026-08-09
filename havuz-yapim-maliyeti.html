@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Havuz Yapım Maliyeti 2026 — m² Fiyatı, Tipler ve Süreç | Aşkın Yapı</title>
 <meta name="description" content="2026 havuz yapım maliyeti: beton, PP ve fiberglas havuz fiyatları, m² maliyeti, kurulum süreci. 100'ün üzerinde havuz projesi deneyimiyle Aşkın Yapı.">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260809c">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260809d">
 <style>
   .havuz-hero {
     padding: 64px 0 48px;
@@ -31,7 +31,7 @@
   .pool-type-card {
     background: white;
     border: 2px solid var(--line);
-    border-radius: 20px;
+    border-radius:var(--r-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: border-color .25s, box-shadow .25s;
@@ -41,21 +41,21 @@
     padding: 20px 22px 16px;
     border-bottom: 1px solid var(--line);
   }
-  .pool-type-header h3 { font-size: 18px; margin: 0 0 4px; }
-  .pool-type-header .price-range { font-size: 20px; font-weight: 800; color: var(--brand); }
-  .pool-type-header .price-sub { font-size: 12px; color: var(--muted); }
+  .pool-type-header h3 { font-size:var(--fs-lg); margin: 0 0 4px; }
+  .pool-type-header .price-range { font-size:var(--fs-lg); font-weight: 800; color: var(--brand); }
+  .pool-type-header .price-sub { font-size:var(--fs-xs); color: var(--muted); }
   .pool-type-body { padding: 18px 22px; }
   .pool-feature {
     display: flex; gap: 8px; align-items: flex-start;
-    font-size: 13px; color: var(--muted); padding: 6px 0;
+    font-size:var(--fs-xs); color: var(--muted); padding: 6px 0;
     border-bottom: 1px solid var(--line); line-height: 1.5;
   }
   .pool-feature:last-child { border: none; }
-  .pool-feature .pf-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+  .pool-feature .pf-icon { flex-shrink: 0; font-size:var(--fs-sm); margin-top: 1px; }
 
   /* Fiyat tablosu */
   .price-table {
-    width: 100%; border-collapse: collapse; font-size: 15px;
+    width: 100%; border-collapse: collapse; font-size:var(--fs-sm);
   }
   .price-table th {
     background: #0f172a; color: white; font-weight: 700;
@@ -96,21 +96,21 @@
     border: 3px solid white;
     box-shadow: 0 0 0 2px var(--brand);
   }
-  .process-step h4 { font-size: 16px; margin: 0 0 6px; }
-  .process-step p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.65; }
+  .process-step h4 { font-size:var(--fs-md); margin: 0 0 6px; }
+  .process-step p { font-size:var(--fs-sm); color: var(--muted); margin: 0; line-height: 1.65; }
 
   /* SSS */
   .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
   .faq-item:first-child { border-top: 1px solid var(--line); }
   .faq-q {
-    font-size: 17px; font-weight: 700; color: var(--text);
+    font-size:var(--fs-md); font-weight: 700; color: var(--text);
     cursor: pointer; display: flex; justify-content: space-between;
     align-items: center; gap: 16px; list-style: none; margin: 0;
   }
-  .faq-q::after { content: "+"; font-size: 22px; color: var(--brand); flex-shrink: 0; transition: transform .25s; }
+  .faq-q::after { content: "+"; font-size:var(--fs-xl); color: var(--brand); flex-shrink: 0; transition: transform .25s; }
   .faq-item.open .faq-q::after { transform: rotate(45deg); }
   .faq-a {
-    font-size: 15px; color: var(--muted); line-height: 1.75;
+    font-size:var(--fs-sm); color: var(--muted); line-height: 1.75;
     max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; padding: 0;
   }
   .faq-item.open .faq-a { max-height: 600px; padding-top: 14px; }
@@ -118,7 +118,7 @@
   /* CTA */
   .cta-band {
     background: linear-gradient(135deg, #0a2540, #0f4c75);
-    border-radius: 24px; padding: 48px 40px;
+    border-radius:var(--r-lg); padding: 48px 40px;
     display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
   }
 
@@ -260,7 +260,7 @@
 <section class="havuz-hero">
   <div class="container">
     <div style="max-width:760px;">
-      <nav aria-label="breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+      <nav aria-label="breadcrumb" style="font-size:var(--fs-xs);color:var(--muted);margin-bottom:16px;">
         <a href="index.html" style="color:var(--muted);text-decoration:none;">Ana Sayfa</a>
         <span style="margin:0 8px;">›</span>
         <a href="faaliyet-alanlari.html" style="color:var(--muted);text-decoration:none;">Faaliyet Alanları</a>
@@ -272,16 +272,16 @@
       <p class="lead">Beton, PP panel ve fiberglas havuz tipleri için 2026 güncel fiyat aralıkları, m² maliyeti ve anahtar teslim kurulum süreci. 100'ün üzerinde havuz projesi deneyimiyle hazırlanmış kapsamlı rehber.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;">
         <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
-          <strong style="font-size:20px;">100+</strong><span style="font-size:13px;color:var(--muted);">Tamamlanan havuz projesi</span>
+          <strong style="font-size:var(--fs-lg);">100+</strong><span style="font-size:var(--fs-xs);color:var(--muted);">Tamamlanan havuz projesi</span>
         </div>
         <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
-          <strong style="font-size:20px;">15.000–35.000 ₺</strong><span style="font-size:13px;color:var(--muted);">m² fiyat aralığı</span>
+          <strong style="font-size:var(--fs-lg);">15.000–35.000 ₺</strong><span style="font-size:var(--fs-xs);color:var(--muted);">m² fiyat aralığı</span>
         </div>
         <div class="metric-card" style="padding:14px 22px;display:inline-flex;gap:18px;align-items:center;">
-          <strong style="font-size:20px;">3 gün – 10 hafta</strong><span style="font-size:13px;color:var(--muted);">Kurulum süresi</span>
+          <strong style="font-size:var(--fs-lg);">3 gün – 10 hafta</strong><span style="font-size:var(--fs-xs);color:var(--muted);">Kurulum süresi</span>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--muted);margin-top:20px;">* Fiyatlar Temmuz 2026 itibarıyla Türkiye geneli referans aralıklarıdır. Boyut, tip, ekipman seçimi ve lokasyona göre değişir. <a href="iletisim.html" style="color:var(--brand);">Ücretsiz fiyat teklifi alın.</a></p>
+      <p style="font-size:var(--fs-xs);color:var(--muted);margin-top:20px;">* Fiyatlar Temmuz 2026 itibarıyla Türkiye geneli referans aralıklarıdır. Boyut, tip, ekipman seçimi ve lokasyona göre değişir. <a href="iletisim.html" style="color:var(--brand);">Ücretsiz fiyat teklifi alın.</a></p>
     </div>
   </div>
 </section>
@@ -297,7 +297,7 @@
       <!-- BETON -->
       <div class="pool-type-card reveal">
         <div class="pool-type-header">
-          <span style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#0f172a;">En Popüler</span>
+          <span style="font-size:var(--fs-xs);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#0f172a;">En Popüler</span>
           <h3>Beton (Sıva + Mozaik) Havuz</h3>
           <div class="price-range">550.000 – 1.400.000 ₺</div>
           <div class="price-sub">4×8 m standart villa havuzu · anahtar teslim</div>
@@ -315,7 +315,7 @@
       <!-- PP PANEL -->
       <div class="pool-type-card reveal">
         <div class="pool-type-header">
-          <span style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);">Hız + Kalite</span>
+          <span style="font-size:var(--fs-xs);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);">Hız + Kalite</span>
           <h3>PP Panel (Polipropilen) Havuz</h3>
           <div class="price-range">400.000 – 900.000 ₺</div>
           <div class="price-sub">4×8 m standart villa havuzu · anahtar teslim</div>
@@ -333,7 +333,7 @@
       <!-- FİBERGLAS -->
       <div class="pool-type-card reveal">
         <div class="pool-type-header">
-          <span style="font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#1a7a4a;">En Hızlı Kurulum</span>
+          <span style="font-size:var(--fs-xs);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#1a7a4a;">En Hızlı Kurulum</span>
           <h3>Fiberglas (Hazır Kasa) Havuz</h3>
           <div class="price-range">300.000 – 700.000 ₺</div>
           <div class="price-sub">4×8 m standart villa havuzu · anahtar teslim</div>
@@ -358,7 +358,7 @@
     <span class="eyebrow">Boyut Bazlı Fiyatlar</span>
     <h2 style="margin-bottom:8px;">Havuz Boyutuna Göre 2026 Fiyat Tablosu</h2>
     <p class="lead" style="margin-bottom:28px;max-width:680px;">Aşağıdaki tablo beton havuz esas alınarak hazırlanmıştır; PP havuzlar yaklaşık %25–30, fiberglas yaklaşık %40–50 daha düşüktür.</p>
-    <div style="overflow-x:auto;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);">
+    <div style="overflow-x:auto;border-radius:var(--r-md);border:1px solid var(--line);box-shadow:var(--shadow);">
       <table class="price-table">
         <thead>
           <tr>
@@ -371,35 +371,35 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>3×5 m (15 m²)</strong><br><span style="font-size:12px;color:var(--muted);">Küçük villa / yazlık</span></td>
+            <td><strong>3×5 m (15 m²)</strong><br><span style="font-size:var(--fs-xs);color:var(--muted);">Küçük villa / yazlık</span></td>
             <td>~30 m³</td>
             <td class="price-range-cell">320.000 – 600.000 ₺</td>
             <td class="price-range-cell">220.000 – 420.000 ₺</td>
             <td class="price-range-cell">180.000 – 360.000 ₺</td>
           </tr>
           <tr>
-            <td><strong>4×8 m (32 m²)</strong><br><span style="font-size:12px;color:var(--muted);">Standart villa havuzu</span></td>
+            <td><strong>4×8 m (32 m²)</strong><br><span style="font-size:var(--fs-xs);color:var(--muted);">Standart villa havuzu</span></td>
             <td>~64 m³</td>
             <td class="price-range-cell">550.000 – 1.100.000 ₺</td>
             <td class="price-range-cell">400.000 – 750.000 ₺</td>
             <td class="price-range-cell">300.000 – 600.000 ₺</td>
           </tr>
           <tr>
-            <td><strong>5×10 m (50 m²)</strong><br><span style="font-size:12px;color:var(--muted);">Büyük villa / konut projesi</span></td>
+            <td><strong>5×10 m (50 m²)</strong><br><span style="font-size:var(--fs-xs);color:var(--muted);">Büyük villa / konut projesi</span></td>
             <td>~100 m³</td>
             <td class="price-range-cell">850.000 – 1.700.000 ₺</td>
             <td class="price-range-cell">620.000 – 1.200.000 ₺</td>
             <td class="price-range-cell">—</td>
           </tr>
           <tr>
-            <td><strong>6×12 m (72 m²)</strong><br><span style="font-size:12px;color:var(--muted);">Lüks villa / yazlık kompleksi</span></td>
+            <td><strong>6×12 m (72 m²)</strong><br><span style="font-size:var(--fs-xs);color:var(--muted);">Lüks villa / yazlık kompleksi</span></td>
             <td>~145 m³</td>
             <td class="price-range-cell">1.200.000 – 2.400.000 ₺</td>
             <td class="price-range-cell">900.000 – 1.700.000 ₺</td>
             <td class="price-range-cell">—</td>
           </tr>
           <tr>
-            <td><strong>Sonsuzluk havuzu (custom)</strong><br><span style="font-size:12px;color:var(--muted);">Özel tasarım / peyzaj entegrasyonu</span></td>
+            <td><strong>Sonsuzluk havuzu (custom)</strong><br><span style="font-size:var(--fs-xs);color:var(--muted);">Özel tasarım / peyzaj entegrasyonu</span></td>
             <td>Özel</td>
             <td class="price-range-cell">1.500.000 ₺+</td>
             <td class="price-range-cell">—</td>
@@ -408,7 +408,7 @@
         </tbody>
       </table>
     </div>
-    <p style="font-size:13px;color:var(--muted);margin-top:16px;">Fiyatlara dahil: kazı, temel, taşıyıcı yapı, filtre+pompa sistemi, havuz aydınlatması, merdiven, temel kaplama malzemesi, şantiye düzenlemesi. Hariç: peyzaj, ısıtma sistemi, su otomasyonu, özel sonsuzluk kenarı.</p>
+    <p style="font-size:var(--fs-xs);color:var(--muted);margin-top:16px;">Fiyatlara dahil: kazı, temel, taşıyıcı yapı, filtre+pompa sistemi, havuz aydınlatması, merdiven, temel kaplama malzemesi, şantiye düzenlemesi. Hariç: peyzaj, ısıtma sistemi, su otomasyonu, özel sonsuzluk kenarı.</p>
   </div>
 </section>
 
@@ -418,35 +418,35 @@
     <span class="eyebrow">Maliyet Analizi</span>
     <h2 style="margin-bottom:28px;">Havuz Fiyatını Etkileyen Faktörler</h2>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">📐</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Boyut ve Derinlik</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">m² büyüklüğü ve suyun derinliği kazı, beton ve malzeme miktarını doğrudan belirler. Derinlik 1.5 m'den 2.2 m'ye çıktığında maliyet %15–25 artar.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">📐</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Boyut ve Derinlik</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">m² büyüklüğü ve suyun derinliği kazı, beton ve malzeme miktarını doğrudan belirler. Derinlik 1.5 m'den 2.2 m'ye çıktığında maliyet %15–25 artar.</p>
       </div>
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">🎨</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Kaplama Malzemesi</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">Standart sıva + havuz boyası en ekonomiktir. Seramik mozaik orta segment, doğal taş veya özel cam mozaik üst segment fiyat getirir.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">🎨</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Kaplama Malzemesi</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">Standart sıva + havuz boyası en ekonomiktir. Seramik mozaik orta segment, doğal taş veya özel cam mozaik üst segment fiyat getirir.</p>
       </div>
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">⚙️</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Teknik Ekipman</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">Temel filtre+pompa paketi standart maliyettedir. Isıtma (ısı pompası veya güneş), otomasyon sistemi, karşı akıntı ve şelale her biri ayrı kalem oluşturur.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">⚙️</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Teknik Ekipman</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">Temel filtre+pompa paketi standart maliyettedir. Isıtma (ısı pompası veya güneş), otomasyon sistemi, karşı akıntı ve şelale her biri ayrı kalem oluşturur.</p>
       </div>
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">🏔️</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Zemin ve Kazı Koşulları</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">Kaya zemin veya yüksek taban suyu varlığı kazı maliyetini önemli ölçüde artırır. Zemin etüdü yapılmadan kesin fiyat verilmez.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">🏔️</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Zemin ve Kazı Koşulları</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">Kaya zemin veya yüksek taban suyu varlığı kazı maliyetini önemli ölçüde artırır. Zemin etüdü yapılmadan kesin fiyat verilmez.</p>
       </div>
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">🌿</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Peyzaj ve Çevre Düzenleme</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">Havuz çevresi kaplaması (taş, ahşap deck, beton), aydınlatma, peyzaj bitkileri ve sulama sistemi ayrı kalem olarak fiyatlandırılır.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">🌿</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Peyzaj ve Çevre Düzenleme</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">Havuz çevresi kaplaması (taş, ahşap deck, beton), aydınlatma, peyzaj bitkileri ve sulama sistemi ayrı kalem olarak fiyatlandırılır.</p>
       </div>
-      <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
-        <div style="font-size:26px;margin-bottom:12px;">📍</div>
-        <h3 style="font-size:16px;margin:0 0 8px;">Lokasyon ve Ulaşım</h3>
-        <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.65;">İzmir, Dikili, Ege kıyı şeridi gibi aktif bölgelerde rekabetçi fiyat; uzak lokasyonlarda malzeme nakliyesi maliyeti artırır.</p>
+      <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);" class="reveal">
+        <div style="font-size:var(--fs-xl);margin-bottom:12px;">📍</div>
+        <h3 style="font-size:var(--fs-md);margin:0 0 8px;">Lokasyon ve Ulaşım</h3>
+        <p style="font-size:var(--fs-sm);color:var(--muted);margin:0;line-height:1.65;">İzmir, Dikili, Ege kıyı şeridi gibi aktif bölgelerde rekabetçi fiyat; uzak lokasyonlarda malzeme nakliyesi maliyeti artırır.</p>
       </div>
     </div>
   </div>
@@ -493,31 +493,31 @@
       <div>
         <span class="eyebrow">Yıllık Bakım</span>
         <h2 style="margin-bottom:20px;">Havuz İşletme Maliyetleri</h2>
-        <div style="background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);">
-          <p style="font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7;">Standart villa havuzu (30–40 m²) için yaklaşık aylık giderler:</p>
+        <div style="background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);">
+          <p style="font-size:var(--fs-sm);color:var(--muted);margin:0 0 18px;line-height:1.7;">Standart villa havuzu (30–40 m²) için yaklaşık aylık giderler:</p>
           <div style="display:flex;flex-direction:column;gap:0;">
-            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;">
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);">
               <span>Kimyasallar (klor, pH, algisit)</span><strong>500–1.500 ₺</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;">
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);">
               <span>Elektrik (pompa + filtre)</span><strong>800–2.000 ₺</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;">
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);">
               <span>Periyodik bakım / temizlik</span><strong>1.500–3.000 ₺</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;">
+            <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);">
               <span>Su takviyesi (buharlaşma)</span><strong>200–600 ₺</strong>
             </div>
-            <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:2px solid var(--brand);font-size:15px;margin-top:4px;">
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-top:2px solid var(--brand);font-size:var(--fs-sm);margin-top:4px;">
               <strong>Aylık toplam (yaklaşık)</strong><strong style="color:var(--brand);">3.000–7.100 ₺</strong>
             </div>
           </div>
-          <p style="font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.6;">* Isıtma sistemi varsa kış aylarında ek maliyet oluşur. Kış örtüsü kullanımı yıllık toplam maliyeti düşürür.</p>
+          <p style="font-size:var(--fs-xs);color:var(--muted);margin:14px 0 0;line-height:1.6;">* Isıtma sistemi varsa kış aylarında ek maliyet oluşur. Kış örtüsü kullanımı yıllık toplam maliyeti düşürür.</p>
         </div>
-        <div style="margin-top:20px;background:white;border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);">
-          <h3 style="font-size:16px;margin:0 0 14px;">Referans: 100+ Tamamlanan Havuz</h3>
-          <p style="font-size:14px;color:var(--muted);margin:0 0 16px;line-height:1.7;">2011'den bu yana Türkiye'nin farklı bölgelerinde villa, yazlık, konut kompleksi ve butik otel havuzları. Tamamlanan projeleri referans arşivimizde inceleyin.</p>
-          <a href="raporlar.html?filter=havuz" class="btn btn-secondary" style="font-size:13px;">Havuz Referanslarını Gör →</a>
+        <div style="margin-top:20px;background:white;border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow);">
+          <h3 style="font-size:var(--fs-md);margin:0 0 14px;">Referans: 100+ Tamamlanan Havuz</h3>
+          <p style="font-size:var(--fs-sm);color:var(--muted);margin:0 0 16px;line-height:1.7;">2011'den bu yana Türkiye'nin farklı bölgelerinde villa, yazlık, konut kompleksi ve butik otel havuzları. Tamamlanan projeleri referans arşivimizde inceleyin.</p>
+          <a href="raporlar.html?filter=havuz" class="btn btn-secondary" style="font-size:var(--fs-xs);">Havuz Referanslarını Gör →</a>
         </div>
       </div>
     </div>
@@ -561,11 +561,11 @@
       <div>
         <span class="eyebrow" style="color:#63b3ed;">100+ Proje Deneyimi</span>
         <h3 style="color:white;margin:8px 0 10px;font-size:clamp(18px,2.5vw,26px);">Havuz projeniz için ücretsiz keşif ve fiyat teklifi alın.</h3>
-        <p style="color:#b2d8f0;font-size:15px;max-width:520px;">Boyut, tip, ekipman ve peyzaj tercihlerinizi paylaşın; 100'ün üzerinde tamamlanan havuz projesinden edinilen deneyimle en uygun çözümü sunalım.</p>
+        <p style="color:#b2d8f0;font-size:var(--fs-sm);max-width:520px;">Boyut, tip, ekipman ve peyzaj tercihlerinizi paylaşın; 100'ün üzerinde tamamlanan havuz projesinden edinilen deneyimle en uygun çözümü sunalım.</p>
         <div style="display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;align-items:center;">
-          <a href="tel:+905320606612" style="color:#63b3ed;font-size:18px;font-weight:700;text-decoration:none;">📞 +90 532 060 66 12</a>
+          <a href="tel:+905320606612" style="color:#63b3ed;font-size:var(--fs-lg);font-weight:700;text-decoration:none;">📞 +90 532 060 66 12</a>
           <span style="color:#4a5568;">·</span>
-          <a href="https://wa.me/905320606612?text=Merhaba%2C+havuz+yapımı+hakkında+fiyat+almak+istiyorum." target="_blank" rel="noopener" style="color:#25d366;font-size:15px;font-weight:700;text-decoration:none;">💬 WhatsApp'tan Yazın</a>
+          <a href="https://wa.me/905320606612?text=Merhaba%2C+havuz+yapımı+hakkında+fiyat+almak+istiyorum." target="_blank" rel="noopener" style="color:#25d366;font-size:var(--fs-sm);font-weight:700;text-decoration:none;">💬 WhatsApp'tan Yazın</a>
         </div>
       </div>
       <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;">
@@ -664,8 +664,8 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260809c"></script>
-<script src="assets/js/i18n.js?v=20260809c"></script>
+<script src="assets/js/main.js?v=20260809d"></script>
+<script src="assets/js/i18n.js?v=20260809d"></script>
 <script>
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
