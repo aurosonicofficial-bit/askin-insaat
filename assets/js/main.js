@@ -1,5 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── Telefon tıklaması → Ads dönüşümü (13 Ağu 2026) ────────────
+  // Sitede 22 sayfada 97 adet tel: bağlantısı var ve hiçbiri dönüşüm
+  // göndermiyordu; aramayla gelen müşteriler Ads için görünmezdi.
+  // Tek dinleyici hepsini kapsar — ileride eklenecek numaralar dahil.
+  //
+  // Etiket, Ads'teki "Telefon Tiklama (Site)" eyleminden alındı
+  // (Website kaynaklı, Contacts kategorisi, Primary). Google'ın hazır
+  // telefon türlerinden biri DEĞİL — elle kurulmuş bir web dönüşümü,
+  // yani tam olarak buradaki tıklama dinleyicisine uygun.
+  const TEL_DONUSUM = 'AW-10888629695/Bm8ACI2Th9IcEL-bjcgo';
+
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (!a || !TEL_DONUSUM) return;
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', { send_to: TEL_DONUSUM });
+  }, true);
+
   // ── WebP otomatik yükseltme (performans / LCP) ───────────────
   // Optimize edilmiş görsellerin .webp sürümü varsa <img>'leri otomatik
   // webp'ye çevirir; webp yüklenemezse sessizce orijinale döner.
